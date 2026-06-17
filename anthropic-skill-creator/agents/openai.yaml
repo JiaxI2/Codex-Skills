@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anthropic Skill Creator"
+  short_description: "Create and evaluate Anthropic-style agent skills"
+  default_prompt: "Use $anthropic-skill-creator to create or evaluate this Anthropic-style skill."

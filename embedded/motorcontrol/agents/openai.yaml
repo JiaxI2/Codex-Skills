@@ -1,0 +1,4 @@
+interface:
+  display_name: "电机控制"
+  short_description: "电机控制固件指导"
+  default_prompt: "使用 $motorcontrol 实现或评审电机控制固件。"

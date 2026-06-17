@@ -1,0 +1,4 @@
+interface:
+  display_name: "EtherCAT"
+  short_description: "EtherCAT 固件指导"
+  default_prompt: "使用 $ethercat 实现或评审 EtherCAT 固件。"

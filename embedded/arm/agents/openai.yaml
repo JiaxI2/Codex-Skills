@@ -1,0 +1,4 @@
+interface:
+  display_name: "ARM"
+  short_description: "ARM Cortex 固件指导"
+  default_prompt: "使用 $arm 处理 ARM Cortex 固件任务。"

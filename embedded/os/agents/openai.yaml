@@ -1,0 +1,4 @@
+interface:
+  display_name: "嵌入式 OS"
+  short_description: "RTOS 与裸机调度指导"
+  default_prompt: "使用 $os 设计或评审嵌入式 OS 行为。"

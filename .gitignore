@@ -1,0 +1,25 @@
+# Codex/system bundled skills
+.system/
+
+# Local backups and exports
+**/backup/
+*.zip
+
+# Git and editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+
+# Runtime/cache files
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.tmp
+*.temp
+
+# Local environment files
+.env
+.env.*

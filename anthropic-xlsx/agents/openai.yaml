@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anthropic XLSX Reference"
+  short_description: "Apply the Anthropic spreadsheet workflow"
+  default_prompt: "Use $anthropic-xlsx to follow the Anthropic XLSX workflow for this spreadsheet task."
