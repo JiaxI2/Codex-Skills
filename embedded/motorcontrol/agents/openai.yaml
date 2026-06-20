@@ -1,4 +1,4 @@
 interface:
-  display_name: "电机控制"
-  short_description: "电机控制固件指导"
-  default_prompt: "使用 $motorcontrol 实现或评审电机控制固件。"
+  display_name: "电机控制 App 与算法"
+  short_description: "设计与审查电机控制实时链路、环路、补偿、保护及多轴算法"
+  default_prompt: "使用 $motor-control-app-algorithm-zh 审查当前电机控制链路并给出可验证的改进方案。"

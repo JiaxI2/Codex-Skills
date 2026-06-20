@@ -1,0 +1,41 @@
+{
+  "skill_name": "ethercat-cia402",
+  "language": "zh-CN",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "TwinCAT 上电后 0x6060=8，但 0x6061=0，NC 还是像 PP 模式，状态字 1591，帮我判断从站代码应该查哪里。",
+      "expected_output": "应诊断模式接受/显示路径、0x6060/0x6061 映射或初始化覆盖；应解码 1591=0x0637；应提到 CSP 下 bit12 是 follows command 语义。"
+    },
+    {
+      "id": 2,
+      "prompt": "7 轴 EtherCAT 伺服单轴正常，多轴运行一会儿 TwinCAT 报 invalid IO data / WcState encoder working counter error，NC 周期 2ms，没开 DC。给我排查顺序。",
+      "expected_output": "应优先检查 DC/Sync0、PDO/SM 长度、过程数据 Watchdog、TxPDO 同步快照、共享内存双缓冲，然后再检查物理链路计数。"
+    },
+    {
+      "id": 3,
+      "prompt": "我用 ET9300 SSC 做 CiA402，从站要支持 CSP/CSV 动态切换，PDO 和 ecatappl.c 应该怎么设计？",
+      "expected_output": "应建议 RxPDO 映射 0x6060、TxPDO 映射 0x6061，包含 CSP/CSV 模式相关对象，说明 APPL_OutputMapping/应用更新/APPL_InputMapping 顺序以及 0x1C12/0x1C13。"
+    },
+    {
+      "id": 4,
+      "prompt": "状态字 567 和 1591 分别代表什么，为什么 TwinCAT Operation Enabled 但 Ready 不勾选？",
+      "expected_output": "应解码十进制到十六进制和关键 bit，指出基础 FSA 与 NC Ready 不是同一层，重点看 0x6061、bit12、实际值有效性和 WcState。"
+    },
+    {
+      "id": 5,
+      "prompt": "ECAT_CIA402 默认2轴我要改成8轴，ESI和cia402appl.h应该改哪些对象？",
+      "expected_output": "应读取 web-cia402-mdp-multiaxis.md，提到 MAX_AXES、0x1C12/0x1C13、0xF000/0xF010/0xF030/0xF050、Slots/ChannelInfo、Product Code/ESI缓存。"
+    },
+    {
+      "id": 6,
+      "prompt": "片上 ESC MCU EtherCAT从站运行中偶发0x2C，但Sync0还有中断，怎么分析？",
+      "expected_output": "应读取 web-ssc-sync-errors.md，说明 Sync0WdCounter、DC_CheckWatchdog、Sync0_Isr清零、RV32非原子自增竞态、ECAT_TIMER_INT和中断优先级。"
+    },
+    {
+      "id": 7,
+      "prompt": "EtherCAT主站扫描不到从站，EEPROM可能是空的，我应该先查CoE还是PHY？",
+      "expected_output": "应读取 web-phy-eeprom-hardware.md，优先检查PHY Link、Port0、ESC 0x110 DL Status、EEPROM checksum和Flash模拟EEPROM，不应先查CiA402/CoE。"
+    }
+  ]
+}

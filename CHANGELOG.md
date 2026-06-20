@@ -1,5 +1,42 @@
 # 更新日志
 
+## 2026-06-20
+
+### Diff 概览
+
+- `embedded/c99-standard-c/` 删除并迁移至 `embedded/C99/`。
+- 新增 `embedded/architecture/` 及其架构审查模板和参考资料。
+- 扩充 `embedded/motorcontrol/` 的算法、时序、多轴、测试和参考工程资料。
+- 扩充 `embedded/ethercat/` 的 EtherCAT/CiA402、TwinCAT、SSC/ET9300、DC 和故障排查资料，并新增解码脚本与评估数据。
+- 更新 `embedded/SKILL.md`、相关 `agents/openai.yaml`、仓库 README 和发布说明。
+
+### C99 通用规范
+
+- 将当前 C99 Skill 作为唯一通用 C 编码规范，不保留来源 Skill 的品牌或重复触发词。
+- 修改前必须判断项目自研、自动生成或第三方代码。
+- 自动生成和第三方代码默认保持实际编码及局部风格。
+- 新项目和项目自研代码统一命名、4 空格、大括号、函数头及函数内部注释规则。
+- 新增或大改函数记录作者、日期、原因以及必要的缺陷根因和修复方式。
+- 项目自研代码非 GBK 时必须询问是否转换；第三方和生成代码保持实际编码。
+
+### 嵌入式架构与电机控制
+
+- 新增 architecture Skill，明确系统架构与控制算法的职责边界。
+- 增加 Bootloader、OTA、A/B、Manifest、参数区、校准区和量产发布门禁。
+- motorcontrol 增加 PWM/ADC/Encoder 同步、FOC/SVPWM、三环带宽、补偿、多轴同步及故障验证资料。
+- 增加 VESC、ODrive、moteus、ODRI、PX4、ArduPilot、Betaflight 和 TI SDK 的参考边界说明。
+
+### EtherCAT/CiA402
+
+- 强化 EtherCAT 从站、CiA402 状态机、TwinCAT 联调、PDO/SDO/CoE 和 DC 同步规则。
+- 新增 SSC/ET9300、Working Counter、WcState、AL/ESM、NC 轴 Ready 和多轴同步排查资料。
+- 新增 `scripts/decode_cia402.py`、`evals/evals.json` 和专项参考索引。
+
+### 发布
+
+- 发布 tag：`v2026.06.20`。
+- README 增加当前版本的路径级 diff 摘要。
+
 ## 2026-06-17
 
 ### 新增

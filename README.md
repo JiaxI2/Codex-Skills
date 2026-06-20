@@ -10,7 +10,7 @@
 
 ## 目录说明
 
-- `embedded/`：嵌入式一级 skill，包含 C99、review、ARM、DSP、EtherCAT、OS、电机控制等二级 skill。
+- `embedded/`：嵌入式一级 skill，包含 C99、architecture、review、ARM、DSP、EtherCAT/CiA402、OS、电机控制等二级 skill。
 - `karpathy-guidelines/`：Karpathy 风格开发指南。
 - `frontend-design/`、`webapp-testing/`、`web-artifacts-builder/`：前端设计、实现和测试相关 skill。
 - `drawio/`、`json-canvas/`：图表和可视化结构化文档相关 skill。
@@ -37,13 +37,25 @@
 
 ## embedded 分流约定
 
-`embedded/readme.md` 负责二级 skill 分流：
+`embedded/SKILL.md` 负责二级 skill 分流：
 
-- 实现 C 模块时优先使用 `embedded/c99-standard-c`。
+- 实现 C 模块时必须使用 `embedded/C99`（skill 名称：`c99-standard-c`）。
 - 代码审查时优先使用 `embedded/review`。
 - 风格、Doxygen、格式化、命名审查使用 `embedded/review/references/majerle-c-code-style-review-cn.md`。
-- 领域任务按需使用 `arm`、`dsp`、`ethercat`、`os`、`motorcontrol`。
+- 系统分层、平台抽象、Bootloader、OTA 和量产发布使用 `embedded/architecture`。
+- EtherCAT 从站、CiA402、TwinCAT、PDO/SDO、DC 和 SSC/ET9300 使用 `embedded/ethercat`。
+- FOC、SVPWM、三环控制、采样时序和多轴控制使用 `embedded/motorcontrol`。
+- 其他领域任务按需使用 `arm`、`dsp`、`os` 和 `review`。
 - 不为单一任务重复加载多个同级 skill；只选主 skill，必要时补充一个辅助 skill。
+
+## 2026-06-20 diff 摘要
+
+- `embedded/c99-standard-c/` 迁移为 `embedded/C99/`：统一文件归属、实际编码、固定格式、函数注释、修改记录、安全和可移植性规则；新增 `references/c-coding-rules-zh.md`。
+- 新增 `embedded/architecture/`：覆盖职责分层、真实变化点、Bootloader/OTA、量产约束、参考工程矩阵及测试发布门禁。
+- 扩展 `embedded/motorcontrol/`：补充 PWM/ADC/Encoder 时序、三环带宽、补偿、多轴同步、参考工程和测试模板。
+- 扩展 `embedded/ethercat/`：升级为 EtherCAT/CiA402 专项 Skill，新增 TwinCAT、SSC/ET9300、PDO/SDO、DC、故障排查参考、评估数据和 CiA402 解码脚本。
+- 更新 `embedded/SKILL.md`：按主问题路由 C99、architecture、EtherCAT/CiA402 和 motorcontrol，明确领域组合规则。
+- 同步更新各 Skill 的 `agents/openai.yaml`，确保界面名称、触发描述和默认提示与当前内容一致。
 
 ## 维护规则
 

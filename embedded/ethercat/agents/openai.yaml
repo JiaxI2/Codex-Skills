@@ -1,4 +1,6 @@
 interface:
-  display_name: "EtherCAT"
-  short_description: "EtherCAT 固件指导"
-  default_prompt: "使用 $ethercat 实现或评审 EtherCAT 固件。"
+  display_name: "EtherCAT CiA402 中文"
+  short_description: "EtherCAT 从站、CiA402 伺服、TwinCAT、PDO/SDO、DC 同步、SSC/ET9300 诊断。"
+  default_prompt: "使用 EtherCAT CiA402 技能分析这个 EtherCAT 伺服驱动问题。"
+policy:
+  allow_implicit_invocation: true

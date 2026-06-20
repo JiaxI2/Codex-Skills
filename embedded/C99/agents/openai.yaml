@@ -1,0 +1,4 @@
+interface:
+  display_name: "C99 标准 C"
+  short_description: "编写与审查嵌入式 C99、文件归属、编码规范及可追溯代码"
+  default_prompt: "使用 $c99-standard-c 按文件归属、实际编码和统一规则实现或审查嵌入式 C 代码。"

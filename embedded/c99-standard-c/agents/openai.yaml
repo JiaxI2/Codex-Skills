@@ -1,4 +1,0 @@
-interface:
-  display_name: "C99 标准 C"
-  short_description: "嵌入式 C99 编码规范"
-  default_prompt: "使用 $c99-standard-c 实现一个嵌入式 C 模块。"
