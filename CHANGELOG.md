@@ -14,6 +14,7 @@
 - `.gitignore` 增加 `*.bak-*`，避免本地备份文件误提交。
 - 从 `README.md` 移除日期型 diff 摘要，并在 `embedded/git` 规则中明确 diff 摘要应进入 CHANGELOG、Tag 或 Release Notes。
 - 收紧 `embedded/git` 的 GitHub Release 规则和模板：创建 Release 时必须包含 Deprecations、Full Changelog、New Contributors 等完整章节，非适用项写 `None`。
+- 调整 Release 语言策略：中文仓库默认中文，首次创建 GitHub Release 需确认语言；Release Notes 模板和校验脚本支持中文优先的中英双语标题。
 
 ## 2026-06-20
 

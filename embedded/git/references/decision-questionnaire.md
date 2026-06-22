@@ -57,6 +57,7 @@ Resolve from repository evidence first. Ask the user only when a missing answer 
 7. Must New Contributors be listed?
 8. Is a separate full release document available?
 9. Are releases immutable after publication?
+10. Which language should GitHub Release notes use: Chinese, English, or bilingual?
 
 ## G. Firmware artifacts
 

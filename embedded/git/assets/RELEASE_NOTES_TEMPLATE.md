@@ -1,34 +1,34 @@
 # {{VERSION}} — {{RELEASE_TITLE}}
 
-## Summary
+## 摘要 / Summary
 
 {{SUMMARY}}
 
 {{HIGHLIGHTS_SECTION}}
 
-## Deprecations
+## 废弃项 / Deprecations
 
 {{DEPRECATIONS_OR_NONE}}
 
 {{BREAKING_CHANGES_SECTION}}
 
-## What's Changed
+## 变更内容 / What's Changed
 
 {{WHATS_CHANGED_CATEGORIES}}
 
-## Compatibility
+## 兼容性 / Compatibility
 
 {{COMPATIBILITY}}
 
-## Release Notes
+## 发布说明 / Release Notes
 
 {{RELEASE_NOTES_OR_URL}}
 
-## Full Changelog
+## 完整变更 / Full Changelog
 
 [{{PREVIOUS_TAG}}...{{CURRENT_TAG}}]({{COMPARE_URL}})
 
-## New Contributors
+## 新贡献者 / New Contributors
 
 {{NEW_CONTRIBUTORS_OR_NONE}}
 
@@ -36,11 +36,11 @@
 
 {{UPGRADE_SECTION}}
 
-## Known Issues
+## 已知问题 / Known Issues
 
 {{KNOWN_ISSUES_OR_NONE}}
 
-## Traceability
+## 可追溯性 / Traceability
 
 - Tag: [{{CURRENT_TAG}}]({{TAG_URL}})
 - Commit: [{{COMMIT_SHA}}]({{COMMIT_URL}})

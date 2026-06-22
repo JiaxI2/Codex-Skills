@@ -13,6 +13,12 @@ HEADING = re.compile(r"^##\s+(.+?)\s*$", re.MULTILINE)
 PLACEHOLDER = re.compile(r"\{\{[^{}]+\}\}")
 
 
+def heading_aliases(heading: str) -> set[str]:
+    """Return canonical aliases for plain or bilingual headings."""
+    parts = [item.strip() for item in re.split(r"\s+/\s+", heading) if item.strip()]
+    return set(parts) or {heading.strip()}
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--config", type=Path, required=True)
@@ -23,7 +29,9 @@ def main() -> int:
         config = tomllib.load(fh)
 
     text = args.release_notes.read_text(encoding="utf-8")
-    headings = set(HEADING.findall(text))
+    headings = set()
+    for item in HEADING.findall(text):
+        headings.update(heading_aliases(item))
     release = config.get("release", {})
     required = list(release.get("required_sections", []))
 

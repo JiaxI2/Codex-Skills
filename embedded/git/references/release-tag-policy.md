@@ -50,8 +50,26 @@ Push only the intended Tag:
 git push origin v1.2.0
 ```
 
-## Release Notes sections
+## Release language
 
+GitHub Release notes may be Chinese, English, or bilingual.
+
+Default language comes from repository evidence. If README and CHANGELOG are Chinese-first, use Chinese by default. For the first GitHub Release in a repository, ask the user to confirm the release language when it is not already specified; the default choice is Chinese.
+
+Bilingual releases are supported. Use Chinese first and keep the canonical English section name after a slash, for example:
+
+```markdown
+## 摘要 / Summary
+## 变更内容 / What's Changed
+## 兼容性 / Compatibility
+## 废弃项 / Deprecations
+## 发布说明 / Release Notes
+## 完整变更 / Full Changelog
+## 新贡献者 / New Contributors
+## 已知问题 / Known Issues
+## 可追溯性 / Traceability
+```
+## Release Notes sections
 Always required for formal releases:
 
 ```text

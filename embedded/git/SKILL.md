@@ -111,6 +111,7 @@ CHANGELOG mode
 version scheme
 Tag policy
 Release Notes profile
+release notes language
 firmware artifact policy
 automation level
 permission boundary
@@ -204,6 +205,7 @@ Git Governance Decision
 - CHANGELOG mode:
 - Version scheme:
 - Release profile:
+- Release language:
 - Artifact storage:
 - Current branch:
 - Source branch:
@@ -314,8 +316,16 @@ README must describe current, durable repository identity, navigation, and usage
 
 Do not copy raw `git log` into CHANGELOG.
 
-### Tag and Release
+### Release language
 
+GitHub Release notes support Chinese, English, or bilingual content.
+
+- Infer the default from the repository's README and CHANGELOG language.
+- For Chinese-first repositories, default to Chinese.
+- For the first GitHub Release in a repository, ask for the release language when the user has not specified it; present Chinese as the default.
+- If bilingual notes are selected, write Chinese first and keep the canonical English section name after a slash, for example `摘要 / Summary`, so tooling can still validate required sections.
+- Do not silently publish English-only release notes for a Chinese-first repository.
+### Tag and Release
 A Tag identifies one commit. A GitHub Release presents detailed notes and assets for a Tag.
 
 If `GITHUB RELEASE` is `REQUIRED`, then `RELEASE NOTES` is also `REQUIRED`. Do not downgrade a GitHub Release to `TAG MESSAGE ONLY`; the release body must be curated before publishing or editing.

@@ -10,7 +10,7 @@
 
 ## 目录说明
 
-- `embedded/`：嵌入式一级 skill，包含 C99、architecture、review、ARM、DSP、EtherCAT/CiA402、OS、电机控制、Git/发布治理等二级 skill。
+- `embedded/`：嵌入式一级 skill，包含 C99、architecture、review、ARM、DSP、EtherCAT/CiA402、OS、电机控制、Git/发布治理等二级 skill；详细路由见 [`embedded/readme.md`](embedded/readme.md)。
 - `karpathy-guidelines/`：Karpathy 风格开发指南。
 - `frontend-design/`、`webapp-testing/`、`web-artifacts-builder/`：前端设计、实现和测试相关 skill。
 - `drawio/`、`json-canvas/`：图表和可视化结构化文档相关 skill。
@@ -34,20 +34,6 @@
 3. 对需要延迟加载的长文档放入 `references/`。
 4. 对 Codex App UI 元数据使用 `agents/openai.yaml`。
 5. 修改 user-level skill 前先备份，再提交变更。
-
-## embedded 分流约定
-
-`embedded/SKILL.md` 负责二级 skill 分流：
-
-- 实现 C 模块时必须使用 `embedded/C99`（skill 名称：`c99-standard-c`）。
-- 代码审查时优先使用 `embedded/review`。
-- 风格、Doxygen、格式化、命名审查使用 `embedded/review/references/majerle-c-code-style-review-cn.md`。
-- 系统分层、平台抽象、Bootloader、OTA 和量产发布使用 `embedded/architecture`。
-- EtherCAT 从站、CiA402、TwinCAT、PDO/SDO、DC 和 SSC/ET9300 使用 `embedded/ethercat`。
-- FOC、SVPWM、三环控制、采样时序和多轴控制使用 `embedded/motorcontrol`。
-- 嵌入式仓库分支、提交、PR、Tag、Release、README、CHANGELOG、版本文件、固件制品和交付基线使用 `embedded/git`。
-- 其他领域任务按需使用 `arm`、`dsp`、`os` 和 `review`。
-- 不为单一任务重复加载多个同级 skill；只选主 skill，必要时补充一个辅助 skill。
 
 ## 维护规则
 
