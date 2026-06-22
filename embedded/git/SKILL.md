@@ -318,6 +318,8 @@ Do not copy raw `git log` into CHANGELOG.
 
 A Tag identifies one commit. A GitHub Release presents detailed notes and assets for a Tag.
 
+If `GITHUB RELEASE` is `REQUIRED`, then `RELEASE NOTES` is also `REQUIRED`. Do not downgrade a GitHub Release to `TAG MESSAGE ONLY`; the release body must be curated before publishing or editing.
+
 Keep annotated Tag messages short:
 
 ```text
@@ -332,8 +334,10 @@ Formal Release Notes normally include:
 Summary
 What's Changed
 Compatibility
+Deprecations
 Release Notes
 Full Changelog
+New Contributors
 Known Issues
 Traceability
 ```
@@ -352,6 +356,8 @@ Security
 ```
 
 For configured minor/major/formal firmware releases, make `Deprecations` explicit. Write `None` when there are no deprecations.
+
+For any GitHub Release, include explicit `Deprecations` and `New Contributors` headings. If they do not apply, write `None`. Never publish a GitHub Release body that contains only `Summary` or a generated stub.
 
 Derive `New Contributors` from real PR/contributor data. Never invent it.
 

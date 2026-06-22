@@ -58,8 +58,10 @@ Always required for formal releases:
 Summary
 What's Changed
 Compatibility
+Deprecations
 Release Notes
 Full Changelog
+New Contributors
 Known Issues
 Traceability
 ```
@@ -79,7 +81,7 @@ Rollback
 
 ## Deprecations
 
-For profiles configured to require it:
+For GitHub Releases and profiles configured to require it:
 
 - include the heading;
 - list deprecated behavior and replacement;
@@ -117,7 +119,11 @@ Use exact previous and current tags:
 
 ## New Contributors
 
-Derive from actual contributors or merged PRs. Do not infer from names in documentation.
+Include the heading in GitHub Releases. Derive entries from actual contributors or merged PRs. Do not infer from names in documentation. Write `None` when there are no new contributors.
+
+## Minimum body quality
+
+Do not publish a GitHub Release body that contains only `Summary` or a generated stub. If a section is not applicable, keep the heading and write `None` or `Not applicable`.
 
 ## GitHub-generated notes
 

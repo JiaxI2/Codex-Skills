@@ -13,6 +13,7 @@
 - 扩展 `embedded/ethercat/SKILL.md`、`embedded/ethercat/README.md` 和评估数据，增加新增参考资料的读取规则。
 - `.gitignore` 增加 `*.bak-*`，避免本地备份文件误提交。
 - 从 `README.md` 移除日期型 diff 摘要，并在 `embedded/git` 规则中明确 diff 摘要应进入 CHANGELOG、Tag 或 Release Notes。
+- 收紧 `embedded/git` 的 GitHub Release 规则和模板：创建 Release 时必须包含 Deprecations、Full Changelog、New Contributors 等完整章节，非适用项写 `None`。
 
 ## 2026-06-20
 
