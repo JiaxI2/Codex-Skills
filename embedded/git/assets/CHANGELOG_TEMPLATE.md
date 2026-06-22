@@ -1,0 +1,12 @@
+# Changelog
+
+{{INTRODUCTION}}
+
+## [Unreleased]
+
+{{UNRELEASED_CATEGORIES}}
+
+{{RELEASED_VERSIONS}}
+
+[Unreleased]: {{UNRELEASED_COMPARE_URL}}
+{{VERSION_LINKS}}

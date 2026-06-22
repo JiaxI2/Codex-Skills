@@ -1,4 +1,4 @@
 interface:
   display_name: "嵌入式"
-  short_description: "嵌入式系统 skill 路由"
-  default_prompt: "使用 $embedded 规划一个嵌入式固件任务。"
+  short_description: "嵌入式系统与 Git 发布治理路由"
+  default_prompt: "使用 $embedded 规划嵌入式固件、Git 或发布治理任务。"

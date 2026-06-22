@@ -1,5 +1,18 @@
 # 更新日志
 
+## 2026-06-22
+
+### 新增
+
+- 新增 `embedded/git/`，覆盖嵌入式仓库分支、提交、PR、Tag、Release、README、CHANGELOG、版本文件、固件制品、测试基线、生产基线和客户交付治理。
+- 新增 EtherCAT 开源项目与 MCP 设计参考，包含 SOEM/IgH、SSC/SOES、CiA402 开源实现、TwinCAT/LinuxCNC/ROS2 诊断、项目选型和维护路线。
+
+### 更新
+
+- 更新 `embedded/SKILL.md`、`embedded/readme.md` 和 `embedded/agents/openai.yaml`，将 Git/发布治理纳入嵌入式 skill 路由。
+- 扩展 `embedded/ethercat/SKILL.md`、`embedded/ethercat/README.md` 和评估数据，增加新增参考资料的读取规则。
+- `.gitignore` 增加 `*.bak-*`，避免本地备份文件误提交。
+
 ## 2026-06-20
 
 ### Diff 概览

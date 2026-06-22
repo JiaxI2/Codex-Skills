@@ -37,5 +37,25 @@
       "prompt": "EtherCAT主站扫描不到从站，EEPROM可能是空的，我应该先查CoE还是PHY？",
       "expected_output": "应读取 web-phy-eeprom-hardware.md，优先检查PHY Link、Port0、ESC 0x110 DL Status、EEPROM checksum和Flash模拟EEPROM，不应先查CiA402/CoE。"
     }
+  ],
+  "tests": [
+    {
+      "input": "SOEM 主站 WKC 不稳定，帮我定位应该查哪些代码和对象",
+      "should_use": [
+        "ethercat-master-source-map-soem-igh.md"
+      ]
+    },
+    {
+      "input": "SSC 从站 OutputMapping 和 ESI PDO 长度不一致导致 TwinCAT invalid IO data",
+      "should_use": [
+        "ethercat-slave-source-map-ssc-soes.md"
+      ]
+    },
+    {
+      "input": "把 EtherCAT 调试做成 MCP，怎么拆模块，哪些默认只读？",
+      "should_use": [
+        "ethercat-mcp-design.md"
+      ]
+    }
   ]
 }

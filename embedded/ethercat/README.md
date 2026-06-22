@@ -81,3 +81,46 @@ ethercat-cia402/
 | 不确定该读哪个 | `references/ethercat-web-knowledge-index.md` |
 
 这些 ref 是工程化转写与重组，不包含原网页品牌词、原始链接或大段原文。用于 Agent 快速理解背景、选择检查路径和给出代码/配置建议。
+
+
+## 新增：EtherCAT 深度速读参考
+
+`references/ethercat-deep-dive-agent-ref.md` 是离线深度速读 ref，用于让 Agent 在不联网的情况下快速理解 EtherCAT 的协议层级和工程排障路径。
+
+优先读取场景：
+
+- 用户问 EtherCAT 协议栈、帧格式、Datagram、WKC；
+- 用户问 ESC、FMMU、Sync Manager、SII EEPROM、AL/ESM；
+- 用户问 CoE/SDO/PDO、ESI、SM assign、动态 PDO；
+- 用户问 DC、Sync0/Sync1、watchdog、WcState、invalid IO data；
+- 用户问 SSC/ET9300 工程结构和 `PDO_OutputMapping()` / `PDO_InputMapping()` / `ECAT_Application()`；
+- 用户要求构建 Agent Skill、离线知识库或快速排障参考。
+
+
+## 新增：开源项目蒸馏与 MCP 设计
+
+本版本新增 6 个离线 ref，用于把开源主站、从站、CiA402、LinuxCNC/ROS2 和 MCP 设计纳入本地知识库：
+
+```text
+references/
+├── ethercat-master-source-map-soem-igh.md
+├── ethercat-slave-source-map-ssc-soes.md
+├── cia402-open-source-implementation-map.md
+├── twincat-linuxcnc-ros2-diagnostics-map.md
+├── ethercat-mcp-design.md
+├── ethercat-project-selection-guide.md
+└── ethercat-maintenance-roadmap.md
+```
+
+推荐读取逻辑：
+
+| 场景 | 读取 ref |
+|---|---|
+| 主站、WKC、SDO、SOEM、IgH、Linux 实时线程 | `references/ethercat-master-source-map-soem-igh.md` |
+| 从站栈、SSC/ET9300、SOES、PDI、OutputMapping/InputMapping、FoE | `references/ethercat-slave-source-map-ssc-soes.md` |
+| CiA402 状态机、6040/6041、6060/6061、CSP/CSV/CST、fault reset | `references/cia402-open-source-implementation-map.md` |
+| TwinCAT / LinuxCNC / ROS2 轴诊断 | `references/twincat-linuxcnc-ros2-diagnostics-map.md` |
+| MCP 工具化、ESI 解析、SOEM/IgH/TwinCAT 只读诊断、抓包解析 | `references/ethercat-mcp-design.md` |
+| 不确定应该参考哪个项目 | `references/ethercat-project-selection-guide.md` |
+| 后续维护与版本计划 | `references/ethercat-maintenance-roadmap.md` |
+```

@@ -74,6 +74,24 @@ description: 用于 EtherCAT 从站、CiA402/DS402 伺服驱动、TwinCAT 联调
 
 使用边界：网页知识库内容是 SDK/芯片/例程层实现参考，不替代 ETG.1000、ETG.6010、CiA402/IEC 61800-7 的规范定义。回答时应明确“规范语义”和“示例实现”两层，不要把网页示例中的默认配置误判为所有 EtherCAT 从站都必须如此。
 
+
+
+## 开源项目蒸馏与 MCP 路由
+
+当问题涉及 EtherCAT 主站源码、从站源码、开源 CiA402、LinuxCNC、ROS2 或 MCP 工具化时，按以下逻辑读取新增 ref：
+
+| 问题关键词 | 优先读取 | 用途 |
+|---|---|---|
+| SOEM、IgH、EtherLab、主站、scan slaves、WKC、domain、SDO upload、Linux 实时主站 | `ethercat-master-source-map-soem-igh.md` | 主站源码心智模型、周期任务、WKC/SDO/DC 诊断 |
+| SSC、ET9300、SOES、从站栈、PDI、ESC、OutputMapping、InputMapping、FoE、EEPROM/SII | `ethercat-slave-source-map-ssc-soes.md` | 从站固件架构、PDO/ESM/CoE/FoE、bring-up 检查 |
+| ecat_servo、hal-cia402、CiA402 开源实现、6040/6041、6060/6061、CSP/CSV/CST、homing、fault reset | `cia402-open-source-implementation-map.md` | CiA402 状态机工程实现与主/从站分层 |
+| TwinCAT、LinuxCNC、ROS2、ros2_control、HAL、NC Ready、axis not ready、controller not active | `twincat-linuxcnc-ros2-diagnostics-map.md` | 上位控制器诊断路径和跨平台故障矩阵 |
+| MCP、Agent 工具化、ESI parser、ADS、SOEM 只读诊断、tshark 抓包、J-Link/串口日志 | `ethercat-mcp-design.md` | MCP 模块拆分、权限模型、下一步实施路线 |
+| 不确定应该参考哪个开源项目或 ref | `ethercat-project-selection-guide.md` | 项目选型、蒸馏优先级、维护规则 |
+| 知识库长期维护、ref 增长、版本计划 | `ethercat-maintenance-roadmap.md` | 可扩展目录、正确性检查、版本化路线 |
+
+使用边界：开源项目 ref 只用于工程模式和源码入口参考；协议语义仍以 ETG.1000、ETG.6010、CiA402/IEC 61800-7、ET9300/SSC 为准。对具体 API、文件路径、release 行为不确定时，应让代码库/MCP 实时读取仓库，而不是凭 ref 断言。
+
 ## 需要检查的证据
 
 不要一次性索要全部资料。根据问题层级选择最少证据。
@@ -282,3 +300,19 @@ SM2 event / Sync0
 python scripts/decode_cia402.py --statusword 1591 --mode 8
 python scripts/decode_cia402.py --controlword 0x000F --statusword 0x0637
 ```
+
+
+## EtherCAT 深度速读 ref 路由
+
+当用户的问题属于 EtherCAT 基础协议、帧结构、Datagram、WKC、ESC、FMMU、Sync Manager、SII EEPROM、AL/ESM、CoE、DC、SSC 实现路径，或者明确要求“让 Agent 快速理解 EtherCAT / 不联网也能排障”时，优先读取：
+
+- `references/ethercat-deep-dive-agent-ref.md`
+
+读取顺序建议：
+
+1. 先用该文件建立层级判断：PHY/Link -> ESC/SII -> FMMU/SM -> AL/ESM -> CoE/SDO -> PDO/WKC -> DC/Sync -> CiA402/NC。
+2. 再根据具体问题进入专门 ref：
+   - CiA402/状态字/控制字/TwinCAT NC：`ethercat-cia402-quick-reference.md`、`twincat-diagnostics.md`。
+   - SSC/ET9300 映射和同步：`ssc-et9300-notes.md`。
+   - 网页工程知识按主题拆分：`web-cia402-mdp-multiaxis.md`、`web-ssc-sync-errors.md`、`web-coe-pdo-eoe-twincat.md`、`web-phy-eeprom-hardware.md`。
+3. 不要把该 ref 当作正式规范逐字引用；它是 Agent 的工程心智模型和排障索引。涉及一致性认证、二进制编码、对象精确定义时回到 ETG/CiA 文档或项目源代码。

@@ -1,0 +1,45 @@
+# GitHub-generated release-note categories.
+# Replace labels with the repository's real label taxonomy.
+
+changelog:
+  exclude:
+    labels:
+      - skip-changelog
+    authors:
+      - dependabot[bot]
+
+  categories:
+    - title: "Deprecations and Breaking Changes"
+      labels:
+        - deprecation
+        - breaking-change
+
+    - title: "Features"
+      labels:
+        - feature
+        - enhancement
+
+    - title: "Fixes"
+      labels:
+        - bug
+        - fix
+
+    - title: "Compatibility"
+      labels:
+        - compatibility
+        - hardware
+        - protocol
+
+    - title: "Build and Tooling"
+      labels:
+        - build
+        - tooling
+        - ci
+
+    - title: "Documentation"
+      labels:
+        - documentation
+
+    - title: "Other Changes"
+      labels:
+        - "*"

@@ -3,6 +3,7 @@
 
 # Local backups and exports
 **/backup/
+*.bak-*
 *.zip
 
 # Git and editor noise

@@ -1,0 +1,44 @@
+# {{VERSION}} — {{RELEASE_TITLE}}
+
+## Summary
+
+{{SUMMARY}}
+
+{{HIGHLIGHTS_SECTION}}
+
+{{DEPRECATIONS_SECTION}}
+
+{{BREAKING_CHANGES_SECTION}}
+
+## What's Changed
+
+{{WHATS_CHANGED_CATEGORIES}}
+
+## Compatibility
+
+{{COMPATIBILITY}}
+
+## Release Notes
+
+{{RELEASE_NOTES_OR_URL}}
+
+## Full Changelog
+
+[{{PREVIOUS_TAG}}...{{CURRENT_TAG}}]({{COMPARE_URL}})
+
+{{NEW_CONTRIBUTORS_SECTION}}
+
+{{ASSETS_SECTION}}
+
+{{UPGRADE_SECTION}}
+
+## Known Issues
+
+{{KNOWN_ISSUES_OR_NONE}}
+
+## Traceability
+
+- Tag: [{{CURRENT_TAG}}]({{TAG_URL}})
+- Commit: [{{COMMIT_SHA}}]({{COMMIT_URL}})
+- CHANGELOG: [{{VERSION}}]({{CHANGELOG_URL}})
+{{ADDITIONAL_TRACEABILITY}}

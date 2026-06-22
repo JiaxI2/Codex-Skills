@@ -10,7 +10,7 @@
 
 ## 目录说明
 
-- `embedded/`：嵌入式一级 skill，包含 C99、architecture、review、ARM、DSP、EtherCAT/CiA402、OS、电机控制等二级 skill。
+- `embedded/`：嵌入式一级 skill，包含 C99、architecture、review、ARM、DSP、EtherCAT/CiA402、OS、电机控制、Git/发布治理等二级 skill。
 - `karpathy-guidelines/`：Karpathy 风格开发指南。
 - `frontend-design/`、`webapp-testing/`、`web-artifacts-builder/`：前端设计、实现和测试相关 skill。
 - `drawio/`、`json-canvas/`：图表和可视化结构化文档相关 skill。
@@ -45,8 +45,15 @@
 - 系统分层、平台抽象、Bootloader、OTA 和量产发布使用 `embedded/architecture`。
 - EtherCAT 从站、CiA402、TwinCAT、PDO/SDO、DC 和 SSC/ET9300 使用 `embedded/ethercat`。
 - FOC、SVPWM、三环控制、采样时序和多轴控制使用 `embedded/motorcontrol`。
+- 嵌入式仓库分支、提交、PR、Tag、Release、README、CHANGELOG、版本文件、固件制品和交付基线使用 `embedded/git`。
 - 其他领域任务按需使用 `arm`、`dsp`、`os` 和 `review`。
 - 不为单一任务重复加载多个同级 skill；只选主 skill，必要时补充一个辅助 skill。
+
+## 2026-06-22 diff 摘要
+
+- 新增 `embedded/git/`：提供嵌入式仓库 Git、GitHub、README、CHANGELOG、Tag、Release、固件制品和交付治理流程。
+- 扩展 `embedded/ethercat/`：新增 EtherCAT 深度速读、主站/从站源码、CiA402 开源实现、TwinCAT/LinuxCNC/ROS2 诊断、MCP 设计和维护路线参考。
+- 更新 `embedded/SKILL.md`、`embedded/readme.md` 和 `embedded/agents/openai.yaml`：将 Git/发布治理纳入嵌入式 skill 路由。
 
 ## 2026-06-20 diff 摘要
 

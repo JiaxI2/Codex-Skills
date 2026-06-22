@@ -1,0 +1,75 @@
+schema_version = 1
+
+[project]
+name = ""
+repository_url = ""
+visibility = "private" # private | public
+audience = ["developer", "tester"]
+default_language = "zh-CN"
+
+[branch]
+profile = "existing-custom" # github-flow-lite | embedded-git-flow-lite | environment-promotion | existing-custom
+stable = "main"
+integration = ""
+test = ""
+prerelease = ""
+require_pull_request = true
+
+[readme]
+enabled = true
+profile = "minimal-internal" # minimal-internal | open-source-firmware | firmware-library | product-delivery
+file = "README.md"
+secondary_language_file = ""
+require_toc = true
+validate_links = true
+required_sections = ["status", "overview", "quick-start", "documentation", "releases"]
+
+[readme.urls]
+documentation = ""
+changelog = "./CHANGELOG.md"
+latest_release = ""
+releases = ""
+issues = ""
+contributing = "./CONTRIBUTING.md"
+security = "./SECURITY.md"
+license = "./LICENSE"
+
+[changelog]
+enabled = true
+mode = "unreleased" # unreleased | fragments | release-only | generated
+file = "CHANGELOG.md"
+fragment_directory = ""
+categories = ["Added", "Changed", "Deprecated", "Removed", "Fixed", "Security"]
+require_pr_or_issue_links = true
+compare_links = true
+
+[version]
+scheme = "semver" # semver | calendar | product-defined | component-matrix
+files = ["VERSION"]
+tag_pattern = "v{version}"
+annotated_tag = true
+signed_tag = false
+stable_branch = "main"
+
+[release]
+enabled = true
+profile = "firmware-minor" # patch | minor | major | prerelease | firmware-minor | customer-delivery | test-baseline
+notes_mode = "generated-plus-curated" # curated | generated-plus-curated
+required_sections = ["Summary", "What's Changed", "Compatibility", "Release Notes", "Full Changelog", "Known Issues", "Traceability"]
+optional_sections = ["Highlights / Major Changes", "Deprecations", "Breaking Changes / Migration", "New Contributors", "Assets / Checksums", "Upgrade / Programming", "Rollback"]
+require_explicit_deprecations = true
+require_new_contributors_when_present = true
+immutable_release = false
+
+[firmware]
+enabled = true
+storage = "github-release" # github-release | git-lfs | git | external | none
+metadata_directory = "firmware"
+require_sha256 = true
+naming_pattern = "{product}-{target}-{version}-{configuration}.{ext}"
+
+[automation]
+render_templates = true
+validate_markdown_links = true
+validate_release_notes = true
+github_generated_release_notes = true
