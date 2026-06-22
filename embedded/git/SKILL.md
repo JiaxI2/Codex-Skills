@@ -305,6 +305,8 @@ README and CHANGELOG must still be evaluated.
 
 README is normally not changed for an internal bug fix with no effect on project entry or usage.
 
+README must describe current, durable repository identity, navigation, and usage. Do not add dated diff summaries, raw release notes, or changelog-style change lists to README. Put change summaries in CHANGELOG during development, and in Tag/GitHub Release notes for formal releases.
+
 ### CHANGELOG changes are normally required when
 
 - users, testers, integrators, operators, production, or customers need to know;

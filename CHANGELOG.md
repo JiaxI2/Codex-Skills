@@ -12,6 +12,7 @@
 - 更新 `embedded/SKILL.md`、`embedded/readme.md` 和 `embedded/agents/openai.yaml`，将 Git/发布治理纳入嵌入式 skill 路由。
 - 扩展 `embedded/ethercat/SKILL.md`、`embedded/ethercat/README.md` 和评估数据，增加新增参考资料的读取规则。
 - `.gitignore` 增加 `*.bak-*`，避免本地备份文件误提交。
+- 从 `README.md` 移除日期型 diff 摘要，并在 `embedded/git` 规则中明确 diff 摘要应进入 CHANGELOG、Tag 或 Release Notes。
 
 ## 2026-06-20
 

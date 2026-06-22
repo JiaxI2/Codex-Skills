@@ -49,21 +49,6 @@
 - 其他领域任务按需使用 `arm`、`dsp`、`os` 和 `review`。
 - 不为单一任务重复加载多个同级 skill；只选主 skill，必要时补充一个辅助 skill。
 
-## 2026-06-22 diff 摘要
-
-- 新增 `embedded/git/`：提供嵌入式仓库 Git、GitHub、README、CHANGELOG、Tag、Release、固件制品和交付治理流程。
-- 扩展 `embedded/ethercat/`：新增 EtherCAT 深度速读、主站/从站源码、CiA402 开源实现、TwinCAT/LinuxCNC/ROS2 诊断、MCP 设计和维护路线参考。
-- 更新 `embedded/SKILL.md`、`embedded/readme.md` 和 `embedded/agents/openai.yaml`：将 Git/发布治理纳入嵌入式 skill 路由。
-
-## 2026-06-20 diff 摘要
-
-- `embedded/c99-standard-c/` 迁移为 `embedded/C99/`：统一文件归属、实际编码、固定格式、函数注释、修改记录、安全和可移植性规则；新增 `references/c-coding-rules-zh.md`。
-- 新增 `embedded/architecture/`：覆盖职责分层、真实变化点、Bootloader/OTA、量产约束、参考工程矩阵及测试发布门禁。
-- 扩展 `embedded/motorcontrol/`：补充 PWM/ADC/Encoder 时序、三环带宽、补偿、多轴同步、参考工程和测试模板。
-- 扩展 `embedded/ethercat/`：升级为 EtherCAT/CiA402 专项 Skill，新增 TwinCAT、SSC/ET9300、PDO/SDO、DC、故障排查参考、评估数据和 CiA402 解码脚本。
-- 更新 `embedded/SKILL.md`：按主问题路由 C99、architecture、EtherCAT/CiA402 和 motorcontrol，明确领域组合规则。
-- 同步更新各 Skill 的 `agents/openai.yaml`，确保界面名称、触发描述和默认提示与当前内容一致。
-
 ## 维护规则
 
 - 默认中文说明。

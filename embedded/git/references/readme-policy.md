@@ -4,6 +4,8 @@
 
 README is the project entrance and navigation layer. Move detailed procedures to linked documents when the README becomes hard to scan.
 
+README should show the current repository shape, not historical diffs. Keep dated diff summaries, release-note fragments, and raw change lists in CHANGELOG, Tag messages, or GitHub Release notes.
+
 ## Adapt the structure
 
 Select sections from the configured README profile. Do not retain empty sections or irrelevant public-project sections in a private repository.
