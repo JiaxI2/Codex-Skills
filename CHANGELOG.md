@@ -1,5 +1,21 @@
 # 更新日志
 
+## 2026-06-25
+
+### 新增
+
+- 新增 `skill-creator/`，将原 Anthropic skill creator 迁移为 Codex/OpenCode Agent Skill 创建、迁移和验证工作流。
+- 新增 `skill-creator/scripts/skill_gate.py`，用于判断是否应该创建 skill、分类四类 skill，并阻塞缺失 workflow contract、gate rules 或人工确认的标准/流程类 skill。
+
+### 更新
+
+- 更新 `embedded/C99/`，把 C99 编码规范补充为 `consistent-workflow`、`organization-standard` 和 `team-expertise` 类型，并要求可机器检查规则落成 CLI/Hook/Lint/CI 门禁。
+- 更新 `embedded/architecture/`，把架构平台化规范补充为四类 skill，并要求架构边界、发布门禁和量产约束优先机器化为阻塞规则。
+- 更新 `README.md`，加入 `skill-creator/` 目录说明，并改为依赖 Git 管理 user-level skill 变更，避免散落临时备份。
+
+### 移除
+
+- 移除旧的 `anthropic-skill-creator/` 路径，后续统一使用 `skill-creator/`。
 ## 2026-06-22
 
 ### 新增
