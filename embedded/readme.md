@@ -21,7 +21,7 @@
 | RTOS、裸机 superloop、任务、队列、互斥锁 | `os` | 实现时加 `c99-standard-c`，评审时加 `review` | 不要默认调用 `arm`，除非涉及 NVIC/平台 |
 | FOC、PID、SVPWM、电流/速度/位置环 | `motorcontrol` | 数值细节加 `dsp`，实现加 `c99-standard-c` | 不要默认调用 `ethercat`，除非 setpoint/现场总线相关 |
 | 滤波器、FFT、定点、采样、数值稳定性 | `dsp` | 实现加 `c99-standard-c`，评审加 `review` | 不要默认调用 `motorcontrol`，除非任务属于电机控制 |
-| 嵌入式仓库分支、提交、PR、Tag、Release、README、CHANGELOG、版本文件、固件制品、测试/生产基线 | `git` | 修改 C 代码时加 `c99-standard-c`；评审代码风险时加 `review` | 不要用通用 GitHub plugin skill 替代嵌入式发布治理；PR 元数据/评论/CI 可交给 GitHub plugin/MCP |
+| 嵌入式优先的 Git 分支、提交、PR、Tag、Release、README、CHANGELOG、版本文件、固件制品、测试/生产基线 | `git-skill`（路径 `embedded/git/`） | 修改 C 代码时加 `c99-standard-c`；评审代码风险时加 `review` | 不要用通用 GitHub plugin skill 替代嵌入式发布治理；PR 元数据/评论/CI 可交给 GitHub plugin/MCP |
 
 ## 优先级
 
@@ -30,7 +30,7 @@
 3. 领域：ARM、EtherCAT、OS、DSP、电机控制、Git/发布治理。
 4. 项目既有规范和周围代码风格。
 5. `c99-standard-c` 的 C99、安全、实时性、可移植性和编码规则。
-6. `git` 中的分支、提交、PR、Tag、Release、README、CHANGELOG 和固件制品治理规则。
+6. `git-skill` 中的分支、提交、PR、Tag、Release、README、CHANGELOG 和固件制品治理规则。
 7. `review` 中的 MaJerle 风格参考，仅用于风格/可维护性评审。
 
 ## MaJerle 参考的使用方式

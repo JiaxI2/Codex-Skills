@@ -10,7 +10,8 @@
 
 ## 目录说明
 
-- `skill-creator/`：Codex/OpenCode Agent Skill 创建、迁移、类型判定、CLI/Hook/Lint 门禁和人工确认工作流。`r`n- `embedded/`：嵌入式一级 skill，包含 C99、architecture、review、ARM、DSP、EtherCAT/CiA402、OS、电机控制、Git/发布治理等二级 skill；详细路由见 [`embedded/readme.md`](embedded/readme.md)。
+- `skill-creator/`：Codex/OpenCode Agent Skill 创建、迁移、类型判定、CLI/Hook/Lint 门禁和人工确认工作流。
+- `embedded/`：嵌入式一级 skill，包含 C99、architecture、review、ARM、DSP、EtherCAT/CiA402、OS、电机控制，以及保留在 `embedded/git/` 下的 `Git-Skill`；详细路由见 [`embedded/readme.md`](embedded/readme.md)。
 - `karpathy-guidelines/`：Karpathy 风格开发指南。
 - `frontend-design/`、`webapp-testing/`、`web-artifacts-builder/`：前端设计、实现和测试相关 skill。
 - `drawio/`、`json-canvas/`：图表和可视化结构化文档相关 skill。

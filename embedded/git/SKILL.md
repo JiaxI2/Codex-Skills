@@ -1,19 +1,18 @@
 ---
-name: embedded-git-workflow
+name: git-skill
 description: >
-  Configurable Git, GitHub, documentation, version, tag, release, and firmware-governance workflow
-  for embedded repositories. Use for branch, commit, push, pull request, merge, README, CHANGELOG,
-  version files, Git tags, GitHub Releases, release notes, firmware artifacts, test baselines,
+  Configurable Git, GitHub, documentation, version, tag, release, and firmware-governance workflow for embedded-first and general repositories. Use for branch, commit, push, pull request, merge, README, CHANGELOG,
+  repository initialization, hook installation, version files, Git tags, GitHub Releases, release notes, firmware artifacts, test baselines,
   production baselines, customer deliveries, or requests such as "ref readme", "ref changelog",
   "ref release", "ref tag", and "ref branch". First resolve repository needs, then select and apply
   an appropriate profile instead of forcing one Linux, OpenAI, PX4, Git Flow, or README style.
 ---
 
-# Embedded Git Workflow
+# Git-Skill
 
 ## Purpose
 
-Apply a selectable, repository-specific Git and release standard.
+Apply a selectable, repository-specific Git and release standard. This skill stays under `embedded/git/` because the primary operating context is embedded development, but the workflow is intentionally reusable for general Git repository governance.
 
 This skill combines mainstream engineering ideas without copying one project wholesale:
 
@@ -25,6 +24,69 @@ This skill combines mainstream engineering ideas without copying one project who
 
 The skill must choose a fit-for-purpose profile. It must not impose every section or workflow on every repository.
 
+## Skill Type
+
+This skill is both `consistent-workflow` and `organization-standard`.
+
+- `consistent-workflow`: repository initialization, commit, changelog, branch, hook, release, and push work must follow repeatable ordered steps.
+- `organization-standard`: the workflow records the user's preferred Git governance standard for embedded-first development while staying reusable for general repositories.
+
+## Workflow Contract
+
+Trigger: use this workflow for Git repository initialization, branch policy, commit and CHANGELOG governance, hook/lint setup, README/CHANGELOG decisions, Tag/Release planning, firmware artifact governance, and push/PR/release operations.
+
+Inputs: repository path, current Git state, user request, remote URL when applicable, repository governance config, README/CHANGELOG/version files, and any branch/environment constraints.
+
+Steps:
+
+1. Read repository policy and applicable references.
+2. Inspect local and remote Git state.
+3. Resolve only material decision questions.
+4. Select branch, README, CHANGELOG, version, release, artifact, hook, and lint profiles.
+5. Output the governance decision before write, commit, push, Tag, or Release actions.
+6. Apply the smallest relevant file changes.
+7. Run configured lint, hook-equivalent checks, markdown validators, and skill validators when modifying this skill.
+8. Stage only selected files, commit with a typed subject, update CHANGELOG, and push only when authorized.
+9. Report actual Git results and remaining work.
+
+Validation: run repository lint or hook-equivalent checks, `scripts/validate_markdown_links.py` for README/CHANGELOG when applicable, `scripts/validate_release_notes.py` for releases, `git diff --check`, and `skill-creator/scripts/quick_validate.py` plus `skill-creator/scripts/skill_gate.py validate` when this skill changes.`n`nExit criteria: selected profiles are recorded, README and CHANGELOG decisions are applied, hook/lint checks pass or have a documented rationale, destructive operations are avoided unless explicitly approved, and the final report names the commit type and verification performed.
+## Gate Rules
+
+CLI checker:
+
+- repository-specific lint command, such as `scripts/lint-git-governance.ps1`, must return non-zero when typed commits, CHANGELOG updates, governance files, or required hook checks fail;
+- bundled validators include `scripts/validate_markdown_links.py` and `scripts/validate_release_notes.py` for README, CHANGELOG, and release-note checks;
+- skill validation uses `skill-creator/scripts/quick_validate.py` and `skill-creator/scripts/skill_gate.py validate`.
+
+Hook gate:
+
+- repositories using this policy should configure `git config core.hooksPath .githooks`;
+- `pre-commit` should call the repository lint command and require the configured CHANGELOG path when `changelog.mode = "unreleased"`;
+- `commit-msg` should enforce `<type>(<scope>): <summary>` or a stricter configured pattern.
+
+Skip rationale:
+
+- no MCP gate is required for the core workflow because Git CLI plus repository-local hooks/lint provide deterministic checks; MCP remains optional for GitHub metadata and automation.
+- CI gates are recommended but may be deferred for local-only or newly initialized repositories; when deferred, local hooks and explicit final verification replace CI until the repository enables it.
+
+MCP tool library:
+
+- no MCP is required for the core workflow; Git CLI and repository-local lint scripts are the canonical path;
+- GitHub MCP or CLI may be used for PR, review, CI, release, and remote metadata when available.
+
+Human confirmation:
+
+- owner/confirmation: user confirmed Git-Skill should stay under `embedded/git/`, be named `Git-Skill`, and encode typed commits, CHANGELOG entries, branch/environment rules, CLI lint, and hook management;
+- manual review remains required for release notes, destructive Git actions, branch protection changes, and history rewriting.
+## Human Confirmation
+
+Owner/confirmation: the user confirmed that this skill should stay under `embedded/git/`, be named `Git-Skill`, and encode an embedded-first but generally reusable Git governance workflow.
+
+Accepted gates: CLI lint, repository-local Git hooks, typed commit messages, mandatory CHANGELOG evaluation, branch/environment mapping, and manual review for release notes and destructive operations.
+
+Manual review scope: release suitability, production baseline meaning, branch protection changes, generated contributor lists, firmware artifact compatibility, and any history rewrite remain human-approved decisions.
+
+Decision: approved with the stated embedded-first scope and reusable Git governance boundary.
 ## Operating model
 
 The workflow has four layers:
@@ -272,6 +334,7 @@ Examples:
 | resolve requirements | `references/decision-questionnaire.md` |
 | choose profiles | `references/profile-catalog.md` |
 | task actions | `references/task-modes.md` |
+| repository initialization | `references/repository-initialization.md` |
 | branch/merge | `references/branch-policy.md` |
 | README/links | `references/readme-policy.md` |
 | commit/changelog | `references/commit-changelog-policy.md` |
@@ -327,6 +390,8 @@ GITHUB RELEASE: NOT REQUIRED
 ```
 
 README and CHANGELOG must still be evaluated.
+
+For repository initialization or first binding to a remote, read `references/repository-initialization.md` and configure repository-local hooks with `git config core.hooksPath .githooks` before the first normal commit whenever hooks are part of the selected policy.
 
 ### README changes are normally required when
 

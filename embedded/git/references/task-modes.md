@@ -4,6 +4,19 @@
 
 Read-only. Report repository state, policy gaps, active profiles, and next steps.
 
+## initialize
+
+Create or bind a repository using `references/repository-initialization.md`.
+
+1. Select one initialization mode: `local-to-empty-remote`, `remote-first-bind-local`, `clone-existing-remote`, `local-only-bootstrap`, `template-bootstrap`, or `submodule-aware-bootstrap`.
+2. Create or confirm README, CHANGELOG, `.gitignore`, governance config, hook wrappers, and lint command.
+3. Configure hooks with `git config core.hooksPath .githooks`.
+4. Run the hook-equivalent lint command before the first commit.
+5. Convert embedded Git repositories to declared submodules or exclude them.
+6. Commit with a typed subject and a CHANGELOG entry that names the commit type.
+7. Push only the intended branch when push is authorized.
+8. Verify remote branch, hook path, submodule status, and clean working tree.
+
 ## quick-ref
 
 Read only the requested policy and template.

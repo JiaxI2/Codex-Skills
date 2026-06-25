@@ -56,6 +56,19 @@ Repositories with hook management enabled should enforce:
 - repository-specific Markdown or release-note validators pass.
 
 Do not use `--no-verify` unless explicitly approved. If a hook is bypassed, report the skipped check and reason.
+
+## Single-commit discipline
+
+A single commit should follow these rules:
+
+1. The commit has one primary type from the taxonomy above.
+2. The commit contains no more than three tightly related issue topics.
+3. If the staged change does not match the intended type, stop and split or restage before committing.
+4. If the local unpublished commit message is wrong, use `git commit --amend` after reviewing the staged diff.
+5. If the commit was already pushed, prefer a follow-up corrective commit instead of rewriting shared history.
+
+`git reset --hard` is destructive and is not a default fix for a bad commit. Use it only when the user explicitly authorizes the operation and the recovery impact is clear.
+
 ## Atomicity
 
 One commit represents one logical purpose. Include required test, documentation, and changelog changes for that purpose.
