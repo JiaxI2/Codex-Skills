@@ -282,6 +282,36 @@ Examples:
 
 Do not load every reference by default.
 
+## Commit governance gate
+
+For every commit managed by this skill, classify the commit before staging or committing.
+
+Allowed commit types:
+
+```text
+feat     user-visible feature or capability
+fix      bug fix
+docs     documentation-only change
+style    formatting or whitespace change with no meaning change
+refactor code restructuring without feature or bug-fix intent
+perf     performance improvement
+test     test addition or correction
+build    build system or dependency change
+ci       CI or automation workflow change
+chore    repository maintenance, tooling, hooks, or auxiliary files
+```
+
+Rules:
+
+- each commit must have one primary type;
+- one commit should contain one logical purpose and no more than three tightly related change topics;
+- the commit subject should use `<type>(<scope>): <summary>` when the repository has no stricter convention;
+- `CHANGELOG.md` must be evaluated for every commit;
+- when `changelog.mode = "unreleased"`, every non-release commit must update `[Unreleased]` with entries that explicitly name the commit type, for example `- **docs**: ...`;
+- if a commit is intentionally not user-notable, record the type and reason in the changelog or in the repository's configured release-note exclusion mechanism;
+- repository lint and Git hooks must enforce the typed commit subject and required CHANGELOG update whenever the repository has hooks enabled.
+
+Before committing, run the repository's configured lint or hook-equivalent checks. Do not bypass hooks unless the user explicitly approves the bypass and the completion report names the skipped check.
 ## Core defaults
 
 For an ordinary development commit:
