@@ -4,6 +4,8 @@
 
 ### 新增
 
+- **feat**：新增 `platform/aicoding-kit-maintenance/`，定义 Codex-Skills/AiCoding 双仓库维护流程，明确 AGENTS 边界、架构文档、config/scripts 执行入口以及 Git hooks/CI 完成门禁。
+- **docs**：新增根 `AGENTS.md`、`plugins/AiCoding/AGENTS.md` 和 `docs/PLUGIN_DEVELOPMENT.md`，明确人工维护区、自动生成区、Hook 辅助边界和跨仓库发布顺序。
 - 新增 `skill-creator/`，将原 Anthropic skill creator 迁移为 Codex/OpenCode Agent Skill 创建、迁移和验证工作流。
 - 新增 `skill-creator/scripts/skill_gate.py`，用于判断是否应该创建 skill、分类四类 skill，并阻塞缺失 workflow contract、gate rules 或人工确认的标准/流程类 skill。
 
@@ -28,6 +30,8 @@
 
 ### 新增
 
+- **feat**：新增 `platform/aicoding-kit-maintenance/`，定义 Codex-Skills/AiCoding 双仓库维护流程，明确 AGENTS 边界、架构文档、config/scripts 执行入口以及 Git hooks/CI 完成门禁。
+- **docs**：新增根 `AGENTS.md`、`plugins/AiCoding/AGENTS.md` 和 `docs/PLUGIN_DEVELOPMENT.md`，明确人工维护区、自动生成区、Hook 辅助边界和跨仓库发布顺序。
 - 新增 `embedded/git/`，覆盖嵌入式仓库分支、提交、PR、Tag、Release、README、CHANGELOG、版本文件、固件制品、测试基线、生产基线和客户交付治理。
 - 新增 EtherCAT 开源项目与 MCP 设计参考，包含 SOEM/IgH、SSC/SOES、CiA402 开源实现、TwinCAT/LinuxCNC/ROS2 诊断、项目选型和维护路线。
 
@@ -81,6 +85,8 @@
 
 ### 新增
 
+- **feat**：新增 `platform/aicoding-kit-maintenance/`，定义 Codex-Skills/AiCoding 双仓库维护流程，明确 AGENTS 边界、架构文档、config/scripts 执行入口以及 Git hooks/CI 完成门禁。
+- **docs**：新增根 `AGENTS.md`、`plugins/AiCoding/AGENTS.md` 和 `docs/PLUGIN_DEVELOPMENT.md`，明确人工维护区、自动生成区、Hook 辅助边界和跨仓库发布顺序。
 - 建立 `Codex-Skills` 远程同步仓库结构。
 - 新增中文 `README.md`，说明仓库用途、目录、排除规则和维护方式。
 - 新增此 `CHANGELOG.md`，记录 skills 仓库变更。

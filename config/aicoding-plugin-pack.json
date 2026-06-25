@@ -54,6 +54,11 @@
       "source": "platform/aicoding-git-governance",
       "target": "aicoding-git-governance",
       "enabled": true
+    },
+    {
+      "source": "platform/aicoding-kit-maintenance",
+      "target": "aicoding-kit-maintenance",
+      "enabled": true
     }
   ],
   "excludePatterns": [

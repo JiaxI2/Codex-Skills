@@ -25,6 +25,7 @@ The short version:
 
 - `embedded/`: embedded firmware skill family: C99, architecture, ARM, DSP, EtherCAT/CiA402, OS, motor control, and review routing.
 - `platform/aicoding-git-governance/`: Git-Skill source for branch, commit, CHANGELOG, release, hook, and repository governance workflows.
+- `platform/aicoding-kit-maintenance/`: maintenance workflow for Codex-Skills/AiCoding architecture, plugin packaging, submodule updates, hooks, and completion gates.
 - `plugins/AiCoding/`: generated/installable Codex plugin package with manual manifest/hooks and generated skills/BUILDINFO.
 - `config/aicoding-plugin-pack.json`: single source for which skills are packaged into AiCoding.
 - `scripts/build-plugin.ps1`: reproducible plugin generation.
@@ -50,3 +51,4 @@ For release builds, use `-Configuration Release` only from a clean source tree e
 - Do not package `obsidian-*` into AiCoding.
 - Do not hard-code personal absolute paths in plugin files, hooks, or scripts.
 - Do not rebuild AiCoding plugin from inside the AiCoding submodule checkout; build in Codex-Skills, commit, then update the AiCoding submodule pointer.
+- For kit maintenance tasks, follow `AGENTS.md` first, then `platform/aicoding-kit-maintenance/SKILL.md`, then `docs/ARCHITECTURE.md` and `docs/PLUGIN_DEVELOPMENT.md`.
