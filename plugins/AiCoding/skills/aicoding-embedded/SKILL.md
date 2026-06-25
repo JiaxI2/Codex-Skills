@@ -1,5 +1,5 @@
 ---
-name: embedded
+name: aicoding-embedded
 description: 嵌入式系统一级入口 skill，覆盖 C99、DSP、ARM、EtherCAT、RTOS/裸机 OS、电机控制、系统架构、Git-Skill 发布治理和代码评审。用户请求嵌入式固件设计、实现、调试、重构、架构、Git 分支/提交/PR/Tag/Release/README/CHANGELOG 或评审时使用，并按主问题路由到更具体的二级 skill。默认使用中文输出。
 ---
 

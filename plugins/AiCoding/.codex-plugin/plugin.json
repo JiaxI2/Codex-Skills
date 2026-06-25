@@ -1,0 +1,21 @@
+{
+  "name": "aicoding",
+  "version": "0.1.0",
+  "description": "Embedded development, repository governance, and Codex lifecycle workflows.",
+  "author": {
+    "name": "JiaxI2"
+  },
+  "repository": "https://github.com/JiaxI2/Codex-Skills",
+  "license": "MIT",
+  "keywords": ["aicoding", "embedded", "firmware", "git", "codex", "hooks"],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "AiCoding",
+    "shortDescription": "Embedded development and repository governance kit",
+    "longDescription": "Reusable Codex skills and lifecycle hooks for embedded development, debugging, documentation, and Git repository governance.",
+    "developerName": "JiaxI2",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "defaultPrompt": "Use AiCoding for embedded firmware, C99, ARM, EtherCAT, RTOS, motor control, architecture, review, and Git governance tasks."
+  }
+}

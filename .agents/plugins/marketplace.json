@@ -1,0 +1,20 @@
+{
+  "name": "codex-skills-dev",
+  "interface": {
+    "displayName": "Codex Skills Development"
+  },
+  "plugins": [
+    {
+      "name": "aicoding",
+      "source": {
+        "source": "local",
+        "path": "./plugins/AiCoding"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "嵌入式评审"
+  short_description: "嵌入式固件评审清单"
+  default_prompt: "使用 $review 评审一个嵌入式固件变更。"

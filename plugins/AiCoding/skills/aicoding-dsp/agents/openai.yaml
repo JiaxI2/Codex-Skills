@@ -1,0 +1,4 @@
+interface:
+  display_name: "DSP"
+  short_description: "嵌入式 DSP 固件指导"
+  default_prompt: "使用 $dsp 设计或评审嵌入式 DSP 代码。"

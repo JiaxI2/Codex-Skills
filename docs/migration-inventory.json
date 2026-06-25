@@ -1,0 +1,49 @@
+{
+  "generatedAtUtc": "2026-06-25T11:28:21.7652701Z",
+  "decisions": [
+    "Codex-Skills is the skill/plugin source repository",
+    "AiCoding locks Codex-Skills through submodule",
+    "Obsidian skills stay standalone",
+    "AiCoding plugin skills are generated and flat"
+  ],
+  "aicoding": {
+    "submodulePath": "CodingKit/agents/skills",
+    "submoduleRemote": "https://github.com/JiaxI2/Codex-Skills.git"
+  },
+  "codexSkills": {
+    "status": [
+      " M CHANGELOG.md",
+      " M README.md",
+      " M embedded/SKILL.md",
+      " D embedded/git/README.md",
+      " D embedded/git/SKILL.md",
+      " D embedded/git/assets/AGENTS_SNIPPET.md",
+      " D embedded/git/assets/CHANGELOG_TEMPLATE.md",
+      " D embedded/git/assets/GITHUB_RELEASE_YML_TEMPLATE.yml",
+      " D embedded/git/assets/README_TEMPLATE.md",
+      " D embedded/git/assets/RELEASE_NOTES_TEMPLATE.md",
+      " D embedded/git/assets/REPOSITORY_GOVERNANCE_TEMPLATE.toml",
+      " D embedded/git/references/branch-policy.md",
+      " D embedded/git/references/commit-changelog-policy.md",
+      " D embedded/git/references/decision-questionnaire.md",
+      " D embedded/git/references/eval-cases.md",
+      " D embedded/git/references/firmware-policy.md",
+      " D embedded/git/references/profile-catalog.md",
+      " D embedded/git/references/quick-ref-index.md",
+      " D embedded/git/references/readme-policy.md",
+      " D embedded/git/references/release-tag-policy.md",
+      " D embedded/git/references/repository-initialization.md",
+      " D embedded/git/references/task-modes.md",
+      " D embedded/git/scripts/render_governance_templates.py",
+      " D embedded/git/scripts/validate_markdown_links.py",
+      " D embedded/git/scripts/validate_release_notes.py",
+      " M embedded/readme.md",
+      "?? .agents/",
+      "?? config/",
+      "?? platform/",
+      "?? plugins/"
+    ],
+    "branch": "main",
+    "remote": "https://github.com/JiaxI2/Codex-Skills.git"
+  }
+}

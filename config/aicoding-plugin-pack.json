@@ -1,0 +1,66 @@
+{
+  "plugin": {
+    "name": "aicoding",
+    "path": "plugins/AiCoding"
+  },
+  "skills": [
+    {
+      "source": "embedded",
+      "target": "aicoding-embedded",
+      "enabled": true,
+      "rootOnly": true
+    },
+    {
+      "source": "embedded/C99",
+      "target": "aicoding-c99-standard-c",
+      "enabled": true
+    },
+    {
+      "source": "embedded/architecture",
+      "target": "aicoding-architecture",
+      "enabled": true
+    },
+    {
+      "source": "embedded/arm",
+      "target": "aicoding-arm",
+      "enabled": true
+    },
+    {
+      "source": "embedded/dsp",
+      "target": "aicoding-dsp",
+      "enabled": true
+    },
+    {
+      "source": "embedded/ethercat",
+      "target": "aicoding-ethercat-cia402",
+      "enabled": true
+    },
+    {
+      "source": "embedded/motorcontrol",
+      "target": "aicoding-motor-control",
+      "enabled": true
+    },
+    {
+      "source": "embedded/os",
+      "target": "aicoding-os",
+      "enabled": true
+    },
+    {
+      "source": "embedded/review",
+      "target": "aicoding-review",
+      "enabled": true
+    },
+    {
+      "source": "platform/aicoding-git-governance",
+      "target": "aicoding-git-governance",
+      "enabled": true
+    }
+  ],
+  "excludePatterns": [
+    "obsidian-*",
+    "**/.git/**",
+    "**/__pycache__/**",
+    "**/*.bak*",
+    "**/*.zip"
+  ]
+}

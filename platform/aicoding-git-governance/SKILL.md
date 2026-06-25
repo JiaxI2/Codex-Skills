@@ -1,5 +1,5 @@
 ---
-name: git-skill
+name: aicoding-git-governance
 description: >
   Configurable Git, GitHub, documentation, version, tag, release, and firmware-governance workflow for embedded-first and general repositories. Use for branch, commit, push, pull request, merge, README, CHANGELOG,
   repository initialization, hook installation, version files, Git tags, GitHub Releases, release notes, firmware artifacts, test baselines,
@@ -12,7 +12,7 @@ description: >
 
 ## Purpose
 
-Apply a selectable, repository-specific Git and release standard. This skill stays under `embedded/git/` because the primary operating context is embedded development, but the workflow is intentionally reusable for general Git repository governance.
+Apply a selectable, repository-specific Git and release standard. This skill lives under `platform/aicoding-git-governance/` because Git governance is a cross-domain platform capability, while AiCoding packages it with embedded development workflows.
 
 This skill combines mainstream engineering ideas without copying one project wholesale:
 
@@ -76,11 +76,11 @@ MCP tool library:
 
 Human confirmation:
 
-- owner/confirmation: user confirmed Git-Skill should stay under `embedded/git/`, be named `Git-Skill`, and encode typed commits, CHANGELOG entries, branch/environment rules, CLI lint, and hook management;
+- owner/confirmation: user confirmed this workflow should be named `Git-Skill`, serve embedded-first and general repositories, and encode typed commits, CHANGELOG entries, branch/environment rules, CLI lint, and hook management;
 - manual review remains required for release notes, destructive Git actions, branch protection changes, and history rewriting.
 ## Human Confirmation
 
-Owner/confirmation: the user confirmed that this skill should stay under `embedded/git/`, be named `Git-Skill`, and encode an embedded-first but generally reusable Git governance workflow.
+Owner/confirmation: the user confirmed that this workflow should be named `Git-Skill` and encode an embedded-first but generally reusable Git governance workflow.
 
 Accepted gates: CLI lint, repository-local Git hooks, typed commit messages, mandatory CHANGELOG evaluation, branch/environment mapping, and manual review for release notes and destructive operations.
 

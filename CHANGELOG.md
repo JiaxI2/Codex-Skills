@@ -15,6 +15,10 @@
 - **docs**：更新 `embedded/git/` 提交治理规则，要求每次提交明确 `feat/fix/docs/style/refactor/perf/test/chore/build/ci` 类型，在 CHANGELOG 记录类型和影响，并通过 lint/hook 管理提交消息与 CHANGELOG 门禁。
 - **docs**：新增 `embedded/git/references/repository-initialization.md`，把 Git 仓库初始化标准化为本地同步空远程、远程优先绑定本地、克隆已有远程、本地引导、模板引导和 submodule 感知初始化，并要求通过 CLI 配置 `.githooks` 后运行 hook/lint 验证。
 - **docs**：补充大厂式 Git 分支/环境映射和单次提交纪律，覆盖 `main/develop/feature/test/release/hotfix`、`DEV/FAT/UAT/PRO`、同类提交、不超过 3 个议题以及禁止默认使用破坏性 reset。
+- **feat**：新增 `plugins/AiCoding/`，按 Codex 官方 plugin 结构生成扁平化 `aicoding-*` skills、Codex lifecycle hooks 和 `BUILDINFO.json`，用于新电脑安装 AiCoding 嵌入式 Codex kit。
+- **refactor**：将 `embedded/git/` 迁移为 `platform/aicoding-git-governance/`，把 Git-Skill 明确归类为跨领域平台治理能力。
+- **build**：新增 `config/aicoding-plugin-pack.json`、`scripts/build-plugin.ps1`、`scripts/verify-plugin.ps1`、`scripts/compare-generated.ps1` 和 `scripts/verify-skills.ps1`，支持可重复构建、生成目录校验和构建漂移检查。
+- **docs**：新增 `docs/ARCHITECTURE.md`，明确人工维护目录与自动生成目录、BUILDINFO 非自引用模型、local plugin 缓存刷新方式、CodingKit 外部资产发现协议、Hook 辅助边界以及禁止 AiCoding 在 submodule 中重新构建 Plugin。
 - **docs**：将 `embedded/git/` 的 skill 名称从 `embedded-git-workflow` 改为 `Git-Skill`（frontmatter `name: git-skill`），保留嵌入式路径定位，同时说明其嵌入式优先、可通用的 Git 治理边界。
 
 ### 移除

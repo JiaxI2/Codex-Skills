@@ -1,0 +1,4 @@
+interface:
+  display_name: "嵌入式架构平台化"
+  short_description: "设计与审查嵌入式系统分层、平台抽象、量产升级及发布门禁"
+  default_prompt: "使用 $embedded-architecture-platform-zh 审查当前固件架构并给出最小可验证的改进方案。"

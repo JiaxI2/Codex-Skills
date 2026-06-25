@@ -12,12 +12,12 @@
 
 ## 定位
 
-`Git-Skill` 的触发名是 `$git-skill`，物理路径仍保留在 `embedded/git/`，因为主要使用场景是嵌入式开发中的 Git、发布、基线和交付治理。
+`Git-Skill` 的插件内触发名是 `$aicoding-git-governance`，源码路径为 `platform/aicoding-git-governance/`，因为 Git 治理属于跨领域平台能力，但主要服务 AiCoding 嵌入式开发发布流程。
 
 ## 安装
 
 ```text
-<REPO_ROOT>/.agents/skills/embedded/git/
+<REPO_ROOT>/.agents/skills/platform/aicoding-git-governance/
 ```
 
 建议把 `assets/AGENTS_SNIPPET.md` 合并到仓库根目录 `AGENTS.md`。
@@ -41,12 +41,12 @@ assets/REPOSITORY_GOVERNANCE_TEMPLATE.toml
 ## Quick Ref
 
 ```text
-$git-skill ref readme open-source-firmware
-$git-skill ref changelog unreleased
-$git-skill ref branch environment-promotion
-$git-skill ref release firmware-minor
-$git-skill ref tag
-$git-skill ref links
+$aicoding-git-governance ref readme open-source-firmware
+$aicoding-git-governance ref changelog unreleased
+$aicoding-git-governance ref branch environment-promotion
+$aicoding-git-governance ref release firmware-minor
+$aicoding-git-governance ref tag
+$aicoding-git-governance ref links
 ```
 
 ## 自动化
@@ -54,7 +54,7 @@ $git-skill ref links
 生成启用的模板：
 
 ```bash
-python .agents/skills/embedded/git/scripts/render_governance_templates.py \
+python .agents/skills/platform/aicoding-git-governance/scripts/render_governance_templates.py \
   --config .github/repository-governance.toml \
   --output-dir .
 ```
@@ -62,14 +62,14 @@ python .agents/skills/embedded/git/scripts/render_governance_templates.py \
 验证 Markdown：
 
 ```bash
-python .agents/skills/embedded/git/scripts/validate_markdown_links.py \
+python .agents/skills/platform/aicoding-git-governance/scripts/validate_markdown_links.py \
   README.md CHANGELOG.md
 ```
 
 验证 Release Notes：
 
 ```bash
-python .agents/skills/embedded/git/scripts/validate_release_notes.py \
+python .agents/skills/platform/aicoding-git-governance/scripts/validate_release_notes.py \
   --config .github/repository-governance.toml \
   RELEASE_NOTES.md
 ```

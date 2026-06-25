@@ -1,44 +1,52 @@
-# Codex Skills 仓库
+# Codex-Skills
 
-这是个人 Codex skills 仓库，用于同步 `C:\Users\24322\.codex\skills` 下的可复用 skill。
+`Codex-Skills` is the source repository for reusable Codex skills, AiCoding plugin sources, Codex lifecycle hooks, and standalone personal skills.
 
-## 仓库用途
+## Repository Role
 
-- 备份和版本管理个人 Codex skills。
-- 在不同机器之间同步常用工作流、参考资料和领域规则。
-- 记录 embedded、文档、图表、Obsidian、前端、MCP 等 skill 的演进。
+- Source of truth for maintained skills and plugin package sources.
+- Build source for `plugins/AiCoding`, the deployable AiCoding Codex plugin.
+- Home for standalone personal skills such as `obsidian-markdown`, `obsidian-cli`, and `obsidian-bases`.
+- Migration source for the current local checkout at `C:\Users\24322\.codex\skills`; this path is retained during migration and should not be deleted automatically.
 
-## 目录说明
+## Architecture
 
-- `skill-creator/`：Codex/OpenCode Agent Skill 创建、迁移、类型判定、CLI/Hook/Lint 门禁和人工确认工作流。
-- `embedded/`：嵌入式一级 skill，包含 C99、architecture、review、ARM、DSP、EtherCAT/CiA402、OS、电机控制，以及保留在 `embedded/git/` 下的 `Git-Skill`；详细路由见 [`embedded/readme.md`](embedded/readme.md)。
-- `karpathy-guidelines/`：Karpathy 风格开发指南。
-- `frontend-design/`、`webapp-testing/`、`web-artifacts-builder/`：前端设计、实现和测试相关 skill。
-- `drawio/`、`json-canvas/`：图表和可视化结构化文档相关 skill。
-- `obsidian-*`：Obsidian vault、Markdown、Bases 等工作流。
-- `anthropic-*`、`codex-documents-anthropic-docx/`：文档、表格、幻灯片等参考或桥接 skill。
-- 其他目录为不同任务领域的独立 skill。
+See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
-## 不同步内容
+The short version:
 
-本仓库默认不提交以下内容：
+- `embedded/` contains embedded-domain skill sources.
+- `platform/` contains cross-domain platform workflow skill sources, including Git governance.
+- `plugins/AiCoding/skills/` is generated from `config/aicoding-plugin-pack.json`; do not edit it by hand.
+- `plugins/AiCoding/hooks/` is manually maintained plugin hook source.
+- `.agents/plugins/marketplace.json` is the development marketplace for local plugin testing.
 
-- `.system/`：Codex/OpenAI 系统内置 skill。
-- `**/backup/`：本地变更备份。
-- `*.zip`：临时导出包或压缩归档。
-- OS、编辑器、缓存和临时文件。
+## Directory Guide
 
-## 使用方式
+- `embedded/`: embedded firmware skill family: C99, architecture, ARM, DSP, EtherCAT/CiA402, OS, motor control, and review routing.
+- `platform/aicoding-git-governance/`: Git-Skill source for branch, commit, CHANGELOG, release, hook, and repository governance workflows.
+- `plugins/AiCoding/`: generated/installable Codex plugin package with manual manifest/hooks and generated skills/BUILDINFO.
+- `config/aicoding-plugin-pack.json`: single source for which skills are packaged into AiCoding.
+- `scripts/build-plugin.ps1`: reproducible plugin generation.
+- `scripts/verify-plugin.ps1`: plugin package validation.
+- `scripts/compare-generated.ps1`: repeated-build drift check.
+- `obsidian-*`: standalone personal Obsidian skills; not packaged into AiCoding.
 
-1. 将仓库同步到 Codex skills 目录。
-2. 保持每个 skill 使用独立目录，并包含 `SKILL.md`。
-3. 对需要延迟加载的长文档放入 `references/`。
-4. 对 Codex App UI 元数据使用 `agents/openai.yaml`。
-5. 修改 user-level skill 依赖 Git 状态、diff 和提交记录管理；不要在工作目录散落临时备份。
+## Build And Verify
 
-## 维护规则
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-plugin.ps1 -Plugin AiCoding -Configuration Development -Clean -Verify
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/compare-generated.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
+```
 
-- 默认中文说明。
-- 保留项目既有风格和已验证内容。
-- 新增或大改 skill 后更新 `CHANGELOG.md`。
-- 推送前检查 `git status`，避免提交本地备份、系统 skill 或压缩包。
+For release builds, use `-Configuration Release` only from a clean source tree excluding generated plugin outputs.
+
+## Maintenance Rules
+
+- Keep each skill source in one place; generated plugin copies are not source.
+- Update `CHANGELOG.md` for every normal commit and mark the commit type explicitly.
+- Keep Codex hooks and Git hooks separate.
+- Do not package `obsidian-*` into AiCoding.
+- Do not hard-code personal absolute paths in plugin files, hooks, or scripts.
+- Do not rebuild AiCoding plugin from inside the AiCoding submodule checkout; build in Codex-Skills, commit, then update the AiCoding submodule pointer.

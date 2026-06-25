@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/usr/bin/python3 \"$PLUGIN_ROOT/hooks/git_governance_stop.py\"",
+            "commandWindows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"py -3 \\\"$env:PLUGIN_ROOT\\hooks\\git_governance_stop.py\\\"\"",
+            "timeout": 30,
+            "statusMessage": "Checking AiCoding Git governance"
+          }
+        ]
+      }
+    ]
+  }
+}

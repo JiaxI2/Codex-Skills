@@ -1,0 +1,43 @@
+# {{PROJECT_NAME}}
+
+> {{ONE_LINE_DESCRIPTION}}
+
+{{BADGES}}
+
+{{NAVIGATION_LINKS}}
+
+## {{STATUS_HEADING}}
+
+{{STATUS_CONTENT}}
+
+## {{OVERVIEW_HEADING}}
+
+{{PROJECT_OVERVIEW}}
+
+{{OPTIONAL_SECTIONS}}
+
+## {{QUICK_START_HEADING}}
+
+{{QUICK_START_CONTENT}}
+
+## {{DOCUMENTATION_HEADING}}
+
+{{DOCUMENTATION_LINKS}}
+
+## {{RELEASES_HEADING}}
+
+- [{{LATEST_RELEASE_LABEL}}][latest-release]
+- [{{ALL_RELEASES_LABEL}}][releases]
+- [{{CHANGELOG_LABEL}}][changelog]
+
+{{FOOTER_SECTIONS}}
+
+[repository]: {{REPOSITORY_URL}}
+[documentation]: {{DOCUMENTATION_URL}}
+[changelog]: {{CHANGELOG_URL}}
+[latest-release]: {{LATEST_RELEASE_URL}}
+[releases]: {{RELEASES_URL}}
+[issues]: {{ISSUES_URL}}
+[contributing]: {{CONTRIBUTING_URL}}
+[security]: {{SECURITY_URL}}
+[license]: {{LICENSE_URL}}
