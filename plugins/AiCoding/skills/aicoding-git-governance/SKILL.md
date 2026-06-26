@@ -49,7 +49,9 @@ Steps:
 8. Stage only selected files, commit with a typed subject, update CHANGELOG, and push only when authorized.
 9. Report actual Git results and remaining work.
 
-Validation: run repository lint or hook-equivalent checks, `scripts/validate_markdown_links.py` for README/CHANGELOG when applicable, `scripts/validate_release_notes.py` for releases, `git diff --check`, and `platform/aicoding-user-skill-creator/scripts/quick_validate.py` plus `platform/aicoding-user-skill-creator/scripts/skill_gate.py validate` when this skill changes.`n`nExit criteria: selected profiles are recorded, README and CHANGELOG decisions are applied, hook/lint checks pass or have a documented rationale, destructive operations are avoided unless explicitly approved, and the final report names the commit type and verification performed.
+Validation: run repository lint or hook-equivalent checks, `scripts/validate_markdown_links.py` for README/CHANGELOG when applicable, `scripts/validate_release_notes.py` for releases, `git diff --check`, and `platform/aicoding-user-skill-creator/scripts/quick_validate.py` plus `platform/aicoding-user-skill-creator/scripts/skill_gate.py validate` when this skill changes.
+
+Exit criteria: selected profiles are recorded, README and CHANGELOG decisions are applied, hook/lint checks pass or have a documented rationale, destructive operations are avoided unless explicitly approved, and the final report names the commit type and verification performed.
 ## Gate Rules
 
 CLI checker:
