@@ -10,6 +10,7 @@
 
 - **docs**：更新 `aicoding-git-governance` 的 README、CHANGELOG、Tag 和 GitHub Release 语言策略，默认采用中文优先的中英双语治理；update Git-Skill governance so README, CHANGELOG, Tag, and Release workflows default to bilingual Chinese/English handling.
 - **fix(build)**：规范化 AiCoding Plugin 生成文本和 BUILDINFO digest，避免新 clone 或不同换行策略导致构建漂移；normalize generated plugin text and BUILDINFO digests so fresh clones do not drift because of line endings.
+- **build**：新增 .gitattributes 约束并重新归一化 generated plugin 文本，确保新电脑 checkout 后重复构建不产生换行漂移；add generated plugin eol attributes and renormalize package text for clean fresh-checkout rebuilds.
 
 ### 修复
 
