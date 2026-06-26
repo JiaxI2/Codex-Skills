@@ -7,13 +7,13 @@
 - **feat**：新增 `platform/aicoding-kit-maintenance/`，定义 Codex-Skills/AiCoding 双仓库维护流程，明确 AGENTS 边界、架构文档、config/scripts 执行入口以及 Git hooks/CI 完成门禁。
 - **docs**：新增根 `AGENTS.md`、`plugins/AiCoding/AGENTS.md` 和 `docs/PLUGIN_DEVELOPMENT.md`，明确人工维护区、自动生成区、Hook 辅助边界和跨仓库发布顺序。
 - 新增 `skill-creator/`，将原 Anthropic skill creator 迁移为 Codex/OpenCode Agent Skill 创建、迁移和验证工作流。
-- 新增 `skill-creator/scripts/skill_gate.py`，用于判断是否应该创建 skill、分类四类 skill，并阻塞缺失 workflow contract、gate rules 或人工确认的标准/流程类 skill。
+- 新增 `platform/aicoding-user-skill-creator/scripts/skill_gate.py`，用于判断是否应该创建 skill、分类四类 skill，并阻塞缺失 workflow contract、gate rules 或人工确认的标准/流程类 skill。
 
 ### 更新
 
 - 更新 `embedded/C99/`，把 C99 编码规范补充为 `consistent-workflow`、`organization-standard` 和 `team-expertise` 类型，并要求可机器检查规则落成 CLI/Hook/Lint/CI 门禁。
 - 更新 `embedded/architecture/`，把架构平台化规范补充为四类 skill，并要求架构边界、发布门禁和量产约束优先机器化为阻塞规则。
-- 更新 `README.md`，加入 `skill-creator/` 目录说明，并改为依赖 Git 管理 user-level skill 变更，避免散落临时备份。
+- 更新 `README.md`，加入 `platform/aicoding-user-skill-creator/` 目录说明，并改为依赖 Git 管理 user-level skill 变更，避免散落临时备份。
 - **docs**：更新 `embedded/git/` 提交治理规则，要求每次提交明确 `feat/fix/docs/style/refactor/perf/test/chore/build/ci` 类型，在 CHANGELOG 记录类型和影响，并通过 lint/hook 管理提交消息与 CHANGELOG 门禁。
 - **docs**：新增 `embedded/git/references/repository-initialization.md`，把 Git 仓库初始化标准化为本地同步空远程、远程优先绑定本地、克隆已有远程、本地引导、模板引导和 submodule 感知初始化，并要求通过 CLI 配置 `.githooks` 后运行 hook/lint 验证。
 - **docs**：补充大厂式 Git 分支/环境映射和单次提交纪律，覆盖 `main/develop/feature/test/release/hotfix`、`DEV/FAT/UAT/PRO`、同类提交、不超过 3 个议题以及禁止默认使用破坏性 reset。

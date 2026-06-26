@@ -59,6 +59,11 @@
       "source": "platform/aicoding-kit-maintenance",
       "target": "aicoding-kit-maintenance",
       "enabled": true
+    },
+    {
+      "source": "platform/aicoding-user-skill-creator",
+      "target": "aicoding-user-skill-creator",
+      "enabled": true
     }
   ],
   "excludePatterns": [

@@ -1,11 +1,11 @@
 ---
-name: skill-creator
+name: aicoding-user-skill-creator
 description: Create, improve, validate, or migrate Agent Skills for Codex/OpenCode while preserving compatibility with Anthropic-style SKILL.md folders. Use when the user asks to decide whether a skill should be created, classify skill type, enforce workflow-skill contracts with CLI/Hook/Lint gates, build or update a skill, convert Claude/Anthropic skills, add skill tests, improve triggering descriptions, or check portability across agent runtimes.
 ---
 
 # Agent Skill Creator
 
-Use this skill to create new Agent Skills or migrate existing Claude/Anthropic-style skills so they work cleanly in Codex and OpenCode. Keep the workflow practical: understand the intended behavior, edit only the skill files that matter, validate the result, and forward-test when the risk justifies it.
+Use this user-maintained AiCoding Skill to create new Agent Skills or migrate existing Claude/Anthropic-style skills so they work cleanly in Codex and OpenCode. This skill is intentionally named `aicoding-user-skill-creator` so the system `skill-creator` can remain installed without runtime name conflicts. Keep the workflow practical: understand the intended behavior, edit only the skill files that matter, validate the result, and forward-test when the risk justifies it.
 
 ## Runtime Compatibility
 

@@ -96,7 +96,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-plugin.ps1 -Pl
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/compare-generated.ps1
 ```
 
-Also run `skill-creator` quick and gate validation for any changed standard/process skill.
+Also run `aicoding-user-skill-creator` quick and gate validation for any changed standard/process skill.
 
 ### Plugin Package Change
 
@@ -219,5 +219,3 @@ Maintenance Result
 - Manual gates remaining:
 - Git state:
 ```
-
-
