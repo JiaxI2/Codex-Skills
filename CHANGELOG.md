@@ -1,5 +1,10 @@
 # 更新日志
 
+## 2026-06-26
+
+### 修复
+
+- **fix(tooling)**：修复 `scripts/compare-generated.ps1` 对 `plugins/AiCoding/BUILDINFO.json` 的非自引用构建模型误报；漂移检查现在比较 BUILDINFO 稳定字段，并按字节恢复可变元数据，避免 `sourceCommit`、`sourceTag`、`buildTimestampUtc` 和 `dirtySource` 造成重复构建漂移。
 ## 2026-06-25
 
 ### 新增
