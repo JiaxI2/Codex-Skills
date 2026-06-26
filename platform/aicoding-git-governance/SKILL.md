@@ -105,6 +105,7 @@ AGENTS.md
 AGENTS.override.md
 CONTRIBUTING.md
 README.md
+README_CN.md
 README.zh-CN.md
 CHANGELOG.md
 VERSION
@@ -168,11 +169,11 @@ repository audience
 repository visibility
 release consumers
 branch/environment model
-README profile and language
-CHANGELOG mode
+README profile and language, including bilingual README/README_CN policy
+CHANGELOG mode and bilingual entry policy
 version scheme
 Tag policy
-Release Notes profile
+Release Notes profile and bilingual Tag/Release language
 release notes language
 firmware artifact policy
 automation level
@@ -264,7 +265,7 @@ Git Governance Decision
 - Mode:
 - Branch profile:
 - README profile:
-- CHANGELOG mode:
+- CHANGELOG mode and bilingual entry policy:
 - Version scheme:
 - Release profile:
 - Release language:
@@ -411,6 +412,16 @@ README must describe current, durable repository identity, navigation, and usage
 
 Do not copy raw `git log` into CHANGELOG.
 
+
+### Bilingual documentation default
+
+For AiCoding-governed repositories, durable Git documentation should be bilingual by default:
+
+- `README.md` is the English entry unless the repository already has a stronger local convention.
+- `README_CN.md` is the Chinese entry for users who need Chinese onboarding and operation notes.
+- `CHANGELOG.md` entries should include Chinese-first text plus concise English meaning for externally visible changes.
+- Annotated Tag messages stay short but bilingual when the repository is Chinese-first or mixed-language, for example `Release v2026.06.26 / 发布 v2026.06.26`.
+- GitHub Release notes should use bilingual headings and Chinese-first content unless the repository policy explicitly selects English-only.
 ### Release language
 
 GitHub Release notes support Chinese, English, or bilingual content.
@@ -428,7 +439,7 @@ If `GITHUB RELEASE` is `REQUIRED`, then `RELEASE NOTES` is also `REQUIRED`. Do n
 Keep annotated Tag messages short:
 
 ```text
-Release v1.2.0
+Release v1.2.0 / 发布 v1.2.0
 ```
 
 Place detailed content in Release Notes.

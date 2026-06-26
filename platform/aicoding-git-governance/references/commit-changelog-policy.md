@@ -128,6 +128,19 @@ Recommended:
 [1.0.0]: https://github.com/OWNER/REPO/releases/tag/v1.0.0
 ```
 
+## Bilingual CHANGELOG policy
+
+For AiCoding-governed repositories, write externally visible CHANGELOG entries in Chinese first with concise English meaning in the same bullet or the next sentence. The entry must still name the commit type.
+
+Recommended form:
+
+```markdown
+- **feat**: 新增 standalone skill 清单和 profile 安装规则；add standalone skill registry and profile installation rules.
+- **fix**: 修复 BUILDINFO 非自引用漂移误报；fix false drift detection for non-self-referential BUILDINFO metadata.
+```
+
+Purely internal repositories may choose one language only, but the repository policy must say so explicitly.
+
 ## Entry style
 
 Write effect and impact:

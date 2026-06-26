@@ -2,6 +2,14 @@
 
 ## 2026-06-26
 
+### 新增 / Added
+
+- **docs**：新增 `README_CN.md` 中文入口，并在 `README.md` 链接中文说明；add a Chinese README entry and link it from the English README.
+
+### 更新 / Changed
+
+- **docs**：更新 `aicoding-git-governance` 的 README、CHANGELOG、Tag 和 GitHub Release 语言策略，默认采用中文优先的中英双语治理；update Git-Skill governance so README, CHANGELOG, Tag, and Release workflows default to bilingual Chinese/English handling.
+
 ### 修复
 
 - **fix(tooling)**：修复 `scripts/compare-generated.ps1` 对 `plugins/AiCoding/BUILDINFO.json` 的非自引用构建模型误报；漂移检查现在比较 BUILDINFO 稳定字段，并按字节恢复可变元数据，避免 `sourceCommit`、`sourceTag`、`buildTimestampUtc` 和 `dirtySource` 造成重复构建漂移。

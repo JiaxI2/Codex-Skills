@@ -38,10 +38,10 @@ v1.2.0
 v1.2.0-rc.1
 ```
 
-Use a short Tag message:
+Use a short Tag message. For AiCoding-governed or Chinese-first repositories, make it bilingual:
 
 ```text
-Release v1.2.0
+Release v1.2.0 / 发布 v1.2.0
 ```
 
 Push only the intended Tag:
@@ -52,7 +52,7 @@ git push origin v1.2.0
 
 ## Release language
 
-GitHub Release notes may be Chinese, English, or bilingual.
+GitHub Release notes may be Chinese, English, or bilingual. AiCoding-governed repositories default to bilingual release notes unless a repository policy explicitly selects one language.
 
 Default language comes from repository evidence. If README and CHANGELOG are Chinese-first, use Chinese by default. For the first GitHub Release in a repository, ask the user to confirm the release language when it is not already specified; the default choice is Chinese.
 
