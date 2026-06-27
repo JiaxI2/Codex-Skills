@@ -173,3 +173,16 @@ Do not write:
 - typo-only comments;
 - merge-only changes;
 - internal test cleanup.
+
+## Standard commit taxonomy
+
+- `feat`: add functionality.
+- `fix`: repair a bug.
+- `docs`: documentation-only change.
+- `style`: formatting, whitespace, missing semicolons, or similar changes with no semantic impact.
+- `refactor`: code change that neither fixes a bug nor adds a feature.
+- `perf`: performance improvement.
+- `test`: add missing tests or correct existing tests.
+- `chore`: build process, auxiliary tools, libraries, or maintenance files.
+
+Single commits should contain one category of change and no more than three tightly related topics. If a commit is wrong after creation, prefer an explicit corrective commit unless the user has authorized history rewriting.

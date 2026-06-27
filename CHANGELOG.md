@@ -3,6 +3,9 @@
 ## 2026-06-27
 
 ### 新增 / Added
+- **feat(git-governance)**：为 Codex-Skills 本仓库新增 `.githooks/`、`.github/repository-governance.toml` 和 `scripts/lint-git-governance.ps1`，把 README 中文链接、Git 治理标准、commit type 和 Release typed summary 规则接入当前 Git hook；wire the governance lint into this repository Git hook.
+- **feat(git-governance)**：新增 `assets/lint-git-governance.ps1` hook/lint 模板，机器检查 README 中文链接、Git 治理标准、commit type 和 Release typed summary 规则；add a reusable hook/lint template that enforces README Chinese-link, Git governance, commit type, and release typed-summary rules.
+- **docs(git-governance)**：补充分支命名、环境映射、commit type、单次提交约束和 Release typed commit summary 标准，要求所有 AiCoding 管理仓库在 README 或等价治理文档中写明；document branch/environment, commit type, single-commit, and release typed-summary standards for all AiCoding-governed repositories.
 - **docs(repo)**：新增 Apache-2.0 `LICENSE`、`CONTRIBUTING.md`、`SECURITY.md` 和 `CITATION.cff`，补齐 GitHub About 侧栏可识别的仓库元数据文件；add repository metadata files recognized by GitHub About.
 - **docs(git-governance)**：要求存在 `README_CN.md` 时 `README.md` 顶部提供显眼中文文档链接，并更新 Codex-Skills README 顶部链接为中英双语；require a visible top-of-file Chinese documentation link in `README.md` when `README_CN.md` exists.
 

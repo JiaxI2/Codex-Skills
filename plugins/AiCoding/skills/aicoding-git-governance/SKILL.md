@@ -56,7 +56,7 @@ Exit criteria: selected profiles are recorded, README and CHANGELOG decisions ar
 
 CLI checker:
 
-- repository-specific lint command, such as `scripts/lint-git-governance.ps1`, must return non-zero when typed commits, CHANGELOG updates, governance files, or required hook checks fail;
+- repository-specific lint command, such as `scripts/lint-git-governance.ps1`, must return non-zero when typed commits, CHANGELOG updates, README Chinese-link policy, README Git governance standard, Release typed-summary policy, governance files, or required hook checks fail;
 - bundled validators include `scripts/validate_markdown_links.py` and `scripts/validate_release_notes.py` for README, CHANGELOG, and release-note checks;
 - skill validation uses `platform/aicoding-user-skill-creator/scripts/quick_validate.py` and `platform/aicoding-user-skill-creator/scripts/skill_gate.py validate`.
 
@@ -129,7 +129,7 @@ If it does not exist:
 - infer current practice from the repository;
 - for ordinary work, propose a configuration but do not create one silently;
 - when the user asks to establish or standardize policy, create it from
-  `assets/REPOSITORY_GOVERNANCE_TEMPLATE.toml`;
+  `assets/REPOSITORY_GOVERNANCE_TEMPLATE.toml` and `assets/lint-git-governance.ps1``;
 - replace or remove every unresolved placeholder before committing.
 
 Repository-specific explicit rules override this skill when safe. Report conflicts before write or publish actions.
@@ -213,6 +213,19 @@ firmware.storage = github-release
 ```
 
 Do not add unused long-lived branches, README sections, changelog categories, or release sections.
+### Standard branch, environment, and commit taxonomy
+
+AiCoding-governed repositories should document this policy in README or an equivalent governance file:
+
+- `main` or `master`: stable production branch; do not edit code directly except approved release or hotfix integration.
+- `develop`: DEV integration branch for accepted development work.
+- `feature/<scope>`: feature branch created from `develop`; use lowercase descriptive names such as `feature/user-module`.
+- `test`: FAT branch when a shared functional acceptance test environment exists.
+- `release/<version>`: UAT/pre-production branch for release hardening; merge tested changes into it instead of developing directly on it.
+- `hotfix/<scope>`: urgent production fix branch created from `main`; merge back to `main` and `develop`.
+- Environment mapping: `DEV` for developer debugging, `FAT` for functional acceptance testing, `UAT` for user acceptance/pre-production, and `PRO` for production.
+- Commit types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, and `chore` are the default taxonomy; repository-specific additions must be documented.
+- Single commit rule: one category, no more than three tightly related topics, and a typed subject.
 
 ## Step 5: Classify the primary mode
 
@@ -446,6 +459,7 @@ Release v1.2.0 / 发布 v1.2.0
 ```
 
 Place detailed content in Release Notes.
+Release Notes must include a typed commit summary for the full release range. Group all included commits under headings such as `feat`, `fix`, `docs`, `build`, `ci`, `chore`, `test`, `refactor`, `perf`, and `style`; omit empty groups only after checking the actual commit list. State the primary release type and then describe the concrete changes and impact.
 
 Formal Release Notes normally include:
 
@@ -489,7 +503,7 @@ Generated GitHub notes are a draft source for merged PRs, contributors, and comp
 Copy and fill:
 
 ```text
-assets/REPOSITORY_GOVERNANCE_TEMPLATE.toml
+assets/REPOSITORY_GOVERNANCE_TEMPLATE.toml` and `assets/lint-git-governance.ps1`
 → .github/repository-governance.toml
 ```
 

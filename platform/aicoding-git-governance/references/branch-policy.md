@@ -68,3 +68,16 @@ Document:
 - back-merge rules.
 
 Retain the model if it is clear and safe.
+
+## README branch standard
+
+AiCoding-governed repositories should document branch naming and environment mapping in README or an equivalent governance file:
+
+- `main` or `master`: stable production branch, maps to `PRO`, accessible, no direct code edits except approved release or hotfix integration.
+- `develop`: integration branch, maps to `DEV`, accessible for accepted development work.
+- `feature/<scope>`: feature branch from `develop`, not externally accessible.
+- `test`: functional acceptance test branch, maps to `FAT`, accessible when the environment exists.
+- `release/<version>`: pre-production branch, maps to `UAT`, accessible; avoid direct feature development on this branch.
+- `hotfix/<scope>`: urgent production fix branch from `main`, not externally accessible until merged.
+
+Keep branch names lowercase and descriptive, and keep environment branches only when they correspond to real deployment or test environments.

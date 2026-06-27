@@ -1,0 +1,71 @@
+schema_version = 1
+
+[project]
+name = "Codex-Skills"
+repository_url = "https://github.com/JiaxI2/Codex-Skills.git"
+visibility = "private"
+audience = ["developer", "maintainer"]
+default_language = "zh-CN"
+
+[branch]
+profile = "github-flow-lite"
+stable = "main"
+integration = ""
+test = ""
+prerelease = ""
+require_pull_request = false
+
+[readme]
+enabled = true
+profile = "minimal-internal"
+file = "README.md"
+secondary_language_file = "README_CN.md"
+require_toc = false
+validate_links = true
+required_sections = ["repository-role", "directory-guide", "build-and-verify", "git-governance-standard", "maintenance-rules"]
+
+[readme.urls]
+documentation = "./README_CN.md"
+changelog = "./CHANGELOG.md"
+latest_release = "https://github.com/JiaxI2/Codex-Skills/releases/latest"
+releases = "https://github.com/JiaxI2/Codex-Skills/releases"
+issues = "https://github.com/JiaxI2/Codex-Skills/issues"
+contributing = "./CONTRIBUTING.md"
+security = "./SECURITY.md"
+license = "./LICENSE"
+
+[changelog]
+enabled = true
+mode = "dated"
+file = "CHANGELOG.md"
+fragment_directory = ""
+categories = ["Added", "Changed", "Deprecated", "Removed", "Fixed", "Security", "Documentation", "Build"]
+require_pr_or_issue_links = false
+compare_links = true
+require_typed_entries = true
+
+[version]
+scheme = "date"
+files = []
+tag_pattern = "v{version}"
+annotated_tag = true
+signed_tag = false
+stable_branch = "main"
+
+[release]
+enabled = true
+profile = "minor"
+notes_mode = "curated"
+required_sections = ["Summary", "Typed Commit Summary", "Compatibility", "Deprecations", "Release Notes", "Full Changelog", "New Contributors", "Known Issues", "Traceability"]
+optional_sections = ["Highlights / Major Changes", "Breaking Changes / Migration", "Assets / Checksums", "Upgrade / Programming", "Rollback"]
+require_explicit_deprecations = true
+require_new_contributors_when_present = true
+immutable_release = false
+
+[automation]
+render_templates = false
+validate_markdown_links = true
+validate_release_notes = true
+github_generated_release_notes = false
+hooks_path = ".githooks"
+lint_command = "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/lint-git-governance.ps1 -Mode all"

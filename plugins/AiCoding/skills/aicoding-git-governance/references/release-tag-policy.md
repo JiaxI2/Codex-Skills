@@ -69,6 +69,8 @@ Bilingual releases are supported. Use Chinese first and keep the canonical Engli
 ## 已知问题 / Known Issues
 ## 可追溯性 / Traceability
 ```
+
+Every GitHub Release must include a typed commit summary for the complete release range. Inspect the actual commits since the previous tag, group each commit by type (`feat`, `fix`, `docs`, `build`, `ci`, `chore`, `test`, `refactor`, `perf`, `style`, or a documented repository-specific type), state the primary release type, and then describe the concrete change and impact. Do not publish a Release that only says a generic update happened.
 ## Release Notes sections
 Always required for formal releases:
 
