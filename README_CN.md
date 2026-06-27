@@ -12,7 +12,7 @@
 ## 目录说明
 
 - `embedded/`：嵌入式固件 skill 族，包括 C99、架构、ARM、DSP、EtherCAT/CiA402、OS、电机控制和评审路由。
-- `platform/`：跨领域平台 workflow skill，例如 Git 治理、Kit 维护和用户 skill 创建。
+- `platform/`：跨领域平台 workflow skill，例如 Git 治理、Kit 维护、SDD/MVP/BDD/TDD/文档同步流程和用户 skill 创建。
 - `plugins/AiCoding/`：AiCoding Codex Plugin 包；`skills/` 和 `BUILDINFO.json` 为生成内容。
 - `config/aicoding-plugin-pack.json`：唯一的 AiCoding Plugin 打包清单。
 - `scripts/`：构建、验证、漂移检查和维护脚本。

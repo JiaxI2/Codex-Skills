@@ -28,6 +28,7 @@ The short version:
 - `embedded/`: embedded firmware skill family: C99, architecture, ARM, DSP, EtherCAT/CiA402, OS, motor control, and review routing.
 - `platform/aicoding-git-governance/`: Git-Skill source for branch, commit, CHANGELOG, release, hook, and repository governance workflows.
 - `platform/aicoding-kit-maintenance/`: maintenance workflow for Codex-Skills/AiCoding architecture, plugin packaging, submodule updates, hooks, and completion gates.
+- `platform/aicoding-sdd-bdd-tdd-development-flow/`: standalone-capable SDD, MVP, BDD, architecture-first, TDD fallback, layered verification, and documentation synchronization workflow for AiCoding.
 - `platform/aicoding-user-skill-creator/`: User-Skill-Creator source for creating, validating, improving, and migrating AiCoding user skills without conflicting with the system `skill-creator`.
 - `plugins/AiCoding/`: generated/installable Codex plugin package with manual manifest/hooks and generated skills/BUILDINFO.
 - `config/aicoding-plugin-pack.json`: single source for which skills are packaged into AiCoding.

@@ -1,5 +1,11 @@
 # 更新日志
 
+## 2026-06-27
+
+### 新增 / Added
+
+- **feat(platform)**：新增 AiCoding SDD/MVP/BDD/架构优先/TDD fallback/文档同步 workflow skills 与共享 references，并将其纳入 AiCoding Plugin 打包清单；add standalone-capable SDD, MVP, BDD, architecture-first, TDD fallback, documentation synchronization workflow skills and shared references, and package them in the AiCoding Plugin.
+
 ## 2026-06-26
 
 ### 新增 / Added
