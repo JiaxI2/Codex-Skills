@@ -1,6 +1,6 @@
 # Codex-Skills
 
-Chinese documentation: [README_CN.md](README_CN.md).
+中文文档 / Chinese documentation: [README_CN.md](README_CN.md).
 
 `Codex-Skills` is the source repository for reusable Codex skills, AiCoding plugin sources, Codex lifecycle hooks, and standalone personal skills.
 

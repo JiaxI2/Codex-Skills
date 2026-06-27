@@ -3,6 +3,8 @@
 ## 2026-06-27
 
 ### 新增 / Added
+- **docs(repo)**：新增 Apache-2.0 `LICENSE`、`CONTRIBUTING.md`、`SECURITY.md` 和 `CITATION.cff`，补齐 GitHub About 侧栏可识别的仓库元数据文件；add repository metadata files recognized by GitHub About.
+- **docs(git-governance)**：要求存在 `README_CN.md` 时 `README.md` 顶部提供显眼中文文档链接，并更新 Codex-Skills README 顶部链接为中英双语；require a visible top-of-file Chinese documentation link in `README.md` when `README_CN.md` exists.
 
 - **feat(platform)**：新增 AiCoding SDD/MVP/BDD/架构优先/TDD fallback/文档同步 workflow skills 与共享 references，并将其纳入 AiCoding Plugin 打包清单；add standalone-capable SDD, MVP, BDD, architecture-first, TDD fallback, documentation synchronization workflow skills and shared references, and package them in the AiCoding Plugin.
 

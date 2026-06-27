@@ -92,6 +92,7 @@ For AiCoding-governed repositories, use a stable bilingual README pair when the 
 
 - `README.md`: English entry, concise repository identity, quick start, install/update/status commands, and links.
 - `README_CN.md`: Chinese entry with the same durable operational meaning and any Chinese-first context.
+- `README.md` must include a visible top-of-file link to `README_CN.md` when the Chinese entry exists, preferably `中文文档 / Chinese documentation: [README_CN.md](README_CN.md).`.
 - Keep both files consistent on repository role, install commands, update commands, support boundary, and release links.
 - Do not copy raw CHANGELOG entries into either README.
 - Do not use dated diff summaries in README files; release summaries belong in CHANGELOG, Tag messages, or GitHub Release notes.
