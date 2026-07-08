@@ -9,7 +9,7 @@
 - Source of truth for maintained skills and plugin package sources.
 - Build source for `plugins/AiCoding`, the deployable AiCoding Codex plugin.
 - Home for standalone personal skills such as `obsidian-markdown`, `obsidian-cli`, and `obsidian-bases`.
-- Migration source for the current local checkout at `C:\Users\24322\.codex\skills`; this path is retained during migration and should not be deleted automatically.
+- Source repository for skills and plugin package content; runtime environments should expose explicit standalone skill directories or the installed AiCoding plugin, not this whole repository as a long-term Skill Root.
 
 ## Architecture
 
@@ -47,6 +47,12 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
 
 For release builds, use `-Configuration Release` only from a clean source tree excluding generated plugin outputs.
 
+## Runtime Principles
+
+- `aicoding-*` capabilities are exposed as a group through the AiCoding Plugin.
+- Standalone skills are exposed through explicit user Skill Root directories or links.
+- Do not edit `plugins/AiCoding/skills/` or `plugins/AiCoding/BUILDINFO.json` by hand.
+- Do not modify the Codex plugin cache directly.
 ## Git Governance Standard
 
 All AiCoding-governed Git repositories should write their branch, environment, commit type, and release-note rules in README or an equivalent governance document.

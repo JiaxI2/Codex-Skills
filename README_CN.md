@@ -43,6 +43,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
 - 不手工编辑 `plugins/AiCoding/skills/` 或 `plugins/AiCoding/BUILDINFO.json`。
 - 不直接修改 Codex plugin cache。
 
+## 发布链接
+
+- [最新版本](https://github.com/JiaxI2/Codex-Skills/releases/latest)
+- [全部 Release](https://github.com/JiaxI2/Codex-Skills/releases)
+
 ## 相关文档
 
 - [English README](README.md)

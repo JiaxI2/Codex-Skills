@@ -53,6 +53,29 @@ Require-Content "README.md" "Git Governance Standard|Git 治理标准" "README.m
 Require-Content "README.md" "feat.+fix.+docs.+style.+refactor.+perf.+test.+chore|feat.+fix.+docs.+build.+ci.+chore" "README.md must document the standard commit type taxonomy."
 Require-Content "README.md" "main.+master.+develop.+feature.+test.+release.+hotfix|main.+develop.+feature.+test.+release.+hotfix" "README.md must document branch naming and environment mapping."
 Require-Content "README.md" "Release.+type|Release.+typed|按类型汇总|主类型" "README.md must document that Release notes group commits by type and state the primary release type."
+$localPathFragments = @(
+    "C:\Users",
+    "F:\Study",
+    "AppData\Local\Temp"
+)
+
+$readmeFiles = @("README.md")
+if (Test-Path -LiteralPath "README_CN.md") { $readmeFiles += "README_CN.md" }
+foreach ($file in $readmeFiles) {
+    $content = Get-Content -LiteralPath $file -Raw -Encoding utf8
+    foreach ($fragment in $localPathFragments) {
+        if ($content.Contains($fragment)) {
+            Fail "README files must not hard-code personal local paths: $file"
+        }
+    }
+}
+
+if (Test-Path -LiteralPath "README_CN.md") {
+    Require-Content "README_CN.md" "Git 治理标准|Git Governance Standard" "README_CN.md must document the Git governance standard when it exists."
+    Require-Content "README_CN.md" "feat.+fix.+docs.+style.+refactor.+perf.+test.+chore|feat.+fix.+docs.+build.+ci.+chore" "README_CN.md must document the standard commit type taxonomy."
+    Require-Content "README_CN.md" "main.+master.+develop.+feature.+test.+release.+hotfix|main.+develop.+feature.+test.+release.+hotfix" "README_CN.md must document branch naming and environment mapping."
+    Require-Content "README_CN.md" "Release.+主类型|按类型汇总|Release.+typed" "README_CN.md must document that Release notes group commits by type and state the primary release type."
+}
 
 $governance = Get-Content -LiteralPath ".github/repository-governance.toml" -Raw -Encoding utf8
 $changelogMode = ""
