@@ -1,5 +1,12 @@
 schema_version = 1
 
+[governance_standard]
+id = "aicoding-git-governance"
+version = "2026.07"
+source_url = "https://github.com/JiaxI2/Codex-Skills/blob/main/platform/aicoding-git-governance/references/aicoding-git-governance-standard.md"
+raw_url = "https://raw.githubusercontent.com/JiaxI2/Codex-Skills/main/platform/aicoding-git-governance/references/aicoding-git-governance-standard.md"
+sync_policy = "track-canonical-url"
+
 [project]
 name = ""
 repository_url = ""
@@ -8,7 +15,7 @@ audience = ["developer", "tester"]
 default_language = "zh-CN"
 
 [branch]
-profile = "existing-custom" # github-flow-lite | embedded-git-flow-lite | environment-promotion | existing-custom
+profile = "github-flow-lite" # github-flow-lite | embedded-git-flow-lite | environment-promotion | existing-custom
 stable = "main"
 integration = ""
 test = ""
@@ -17,15 +24,21 @@ require_pull_request = true
 
 [readme]
 enabled = true
-profile = "minimal-internal" # minimal-internal | open-source-firmware | firmware-library | product-delivery
+profile = "minimal-public"
 file = "README.md"
-secondary_language_file = ""
-require_toc = true
+primary_language = "zh-CN"
+language_order = ["zh-CN", "en"]
+secondary_language_file = "README_CN.md"
+english_language_file = "README_EN.md"
+secondary_language_surface = "top-file-language-switch-and-github-about"
+quick_environment_preview = true
+require_toc = false
 validate_links = true
-required_sections = ["status", "overview", "quick-start", "documentation", "releases"]
+required_sections = ["status", "quick-start", "repository-navigation", "git-workflow"]
 
 [readme.urls]
-documentation = ""
+documentation = "./README_CN.md"
+chinese_documentation = ""
 changelog = "./CHANGELOG.md"
 latest_release = ""
 releases = ""
@@ -36,16 +49,17 @@ license = "./LICENSE"
 
 [changelog]
 enabled = true
-mode = "unreleased" # unreleased | fragments | release-only | generated
+mode = "unreleased" # unreleased | dated | fragments | release-only | generated
 file = "CHANGELOG.md"
 fragment_directory = ""
-categories = ["Added", "Changed", "Deprecated", "Removed", "Fixed", "Security"]
-require_pr_or_issue_links = true
+categories = ["Added", "Changed", "Deprecated", "Removed", "Fixed", "Security", "Documentation", "Build"]
+require_pr_or_issue_links = false
 compare_links = true
+require_typed_entries = true
 
 [version]
-scheme = "semver" # semver | calendar | product-defined | component-matrix
-files = ["VERSION"]
+scheme = "semver" # semver | date | calendar | product-defined | component-matrix
+files = []
 tag_pattern = "v{version}"
 annotated_tag = true
 signed_tag = false
@@ -53,23 +67,35 @@ stable_branch = "main"
 
 [release]
 enabled = true
-profile = "firmware-minor" # patch | minor | major | prerelease | firmware-minor | customer-delivery | test-baseline
-notes_mode = "generated-plus-curated" # curated | generated-plus-curated
-required_sections = ["Summary", "What's Changed", "Compatibility", "Release Notes", "Full Changelog", "Known Issues", "Traceability"]
-optional_sections = ["Highlights / Major Changes", "Deprecations", "Breaking Changes / Migration", "New Contributors", "Assets / Checksums", "Upgrade / Programming", "Rollback"]
+profile = "minor" # patch | minor | major | prerelease | firmware-minor | customer-delivery | test-baseline
+notes_mode = "curated" # curated | generated-plus-curated
+notes_template = ".github/RELEASE_TEMPLATE.md"
+required_sections = ["Summary", "What's Changed", "Compatibility", "Deprecations", "Release Notes", "Full Changelog", "New Contributors", "Known Issues", "Traceability"]
+required_bilingual_sections = ["摘要 / Summary", "变更内容 / What's Changed", "兼容性 / Compatibility", "废弃项 / Deprecations", "发布说明 / Release Notes", "完整变更 / Full Changelog", "新贡献者 / New Contributors", "已知问题 / Known Issues", "可追溯性 / Traceability"]
+optional_sections = ["Highlights / Major Changes", "Breaking Changes / Migration", "Assets / Checksums", "Upgrade / Programming", "Rollback"]
 require_explicit_deprecations = true
 require_new_contributors_when_present = true
 immutable_release = false
 
 [firmware]
-enabled = true
-storage = "github-release" # github-release | git-lfs | git | external | none
+enabled = false
+storage = "none" # github-release | git-lfs | git | external | none
 metadata_directory = "firmware"
-require_sha256 = true
+require_sha256 = false
 naming_pattern = "{product}-{target}-{version}-{configuration}.{ext}"
 
 [automation]
-render_templates = true
+render_templates = false
 validate_markdown_links = true
 validate_release_notes = true
-github_generated_release_notes = true
+github_generated_release_notes = false
+hooks_path = ".githooks"
+lint_command = "pwsh -NoProfile -ExecutionPolicy Bypass -File scripts/lint-git-governance.ps1 -Mode all"
+
+[github_about]
+require_bilingual = true
+language_order = ["zh-CN", "en"]
+description_zh = ""
+description_en = ""
+homepage = ""
+topics = []

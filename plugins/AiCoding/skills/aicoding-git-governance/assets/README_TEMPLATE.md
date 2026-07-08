@@ -1,39 +1,59 @@
 # {{PROJECT_NAME}}
 
-> {{ONE_LINE_DESCRIPTION}}
-
 {{BADGES}}
 
-{{NAVIGATION_LINKS}}
+{{ONE_LINE_DESCRIPTION}}
 
-## {{STATUS_HEADING}}
+[中文](README_CN.md) | [English](README_EN.md)
+
+## 项目定位 / Project Positioning
+
+{{PROJECT_POSITIONING}}
+
+## 状态 / Status
 
 {{STATUS_CONTENT}}
 
-## {{OVERVIEW_HEADING}}
+## 环境预览 / Environment Preview
 
-{{PROJECT_OVERVIEW}}
+{{ENVIRONMENT_PREVIEW}}
 
-{{OPTIONAL_SECTIONS}}
-
-## {{QUICK_START_HEADING}}
+## 快速开始 / Quick Start
 
 {{QUICK_START_CONTENT}}
 
-## {{DOCUMENTATION_HEADING}}
+## 目录说明 / Repository Navigation
 
-{{DOCUMENTATION_LINKS}}
+{{REPOSITORY_NAVIGATION}}
 
-## {{RELEASES_HEADING}}
+## Git 治理标准 / Git Governance Standard
 
-- [{{LATEST_RELEASE_LABEL}}][latest-release]
-- [{{ALL_RELEASES_LABEL}}][releases]
-- [{{CHANGELOG_LABEL}}][changelog]
+本仓库必须引用同一份 canonical standard：
 
-{{FOOTER_SECTIONS}}
+- 标准文档：{{GOVERNANCE_STANDARD_URL}}
+- Raw URL：{{GOVERNANCE_STANDARD_RAW_URL}}
+
+Commit type taxonomy：`feat`、`fix`、`docs`、`style`、`refactor`、`perf`、`test`、`build`、`ci`、`chore`。
+
+README 默认中文优先，必须保留 `README_CN.md` / `README_EN.md` 文件级语言切换、环境 badge、Release badge、License badge 和 GitHub About 双语元数据。
+
+## 文档和支持 / Documentation And Support
+
+- [中文文档](README_CN.md)
+- [English documentation](README_EN.md)
+- [更新日志][changelog]
+- [问题反馈][issues]
+- [贡献指南][contributing]
+- [安全策略][security]
+- [许可证][license]
+
+## 更新日志和发布 / Changelog And Releases
+
+- [最新版本][latest-release]
+- [全部 Release][releases]
+- [更新日志][changelog]
 
 [repository]: {{REPOSITORY_URL}}
-[documentation]: {{DOCUMENTATION_URL}}
 [changelog]: {{CHANGELOG_URL}}
 [latest-release]: {{LATEST_RELEASE_URL}}
 [releases]: {{RELEASES_URL}}
@@ -41,12 +61,3 @@
 [contributing]: {{CONTRIBUTING_URL}}
 [security]: {{SECURITY_URL}}
 [license]: {{LICENSE_URL}}
-## Git Governance Standard
-
-All AiCoding-governed Git repositories should document their branch, environment, commit type, and release-note rules here.
-
-- Branches: `main` or `master` is the stable production branch and must not receive direct code edits except approved release or hotfix integration; `develop` is the DEV integration branch; `feature/<scope>` branches start from `develop`; `test` maps to FAT when a shared test environment exists; `release/<version>` maps to UAT/pre-production; `hotfix/<scope>` starts from `main` and is merged back to `main` and `develop`.
-- Environments: `DEV` is developer debugging, `FAT` is functional acceptance testing, `UAT` is user acceptance/pre-production, and `PRO` is production.
-- Commit types: `feat` adds functionality, `fix` repairs bugs, `docs` changes documentation only, `style` changes formatting without behavior impact, `refactor` restructures code without feature or bug-fix intent, `perf` improves performance, `test` adds or corrects tests, and `chore` changes build/supporting tools or maintenance files.
-- Single commits: one commit should contain one category of change, no more than three tightly related topics, and a typed subject such as `feat(scope): summary`.
-- Releases: Tag and GitHub Release notes must group every included commit by type, state the primary release type, and describe the concrete user-facing or maintenance impact.

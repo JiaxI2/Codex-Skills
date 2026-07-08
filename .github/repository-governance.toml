@@ -1,5 +1,12 @@
 schema_version = 1
 
+[governance_standard]
+id = "aicoding-git-governance"
+version = "2026.07"
+source_url = "https://github.com/JiaxI2/Codex-Skills/blob/main/platform/aicoding-git-governance/references/aicoding-git-governance-standard.md"
+raw_url = "https://raw.githubusercontent.com/JiaxI2/Codex-Skills/main/platform/aicoding-git-governance/references/aicoding-git-governance-standard.md"
+sync_policy = "track-canonical-url"
+
 [project]
 name = "Codex-Skills"
 repository_url = "https://github.com/JiaxI2/Codex-Skills.git"
@@ -17,15 +24,21 @@ require_pull_request = false
 
 [readme]
 enabled = true
-profile = "minimal-internal"
+profile = "minimal-public"
 file = "README.md"
+primary_language = "zh-CN"
+language_order = ["zh-CN", "en"]
 secondary_language_file = "README_CN.md"
+english_language_file = "README_EN.md"
+secondary_language_surface = "top-file-language-switch-and-github-about"
+quick_environment_preview = true
 require_toc = false
 validate_links = true
-required_sections = ["project-identity", "status", "quick-start", "build", "repository-navigation", "documentation-support-links", "changelog-releases"]
+required_sections = ["status", "quick-start", "repository-navigation", "git-workflow"]
 
 [readme.urls]
 documentation = "./README_CN.md"
+chinese_documentation = "https://github.com/JiaxI2/Codex-Skills/blob/main/README_CN.md"
 changelog = "./CHANGELOG.md"
 latest_release = "https://github.com/JiaxI2/Codex-Skills/releases/latest"
 releases = "https://github.com/JiaxI2/Codex-Skills/releases"
@@ -56,7 +69,8 @@ stable_branch = "main"
 enabled = true
 profile = "minor"
 notes_mode = "curated"
-required_sections = ["Summary", "Typed Commit Summary", "Compatibility", "Deprecations", "Release Notes", "Full Changelog", "New Contributors", "Known Issues", "Traceability"]
+required_sections = ["Summary", "What's Changed", "Compatibility", "Deprecations", "Release Notes", "Full Changelog", "New Contributors", "Known Issues", "Traceability"]
+required_bilingual_sections = ["摘要 / Summary", "变更内容 / What's Changed", "兼容性 / Compatibility", "废弃项 / Deprecations", "发布说明 / Release Notes", "完整变更 / Full Changelog", "新贡献者 / New Contributors", "已知问题 / Known Issues", "可追溯性 / Traceability"]
 optional_sections = ["Highlights / Major Changes", "Breaking Changes / Migration", "Assets / Checksums", "Upgrade / Programming", "Rollback"]
 require_explicit_deprecations = true
 require_new_contributors_when_present = true
@@ -69,3 +83,11 @@ validate_release_notes = true
 github_generated_release_notes = false
 hooks_path = ".githooks"
 lint_command = "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/lint-git-governance.ps1 -Mode all"
+
+[github_about]
+require_bilingual = true
+language_order = ["zh-CN", "en"]
+description_zh = "Codex-Skills：可复用 Codex skills、AiCoding plugin 源码和 Git 治理标准源仓库。"
+description_en = "Reusable Codex skills, AiCoding plugin sources, and the canonical Git governance standard."
+homepage = "https://github.com/JiaxI2/Codex-Skills/blob/main/README_CN.md"
+topics = ["codex-skills", "aicoding", "git-governance", "agent-skills"]

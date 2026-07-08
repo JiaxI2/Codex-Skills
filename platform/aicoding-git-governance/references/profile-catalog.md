@@ -30,7 +30,28 @@ Profiles are selectable defaults, not mandatory identities.
 
 ## README profiles
 
+### minimal-public
+
+Default AiCoding governance profile for the user's repositories.
+
+Required:
+
+```text
+Chinese-first README.md
+README_CN.md and README_EN.md file-level language switching
+Release, PowerShell, Python, and License badges with explicit URLs
+project identity/status
+quick start
+repository navigation
+documentation/support links
+CHANGELOG/Releases
+Git governance standard and canonical URL
+GitHub About bilingual metadata
+```
+
 ### minimal-internal
+
+Legacy profile for private repositories that intentionally opt out of public-facing README surfaces. Do not use as the default for new AiCoding-governed repositories.
 
 Required:
 

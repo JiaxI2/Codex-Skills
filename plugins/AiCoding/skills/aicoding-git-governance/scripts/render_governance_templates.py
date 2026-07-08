@@ -37,6 +37,7 @@ def replace_known_values(text: str, config: dict) -> str:
     project = config.get("project", {})
     readme = config.get("readme", {})
     urls = readme.get("urls", {})
+    governance_standard = config.get("governance_standard", {})
     replacements = {
         "PROJECT_NAME": project.get("name", ""),
         "REPOSITORY_URL": project.get("repository_url", ""),
@@ -48,6 +49,8 @@ def replace_known_values(text: str, config: dict) -> str:
         "CONTRIBUTING_URL": urls.get("contributing", "./CONTRIBUTING.md"),
         "SECURITY_URL": urls.get("security", "./SECURITY.md"),
         "LICENSE_URL": urls.get("license", "./LICENSE"),
+        "GOVERNANCE_STANDARD_URL": governance_standard.get("source_url", ""),
+        "GOVERNANCE_STANDARD_RAW_URL": governance_standard.get("raw_url", ""),
     }
     for key, value in replacements.items():
         if value:

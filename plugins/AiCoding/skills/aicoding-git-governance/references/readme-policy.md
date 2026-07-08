@@ -88,16 +88,19 @@ Do not update for every implementation-level fix.
 
 ## Bilingual README policy
 
-For AiCoding-governed repositories, use a stable bilingual README pair when the audience includes both Chinese and English readers:
+For AiCoding-governed repositories, use the user standard: Chinese-first GitHub default README with file-level bilingual entries:
 
-- `README.md`: English entry, concise repository identity, quick start, install/update/status commands, and links.
-- `README_CN.md`: Chinese entry with the same durable operational meaning and any Chinese-first context.
-- `README.md` must include a visible top-of-file link to `README_CN.md` when the Chinese entry exists, preferably `中文文档 / Chinese documentation: [README_CN.md](README_CN.md).`.
-- Keep both files consistent on repository role, install commands, update commands, support boundary, and release links.
+- `README.md`: Chinese-first GitHub default entry with concise repository identity, environment badges, quick start, install/update/status commands, and links.
+- `README_CN.md`: explicit Chinese file-level entry for language switching and GitHub About/Homepage links.
+- `README_EN.md`: explicit English file-level entry.
+- `README.md` must include visible top-of-file links to both `README_CN.md` and `README_EN.md`.
+- `README.md` must include Release, PowerShell, Python, and License badges with explicit HTTPS URLs by default; add repository-specific tool badges when applicable.
+- `.github/repository-governance.toml` must include `[governance_standard]` with the canonical standard URL and raw URL so repositories can stay synchronized.
+- Keep language files consistent on repository role, install commands, update commands, support boundary, and release links.
 - Do not copy raw CHANGELOG entries into either README.
 - Do not use dated diff summaries in README files; release summaries belong in CHANGELOG, Tag messages, or GitHub Release notes.
 
-`README.zh-CN.md` remains acceptable when an existing repository already uses that name, but new AiCoding repositories should prefer `README_CN.md`.
+`README.zh-CN.md` remains acceptable only for existing repositories that already use that name. New AiCoding-governed repositories should use `README_CN.md` and `README_EN.md`.
 
 ## Validation
 
