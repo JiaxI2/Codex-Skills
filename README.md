@@ -11,6 +11,20 @@
 - Home for standalone personal skills such as `obsidian-markdown`, `obsidian-cli`, and `obsidian-bases`.
 - Source repository for skills and plugin package content; runtime environments should expose explicit standalone skill directories or the installed AiCoding plugin, not this whole repository as a long-term Skill Root.
 
+## Status
+
+- Maintained as the canonical source tree for Codex skills and AiCoding plugin packaging.
+- Generated plugin copies are build outputs, not editable source.
+- Release notes, CHANGELOG entries, and README governance follow `.github/repository-governance.toml`.
+
+## Quick Start
+
+```powershell
+git clone https://github.com/JiaxI2/Codex-Skills.git
+cd Codex-Skills
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
+```
+
 ## Architecture
 
 See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
@@ -53,6 +67,7 @@ For release builds, use `-Configuration Release` only from a clean source tree e
 - Standalone skills are exposed through explicit user Skill Root directories or links.
 - Do not edit `plugins/AiCoding/skills/` or `plugins/AiCoding/BUILDINFO.json` by hand.
 - Do not modify the Codex plugin cache directly.
+
 ## Git Governance Standard
 
 All AiCoding-governed Git repositories should write their branch, environment, commit type, and release-note rules in README or an equivalent governance document.
@@ -63,12 +78,30 @@ All AiCoding-governed Git repositories should write their branch, environment, c
 - Single commits: one commit should contain one category of change, no more than three tightly related topics, and a typed subject such as `feat(scope): summary`.
 - Releases: Tag and GitHub Release notes must group every included commit by type, state the primary release type, and describe the concrete user-facing or maintenance impact.
 
+## Documentation And Support
+
+- [Chinese documentation](README_CN.md)
+- [Architecture](docs/ARCHITECTURE.md)
+- [Plugin development](docs/PLUGIN_DEVELOPMENT.md)
+- [Contributing](CONTRIBUTING.md)
+- [Security policy](SECURITY.md)
+- [Issue tracker](https://github.com/JiaxI2/Codex-Skills/issues)
+- [License](LICENSE)
+
+## Changelog And Releases
+
+- [CHANGELOG](CHANGELOG.md)
+- [Latest Release](https://github.com/JiaxI2/Codex-Skills/releases/latest)
+- [All Releases](https://github.com/JiaxI2/Codex-Skills/releases)
+
+Diff summaries belong in `CHANGELOG.md`, annotated Tag messages, or GitHub Release notes, not in README.
+
 ## Maintenance Rules
 
 - Keep each skill source in one place; generated plugin copies are not source.
 - Update `CHANGELOG.md` for every normal commit and mark the commit type explicitly.
 - Keep Codex hooks and Git hooks separate.
 - Do not package `obsidian-*` into AiCoding.
-- Do not hard-code personal absolute paths in plugin files, hooks, or scripts.
+- Do not hard-code personal absolute paths in plugin files, hooks, scripts, or README files.
 - Do not rebuild AiCoding plugin from inside the AiCoding submodule checkout; build in Codex-Skills, commit, then update the AiCoding submodule pointer.
 - For kit maintenance tasks, follow `AGENTS.md` first, then `platform/aicoding-kit-maintenance/SKILL.md`, then `docs/ARCHITECTURE.md` and `docs/PLUGIN_DEVELOPMENT.md`.

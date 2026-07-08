@@ -6,6 +6,7 @@
 
 - **docs(c99)**：明确 C99 修改记录中的作者字段默认使用 `HU JIAXUAN`，但项目已有负责人、作者或文件头规则时按项目规范替换；clarify the default C99 change-record author while preserving project-specific owner and file-header rules.
 - **docs(readme)**：治理 README/README_CN，移除个人本地绝对路径，补充英文 Runtime Principles 和中文 Release 链接，并扩展 lint 以检查 README 双语治理与本地路径泄漏；govern README/README_CN, remove personal local paths, add runtime/release links, and extend lint for bilingual README governance.
+- **docs(readme)**：将 README/README_CN 收敛到同一 `minimal-internal` profile，补齐状态、快速开始、文档支持、更新日志和发布入口，并让 lint 按同一 profile 校验双语 README；align README/README_CN to one `minimal-internal` profile and enforce the same profile in lint.
 ## 2026-06-27
 
 ### 新增 / Added

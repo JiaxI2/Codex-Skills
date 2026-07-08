@@ -22,7 +22,7 @@ file = "README.md"
 secondary_language_file = "README_CN.md"
 require_toc = false
 validate_links = true
-required_sections = ["repository-role", "directory-guide", "build-and-verify", "git-governance-standard", "maintenance-rules"]
+required_sections = ["project-identity", "status", "quick-start", "build", "repository-navigation", "documentation-support-links", "changelog-releases"]
 
 [readme.urls]
 documentation = "./README_CN.md"

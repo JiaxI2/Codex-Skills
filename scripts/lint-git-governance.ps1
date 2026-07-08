@@ -19,6 +19,22 @@ function Require-Content([string]$Path, [string]$Pattern, [string]$Message) {
     }
 }
 
+function Get-TomlSection([string]$Content, [string]$SectionName) {
+    $pattern = "(?ms)^\[$([regex]::Escape($SectionName))\]\s*(.*?)(?=^\[|\z)"
+    if ($Content -match $pattern) { return $Matches[1] }
+    return ""
+}
+
+function Get-TomlStringValue([string]$SectionContent, [string]$Key) {
+    $pattern = "(?m)^$([regex]::Escape($Key))\s*=\s*`"([^`"]+)`""
+    if ($SectionContent -match $pattern) { return $Matches[1] }
+    return ""
+}
+
+function Require-ReadmeHeading([string]$Path, [string]$Heading) {
+    Require-Content $Path "(?m)^##\s+$([regex]::Escape($Heading))\s*$" "$Path must include the '$Heading' section required by the selected README profile."
+}
+
 $repoRoot = (& git rev-parse --show-toplevel).Trim()
 if (-not $repoRoot) { Fail "Not inside a Git repository." }
 Set-Location $repoRoot
@@ -37,6 +53,12 @@ foreach ($file in $requiredFiles) {
     }
 }
 
+$governance = Get-Content -LiteralPath ".github/repository-governance.toml" -Raw -Encoding utf8
+$readmeSection = Get-TomlSection $governance "readme"
+$readmeProfile = Get-TomlStringValue $readmeSection "profile"
+$changelogSection = Get-TomlSection $governance "changelog"
+$changelogMode = Get-TomlStringValue $changelogSection "mode"
+
 $scanFiles = @("README.md", "CHANGELOG.md", ".github/repository-governance.toml")
 foreach ($file in $scanFiles) {
     $content = Get-Content -LiteralPath $file -Raw -Encoding utf8
@@ -47,12 +69,40 @@ foreach ($file in $scanFiles) {
 
 if (Test-Path -LiteralPath "README_CN.md") {
     Require-Content "README.md" "README_CN\.md" "README.md must include a visible top-of-file link to README_CN.md when README_CN.md exists."
+    Require-Content "README_CN.md" "README\.md" "README_CN.md must include a visible top-of-file link to README.md when README.md exists."
+}
+
+if ($readmeProfile -eq "minimal-internal") {
+    $englishHeadings = @(
+        "Repository Role",
+        "Status",
+        "Quick Start",
+        "Directory Guide",
+        "Build And Verify",
+        "Documentation And Support",
+        "Changelog And Releases"
+    )
+    foreach ($heading in $englishHeadings) { Require-ReadmeHeading "README.md" $heading }
+
+    if (Test-Path -LiteralPath "README_CN.md") {
+        $chineseHeadings = @(
+            "仓库定位",
+            "状态",
+            "快速开始",
+            "目录说明",
+            "构建和验证",
+            "文档和支持",
+            "更新日志和发布"
+        )
+        foreach ($heading in $chineseHeadings) { Require-ReadmeHeading "README_CN.md" $heading }
+    }
 }
 
 Require-Content "README.md" "Git Governance Standard|Git 治理标准" "README.md must document the Git governance standard: branch/environment, commit types, single-commit rules, and release typed summaries."
 Require-Content "README.md" "feat.+fix.+docs.+style.+refactor.+perf.+test.+chore|feat.+fix.+docs.+build.+ci.+chore" "README.md must document the standard commit type taxonomy."
 Require-Content "README.md" "main.+master.+develop.+feature.+test.+release.+hotfix|main.+develop.+feature.+test.+release.+hotfix" "README.md must document branch naming and environment mapping."
 Require-Content "README.md" "Release.+type|Release.+typed|按类型汇总|主类型" "README.md must document that Release notes group commits by type and state the primary release type."
+
 $localPathFragments = @(
     "C:\Users",
     "F:\Study",
@@ -75,12 +125,6 @@ if (Test-Path -LiteralPath "README_CN.md") {
     Require-Content "README_CN.md" "feat.+fix.+docs.+style.+refactor.+perf.+test.+chore|feat.+fix.+docs.+build.+ci.+chore" "README_CN.md must document the standard commit type taxonomy."
     Require-Content "README_CN.md" "main.+master.+develop.+feature.+test.+release.+hotfix|main.+develop.+feature.+test.+release.+hotfix" "README_CN.md must document branch naming and environment mapping."
     Require-Content "README_CN.md" "Release.+主类型|按类型汇总|Release.+typed" "README_CN.md must document that Release notes group commits by type and state the primary release type."
-}
-
-$governance = Get-Content -LiteralPath ".github/repository-governance.toml" -Raw -Encoding utf8
-$changelogMode = ""
-if ($governance -match '(?m)^mode\s*=\s*"([^"]+)"') {
-    $changelogMode = $Matches[1]
 }
 
 $changelog = Get-Content -LiteralPath "CHANGELOG.md" -Raw -Encoding utf8
