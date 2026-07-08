@@ -1,5 +1,10 @@
 # 更新日志
 
+## 2026-07-08
+
+### 更新 / Changed
+
+- **docs(c99)**：明确 C99 修改记录中的作者字段默认使用 `HU JIAXUAN`，但项目已有负责人、作者或文件头规则时按项目规范替换；clarify the default C99 change-record author while preserving project-specific owner and file-header rules.
 ## 2026-06-27
 
 ### 新增 / Added
