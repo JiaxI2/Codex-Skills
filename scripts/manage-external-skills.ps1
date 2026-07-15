@@ -53,15 +53,10 @@ foreach ($binding in $bindings) {
         if ($Apply) {
             & git -C $repoRoot submodule deinit -f -- $submodule | Out-Null
             Assert-GitSuccess "deinitialize $submodule"
-            $moduleRow = @(& git -C $repoRoot config -f .gitmodules --get-regexp '^submodule\..*\.path$' | Where-Object { $_ -match ('\s' + [regex]::Escape($submodule) + '$') }) | Select-Object -First 1
-            if (-not $moduleRow) { throw "Submodule declaration not found: $submodule" }
-            $section = (($moduleRow -split '\s+', 2)[0] -replace '\.path$','')
-            & git -C $repoRoot config -f .gitmodules --remove-section $section
-            Assert-GitSuccess "remove $section from .gitmodules"
-            & git -C $repoRoot add -- .gitmodules
-            Assert-GitSuccess 'stage .gitmodules'
             & git -C $repoRoot rm -f -- $submodule | Out-Null
             Assert-GitSuccess "remove gitlink $submodule"
+            $remainingModuleRow = @(& git -C $repoRoot config -f .gitmodules --get-regexp '^submodule\..*\.path$' | Where-Object { $_ -match ('\s' + [regex]::Escape($submodule) + '$') }) | Select-Object -First 1
+            if ($remainingModuleRow) { throw "Submodule declaration was not removed: $submodule" }
             $config.skills = @($config.skills | Where-Object { $_.name -ne $binding.name })
             $text = ($config | ConvertTo-Json -Depth 10) + "`n"
             [System.IO.File]::WriteAllText($configPath, $text, (New-Object System.Text.UTF8Encoding $false))
