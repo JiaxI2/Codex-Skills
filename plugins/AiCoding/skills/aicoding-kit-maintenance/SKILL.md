@@ -45,7 +45,7 @@ Steps:
 1. Resolve repository role: `Codex-Skills`, `AiCoding`, or both.
 2. Read applicable `AGENTS.md` files before editing.
 3. Identify whether the target file is canonical source, generated output, platform integration, install state, or external asset.
-4. Select the task mode: skill-source, plugin-package, hook-change, platform-integration, submodule-update, install-refresh, asset-extension, docs-only, release, or rollback.
+4. Select the task mode: skill-source, external-skill-binding, plugin-package, hook-change, platform-integration, submodule-update, install-refresh, asset-extension, docs-only, release, or rollback.
 5. Use the repository scripts and config as the source of executable truth.
 6. Apply the smallest change that satisfies the task.
 7. Run the required gate checks for the selected mode.
@@ -62,6 +62,7 @@ Exit criteria: boundaries were respected, canonical source was changed instead o
 ### Codex-Skills Owns
 
 - canonical skills under `embedded/`, `platform/`, and standalone root skill directories;
+- declared external Skill submodules under `external/`, `.gitmodules`, and `config/external-skill-bindings.json`;
 - `plugins/AiCoding/.codex-plugin/`, `plugins/AiCoding/hooks/`, and plugin assets;
 - `config/aicoding-plugin-pack.json`;
 - plugin build and verification scripts;
@@ -83,6 +84,23 @@ Do not manually edit:
 - `plugins/AiCoding/skills/`;
 - `plugins/AiCoding/BUILDINFO.json`;
 - `CodingKit/agents/skills` from AiCoding scripts or AiCoding maintenance tasks, except to initialize, inspect, fetch, checkout an approved commit/tag, validate, and update the parent gitlink.
+
+## External GitHub Skill Binding
+
+All Skills sourced from GitHub must use the same chained Git dependency model as AiCoding and Codex-Skills:
+
+```text
+AiCoding gitlink -> Codex-Skills gitlink -> external Skill gitlink -> mapped SKILL.md directory
+```
+
+- Add the upstream repository as `external/<repository-name>` with a declared `.gitmodules` URL.
+- Record the runtime name, submodule path, nested Skill path, URL, `latest-stable-tag` update policy, and stable-tag pattern in `config/external-skill-bindings.json`.
+- Resolve the highest non-prerelease semantic-version tag and pin that release commit through the gitlink; do not follow an unreleased branch head, copy, vendor, or silently refresh external Skill files.
+- Use `scripts/manage-external-skills.ps1 -Action Sync` for a dry-run status/update plan and add `-Apply` only after review.
+- Removing an external Skill must use the same lifecycle command so the manifest entry, `.gitmodules` section, and gitlink disappear together; the paired AiCoding change removes the runtime registry mapping and managed junction.
+- If the repository root lacks `SKILL.md`, map the real nested directory rather than treating the root as installable.
+- Keep general-purpose external Skills standalone unless plugin packaging is separately approved.
+- Commit and verify Codex-Skills before updating the AiCoding parent submodule.
 
 ## Mode Gates
 
@@ -109,6 +127,19 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-plugin.ps1
 ```
 
 Official plugin validation should be run when the validator is available.
+
+### External Skill Binding
+
+Run in Codex-Skills:
+
+```powershell
+git submodule status --recursive
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/manage-external-skills.ps1 -Action Status
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
+git diff --check
+```
+
+`verify-skills.ps1` must fail when an `external/` directory is not a declared gitlink, a binding does not match `.gitmodules`, the gitlink is not at the latest locally available stable tag, the mapped `SKILL.md` is missing, or its frontmatter name differs from the declared runtime name.
 
 ### Hook Change
 
@@ -187,6 +218,8 @@ Accepted gates: repository scripts, Skill validation, Plugin validation, generat
 
 Decision: approved as the maintained AiCoding/Codex-Skills operating model; future changes must update this skill or the AGENTS/docs chain when the process changes.
 
+External GitHub Skill decision: the user explicitly requires every future GitHub-downloaded Skill to use the chained submodule URL-binding model. The creation gate may classify this as `skip` because it extends an existing organization standard instead of creating a new Skill; that result does not cancel the owner-approved policy update. External upstream frontmatter beyond the local strict validator remains a documented manual compatibility review and must not be rewritten in the read-only submodule.
+
 ## Prohibited Actions
 
 Do not:
@@ -194,6 +227,7 @@ Do not:
 - edit generated plugin skills or `BUILDINFO.json` manually;
 - rebuild the plugin from AiCoding or from the AiCoding submodule checkout;
 - copy skill source into AiCoding;
+- copy or vendor GitHub-sourced Skills into Codex-Skills instead of declaring an `external/` submodule and binding manifest entry;
 - copy CodingKit asset directories into the plugin;
 - include `obsidian-*` in AiCoding plugin;
 - use hard-coded personal absolute paths;

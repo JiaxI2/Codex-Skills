@@ -23,6 +23,23 @@ Generated output:
 
 Generated files are created by `scripts/build-plugin.ps1`. They must not be edited manually. The build writes `plugins/AiCoding/skills/.generated` as a local marker.
 
+## External Standalone Skill Bindings
+
+GitHub-sourced standalone Skills are URL-bound instead of copied. The dependency chain is:
+
+```text
+AiCoding
+-> CodingKit/agents/skills (Codex-Skills submodule)
+-> external/<repository> (upstream Skill repository submodule)
+-> mapped directory containing SKILL.md
+```
+
+`.gitmodules` records the upstream repository URL, while `config/external-skill-bindings.json` records the runtime Skill name, real Skill subdirectory, and `latest-stable-tag` policy. `scripts/manage-external-skills.ps1 -Action Sync` fetches tags, selects the highest non-prerelease SemVer tag, and updates the gitlink only with `-Apply`. The gitlink still pins the selected release commit for reproducible clones. `scripts/verify-skills.ps1` rejects undeclared external directories, anonymous gitlinks, mismatched URLs, non-stable-tag gitlinks, missing mapped `SKILL.md` files, and frontmatter-name drift.
+
+`scripts/manage-external-skills.ps1 -Action Remove -Name <name> -Apply` removes the binding manifest entry, `.gitmodules` section, and gitlink together. AiCoding removes the matching runtime registry entry and only deletes a user-level junction when its target exactly matches the registered source path.
+
+External general-purpose Skills remain standalone and are not added to the AiCoding plugin unless plugin packaging is separately approved. AiCoding may expose them selectively through its standalone Skill profile by mapping the runtime name to the nested source path.
+
 ## BUILDINFO Model
 
 `BUILDINFO.json` is intentionally non-self-referential. `sourceCommit` records the input `HEAD` used for the build before the generated `BUILDINFO.json` is committed. `BUILDINFO.json` is excluded from package digests, and `buildInfoModel` records this rule explicitly.

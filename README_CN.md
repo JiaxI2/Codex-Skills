@@ -54,6 +54,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
 | `platform/aicoding-git-governance/` | Git-Skill 源码、canonical standard、配置模板、lint 模板和 Release 校验工具。 |
 | `platform/aicoding-kit-maintenance/` | Codex-Skills/AiCoding 架构、plugin packaging、submodule、hooks 和完成门禁维护 workflow。 |
 | `platform/aicoding-user-skill-creator/` | 创建、验证、改进和迁移 AiCoding user skills 的 workflow。 |
+| `external/` | 通过 Git submodule URL 绑定的第三方 standalone Skills；真实入口由 `config/external-skill-bindings.json` 映射。 |
 | `plugins/AiCoding/` | 生成/可安装的 Codex plugin 包，包含手工维护 manifest/hooks 和生成的 skills/BUILDINFO。 |
 | `config/aicoding-plugin-pack.json` | AiCoding Plugin 打包清单的唯一来源。 |
 | `scripts/` | 构建、验证、漂移检查和维护脚本。 |
@@ -63,6 +64,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-plugin.ps1 -Plugin AiCoding -Configuration Development -Clean -Verify
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/compare-generated.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/manage-external-skills.ps1 -Action Status
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/lint-git-governance.ps1 -Mode all
 ```
@@ -89,6 +91,7 @@ Release notes 必须按主类型汇总，包含 Deprecations、Release Notes、F
 
 - `aicoding-*` 成组能力通过 AiCoding Plugin 暴露。
 - standalone skill 通过用户 Skill Root 的独立目录或链接暴露。
+- GitHub 来源 Skill 只通过 `external/` 子模块绑定，并跟随最新稳定 SemVer tag；同步或移除先 dry-run，再显式 `-Apply`。
 - 不手工编辑 `plugins/AiCoding/skills/` 或 `plugins/AiCoding/BUILDINFO.json`。
 - 不直接修改 Codex plugin cache。
 
@@ -113,6 +116,7 @@ diff 摘要应放在 `CHANGELOG.md`、annotated Tag message 或 GitHub Release n
 ## 维护规则 / Maintenance Rules
 
 - 每个 skill source 只保留一个权威位置；生成的 plugin 副本不是源码。
+- GitHub 来源 Skill 不复制进仓库；卸载时同步删除 binding manifest、`.gitmodules` 条目和 gitlink。
 - 每次普通 commit 都要评估并更新 `CHANGELOG.md`，且明确 commit type。
 - Codex hooks 和 Git hooks 分开维护。
 - 不把 `obsidian-*` 打包进 AiCoding。

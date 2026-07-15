@@ -54,6 +54,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 | `platform/aicoding-git-governance/` | Git-Skill source, canonical standard, governance templates, lint templates, and release validators. |
 | `platform/aicoding-kit-maintenance/` | Codex-Skills/AiCoding architecture, plugin packaging, submodule, hook, and completion-gate maintenance workflow. |
 | `platform/aicoding-user-skill-creator/` | Workflow for creating, validating, improving, and migrating AiCoding user skills. |
+| `external/` | Third-party standalone Skills URL-bound as Git submodules; `config/external-skill-bindings.json` maps the real Skill directory. |
 | `plugins/AiCoding/` | Generated/installable Codex plugin package. |
 | `config/aicoding-plugin-pack.json` | Single source for the AiCoding plugin package list. |
 | `scripts/` | Build, validation, drift-check, and maintenance scripts. |
@@ -63,6 +64,7 @@ See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/build-plugin.ps1 -Plugin AiCoding -Configuration Development -Clean -Verify
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/compare-generated.ps1
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/manage-external-skills.ps1 -Action Status
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/lint-git-governance.ps1 -Mode all
 ```
@@ -89,6 +91,7 @@ Release notes must group changes by primary type and include Deprecations, Relea
 
 - `aicoding-*` capabilities are exposed as a group through the AiCoding plugin.
 - Standalone skills are exposed through explicit user Skill Root directories or links.
+- GitHub-sourced Skills are bound only through `external/` submodules and follow the latest stable SemVer tag; sync and removal are dry-run first and require explicit `-Apply`.
 - Do not edit `plugins/AiCoding/skills/` or `plugins/AiCoding/BUILDINFO.json` by hand.
 - Do not modify the Codex plugin cache directly.
 
@@ -113,6 +116,7 @@ Diff summaries belong in `CHANGELOG.md`, annotated Tag messages, or GitHub Relea
 ## Maintenance Rules
 
 - Keep each skill source in one place; generated plugin copies are not source.
+- Do not copy GitHub-sourced Skills into the repository; uninstall removes the binding manifest entry, `.gitmodules` section, and gitlink together.
 - Update `CHANGELOG.md` for every normal commit and mark the commit type explicitly.
 - Keep Codex hooks and Git hooks separate.
 - Do not package `obsidian-*` into AiCoding.

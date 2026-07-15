@@ -21,6 +21,7 @@ Human-maintained canonical sources:
 - `embedded/`
 - `platform/`
 - root standalone skills such as `obsidian-markdown/`
+- `.gitmodules`, `config/external-skill-bindings.json`, and Git gitlinks under `external/`
 - `plugins/AiCoding/.codex-plugin/`
 - `plugins/AiCoding/hooks/`
 - `plugins/AiCoding/assets/`
@@ -43,6 +44,21 @@ Use `embedded/` for skills directly related to firmware, MCU, DSP, motor control
 Use `platform/` for cross-domain engineering capabilities such as Git governance, repository governance, release workflows, CI, documentation standards, agent workflow governance, and general code review.
 
 Keep `obsidian-*` and other personal general-purpose skills as standalone root skills unless a separate plugin is explicitly approved. Do not package Obsidian skills into the AiCoding plugin.
+
+## External GitHub Skill Bindings
+
+Every Skill sourced from GitHub must be integrated as a declared Git submodule under `external/<repository-name>/`; do not copy or vendor its files into this repository.
+
+Each external Skill must also have an entry in `config/external-skill-bindings.json` that records:
+
+- the runtime Skill `name`;
+- the declared submodule path;
+- the path inside that repository that actually contains `SKILL.md`;
+- the upstream Git URL, `latest-stable-tag` update policy, and stable-tag pattern.
+
+Use the pinned gitlink as the reproducible version, but resolve it from the highest non-prerelease semantic-version tag rather than from an unreleased branch head. Run `scripts/manage-external-skills.ps1 -Action Sync` to inspect the latest stable tag and add `-Apply` to advance the gitlink. If the upstream repository root does not contain `SKILL.md`, bind the repository itself and map its real nested Skill path; never pretend the repository root is installable.
+
+Removing an external Skill must delete its entry from `config/external-skill-bindings.json`, its `.gitmodules` section, and its tracked gitlink in the same change. Use `scripts/manage-external-skills.ps1 -Action Remove -Name <skill-name>` for a dry run and add `-Apply` only after reviewing the removal plan. The corresponding AiCoding runtime registry mapping and managed junction must be removed in the AiCoding platform change; never leave an orphaned URL binding or runtime link.
 
 ## Plugin Packaging
 
@@ -98,6 +114,15 @@ For a canonical skill change:
 6. Run repository-wide skill validation.
 7. Update `CHANGELOG.md` when behavior changes.
 
+For an external GitHub Skill binding:
+
+1. Add or update the declared submodule under `external/`, resolved from the latest stable semantic-version tag.
+2. Add or update `config/external-skill-bindings.json`.
+3. Verify the mapped directory contains a valid `SKILL.md` with the declared name.
+4. Run `scripts/manage-external-skills.ps1 -Action Status`, repository-wide Skill verification, and `git diff --check`.
+5. Update architecture/runtime documentation and `CHANGELOG.md`.
+6. Commit and push Codex-Skills before updating the AiCoding parent submodule gitlink.
+
 For a plugin manifest, hook, or asset change:
 
 1. Modify the human-maintained plugin source.
@@ -143,6 +168,7 @@ Do not:
 - add Obsidian skills to the AiCoding plugin;
 - put Git governance under `embedded/`;
 - introduce personal absolute paths;
+- copy a GitHub-sourced Skill into the repository or add an anonymous external gitlink without `.gitmodules` and binding-manifest entries;
 - bypass Hook trust;
 - directly edit the Codex plugin cache;
 - discard uncommitted work with destructive Git commands;
