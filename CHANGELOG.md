@@ -6,6 +6,7 @@
 
 - **feat(external-skill)**：以嵌套 Git submodule 将 Agents365-ai `drawio-skill` 最新稳定 tag `v1.34.0` 绑定到 `external/drawio-skill`，并通过 `config/external-skill-bindings.json` 映射真实入口 `skills/drawio-skill`；bind the latest stable upstream draw.io release without maintaining copied source.
 - **feat(external-skill)**：新增 `scripts/manage-external-skills.ps1`，支持外部 Skill 稳定版本状态、同步更新和同步移除 manifest/`.gitmodules`/gitlink；add dry-run-first lifecycle management for URL-bound Skills.
+- **fix(external-skill)**：同步操作会暂存新的 gitlink，卸载操作按 Git 要求先暂存 `.gitmodules` 并检查关键子命令结果；make sync and uninstall changes commit-ready and fail fast.
 - **build(governance)**：规定后续所有 GitHub 来源 Skill 必须通过 `external/` 子模块链集成，并由 `verify-skills.ps1` 校验 gitlink、URL、稳定 tag、Skill 子路径和 frontmatter 名称；enforce latest-stable URL-bound integration for future GitHub sources.
 - **refactor(drawio)**：移除仓库内旧的复制版 `drawio/`，由上游 URL 绑定的 `drawio-skill` 替代；replace the legacy copied Skill with the maintained upstream source.
 

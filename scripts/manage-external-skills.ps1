@@ -12,6 +12,11 @@ $configPath = Join-Path $repoRoot 'config/external-skill-bindings.json'
 $config = Get-Content -Raw -LiteralPath $configPath | ConvertFrom-Json
 $bindings = @($config.skills)
 
+function Assert-GitSuccess {
+    param([string]$Operation)
+    if ($LASTEXITCODE -ne 0) { throw "Git operation failed: $Operation" }
+}
+
 if ($Name) {
     $bindings = @($bindings | Where-Object { $_.name -eq $Name })
     if ($bindings.Count -eq 0) { throw "External Skill binding not found: $Name" }
@@ -47,21 +52,30 @@ foreach ($binding in $bindings) {
         }
         if ($Apply) {
             & git -C $repoRoot submodule deinit -f -- $submodule | Out-Null
+            Assert-GitSuccess "deinitialize $submodule"
             $moduleRow = @(& git -C $repoRoot config -f .gitmodules --get-regexp '^submodule\..*\.path$' | Where-Object { $_ -match ('\s' + [regex]::Escape($submodule) + '$') }) | Select-Object -First 1
             if (-not $moduleRow) { throw "Submodule declaration not found: $submodule" }
             $section = (($moduleRow -split '\s+', 2)[0] -replace '\.path$','')
             & git -C $repoRoot config -f .gitmodules --remove-section $section
+            Assert-GitSuccess "remove $section from .gitmodules"
+            & git -C $repoRoot add -- .gitmodules
+            Assert-GitSuccess 'stage .gitmodules'
             & git -C $repoRoot rm -f -- $submodule | Out-Null
+            Assert-GitSuccess "remove gitlink $submodule"
             $config.skills = @($config.skills | Where-Object { $_.name -ne $binding.name })
             $text = ($config | ConvertTo-Json -Depth 10) + "`n"
             [System.IO.File]::WriteAllText($configPath, $text, (New-Object System.Text.UTF8Encoding $false))
             & git -C $repoRoot add -- .gitmodules config/external-skill-bindings.json
+            Assert-GitSuccess 'stage external Skill binding removal'
         }
         continue
     }
 
     if (-not (Test-Path -LiteralPath $submoduleDir)) { throw "Submodule is not initialized: $submodule" }
-    if ($Action -eq 'Sync') { & git -C $submoduleDir fetch --tags --prune origin | Out-Null }
+    if ($Action -eq 'Sync') {
+        & git -C $submoduleDir fetch --tags --prune origin | Out-Null
+        Assert-GitSuccess "fetch tags for $submodule"
+    }
     $latestTag = Get-LatestStableTag -Repository $submoduleDir -Pattern ([string]$binding.tagPattern)
     $latestCommit = (& git -C $submoduleDir rev-list -n 1 $latestTag).Trim()
     $currentCommit = (& git -C $submoduleDir rev-parse HEAD).Trim()
@@ -70,7 +84,9 @@ foreach ($binding in $bindings) {
     $updated = $false
     if ($Action -eq 'Sync' -and $Apply -and $changed) {
         & git -C $submoduleDir checkout --detach $latestTag | Out-Null
+        Assert-GitSuccess "check out $latestTag in $submodule"
         & git -C $repoRoot add -- $submodule
+        Assert-GitSuccess "stage gitlink $submodule"
         $currentCommit = (& git -C $submoduleDir rev-parse HEAD).Trim()
         $currentTags = @(& git -C $submoduleDir tag --points-at HEAD | Where-Object { $_ -match [string]$binding.tagPattern })
         $changed = $currentCommit -ne $latestCommit
