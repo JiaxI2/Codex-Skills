@@ -18,7 +18,7 @@ function Get-RepoRoot {
 function Test-TextFileForStableHash([string]$Path) {
     $name = [System.IO.Path]::GetFileName($Path).ToLowerInvariant()
     $ext = [System.IO.Path]::GetExtension($Path).ToLowerInvariant()
-    return ($name -eq '.generated') -or ($ext -in @('.md', '.json', '.ps1', '.py', '.toml', '.yaml', '.yml', '.txt'))
+    return ($name -eq '.generated') -or ($ext -in @('.md', '.json', '.html', '.ps1', '.py', '.toml', '.yaml', '.yml', '.txt'))
 }
 
 function Normalize-Text([string]$Text) {
@@ -41,9 +41,15 @@ function Get-StringSha256([string]$Text) {
 function Get-TreeDigest([string]$Path) {
     if (-not (Test-Path -LiteralPath $Path)) { return $null }
     $base = (Resolve-Path -LiteralPath $Path).Path
-    $items = Get-ChildItem -LiteralPath $base -Recurse -File | Sort-Object FullName | ForEach-Object {
+    $filesByRelativePath = @{}
+    Get-ChildItem -LiteralPath $base -Recurse -File | ForEach-Object {
         $rel = $_.FullName.Substring($base.Length).TrimStart('\') -replace '\\','/'
-        "$rel=$(Get-FileSha256 $_.FullName)"
+        $filesByRelativePath[$rel] = $_.FullName
+    }
+    $relativePaths = [string[]]@($filesByRelativePath.Keys)
+    [Array]::Sort($relativePaths, [System.StringComparer]::Ordinal)
+    $items = foreach ($rel in $relativePaths) {
+        "$rel=$(Get-FileSha256 $filesByRelativePath[$rel])"
     }
     return Get-StringSha256 (($items -join "`n") + "`n")
 }

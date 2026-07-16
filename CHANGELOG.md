@@ -4,6 +4,7 @@
 
 ### 更新 / Changed
 
+- **fix(plugin-buildinfo)**：将生成包中的 HTML 纳入稳定文本换行归一化，并按 ordinal 相对路径排序计算树摘要，消除 Windows PowerShell 与 `pwsh` 的文化排序差异；同时从当前源码重新生成 `BUILDINFO.json`，使 fresh worktree 重建和 installed-cache 漂移检查都对应同一 19-Skill 发布包；normalize generated HTML and use ordinal relative-path ordering so both PowerShell runtimes produce the same package digest.
 - **feat(visio-diagram)**：新增通用 standalone `visio-diagram` Skill，以精简入口和按需 references 覆盖工程/控制框图、泳道图、流程图与状态机，并明确不包含时序图工作流；add a progressively loaded generic Visio workflow without coupling it to the AiCoding plugin.
 - **fix(visio-diagram)**：将侧边中心/多端口车道、双端 glue、正交路由以及文字不得覆盖连接线、框线或其他文字设为阻断门禁；make connector geometry and text-clearance failures block final export.
 - **fix(visio-diagram)**：新增紧凑布局、同轴可统一尺寸、逐维内容/端口尺寸包络、容器有界 padding，以及箭头头尾不得穿入节点的阻断规则；add measurable compactness, bounded sizing, container, and arrow-clearance gates.
