@@ -1,5 +1,18 @@
 # 更新日志
 
+## 2026-07-16
+
+### 更新 / Changed
+
+- **feat(visio-diagram)**：新增通用 standalone `visio-diagram` Skill，以精简入口和按需 references 覆盖工程/控制框图、泳道图、流程图与状态机，并明确不包含时序图工作流；add a progressively loaded generic Visio workflow without coupling it to the AiCoding plugin.
+- **fix(visio-diagram)**：将侧边中心/多端口车道、双端 glue、正交路由以及文字不得覆盖连接线、框线或其他文字设为阻断门禁；make connector geometry and text-clearance failures block final export.
+- **fix(visio-diagram)**：新增紧凑布局、同轴可统一尺寸、逐维内容/端口尺寸包络、容器有界 padding，以及箭头头尾不得穿入节点的阻断规则；add measurable compactness, bounded sizing, container, and arrow-clearance gates.
+- **fix(visio-diagram)**：新增连接文字相对中点锚定和有界漂移、框体外部标题绑定、profile Latin/Asian 字体、普通框 80% 文本安全区与真实检查门禁；add bounded label/caption anchors, requested fonts, and measured text-safe-area checks.
+- **feat(visio-diagram)**：新增渐进加载的精简 JSON 样式 reference，仅暴露字体组、默认字号、文字安全区、线宽和圆角，默认保持早期紧凑视觉；标版字号仅按元素显式应用，并以真实字号/线宽/圆角门禁验证；add restrained configurable typography and line-style standards without global restyling.
+- **fix(visio-diagram)**：同轴同尺寸族连续节点的框间距改用页面绝对边界检查，组内差值超过 `0.03 in` 即阻断；enforce equal absolute boundary gaps for comparable same-axis nodes.
+- **docs(visio-diagram)**：吸收 Visiomaster 的场景契约、renderer-effective 字段和双阶段视觉回归思想，新增精简按需复刻/回归 reference，并明确不复制其品牌与在线标签缺陷；adapt the useful source-driven and no-op review loop without importing upstream coupling.
+- **build(visio-diagram)**：补齐 consistent-workflow 类型、Workflow Contract、Gate Rules 与人工 PNG 复核契约；make the standalone workflow satisfy repository Skill governance.
+
 ## 2026-07-15
 
 ### 新增 / Added
