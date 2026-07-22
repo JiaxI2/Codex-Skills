@@ -506,9 +506,13 @@ Generated GitHub notes are a draft source for merged PRs, contributors, and comp
 Copy and fill:
 
 ```text
-assets/REPOSITORY_GOVERNANCE_TEMPLATE.toml` and `assets/lint-git-governance.ps1`
-→ .github/repository-governance.toml
+assets/REPOSITORY_GOVERNANCE_TEMPLATE.toml -> .github/repository-governance.toml
+assets/lint-git-governance.ps1 -> scripts/lint-git-governance.ps1
+scripts/validate_readme_governance.py -> scripts/validate_readme_governance.py
 ```
+
+The README validator is required only when an optional `[readme.*]` portable profile is declared.
+Repositories with an older TOML that has none of those sections keep the existing lint path.
 
 ### Render selected templates
 

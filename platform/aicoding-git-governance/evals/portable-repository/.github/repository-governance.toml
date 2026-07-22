@@ -1,0 +1,65 @@
+schema_version = 1
+
+[governance_standard]
+id = "aicoding-git-governance"
+version = "2026.07.22"
+source_url = "https://github.com/JiaxI2/Codex-Skills/blob/main/platform/aicoding-git-governance/references/aicoding-git-governance-standard.md"
+raw_url = "https://raw.githubusercontent.com/JiaxI2/Codex-Skills/main/platform/aicoding-git-governance/references/aicoding-git-governance-standard.md"
+sync_policy = "track-canonical-url"
+
+[project]
+name = "Portable Service"
+repository_url = "https://github.com/example/portable-service.git"
+visibility = "public"
+
+[readme]
+file = "README.md"
+primary_language = "zh-CN"
+secondary_language_file = "README_CN.md"
+english_language_file = "README_EN.md"
+secondary_language_surface = "top-file-language-switch-and-github-about"
+quick_environment_preview = true
+required_sections = ["value-proposition", "status", "quick-start", "personas", "repository-navigation", "git-workflow", "capabilities", "evolution"]
+
+[readme.structure]
+profile = "30s-3min-persona"
+
+[readme.banner]
+enabled = true
+source_path = "scripts/generate-banner.ps1"
+light_path = "docs/assets/banner-light.svg"
+dark_path = "docs/assets/banner-dark.svg"
+
+[readme.badges]
+policy = "tech-stack-projection"
+verify_versions = true
+color_policy = "classified"
+source_adapter = "scripts/portable-readme-adapter.ps1"
+
+[readme.architecture_graph]
+enabled = true
+max_nodes = 20
+require_layered_subgraphs = true
+require_feedback_edge = true
+command_adapter = "scripts/portable-readme-adapter.ps1"
+
+[readme.capability_showcase]
+enabled = true
+source_adapter = "scripts/portable-readme-adapter.ps1"
+max_lines_per_item = 1
+require_detail_url = true
+
+[readme.evolution]
+quadrants_section = "required"
+content_files = ["README.md", "docs/VISION.md"]
+
+[readme.star_history]
+mode = "page-link"
+url = "https://star-history.com/#example/portable-service&Date"
+anonymous_endpoint_verified = false
+
+[changelog]
+mode = "unreleased"
+
+[github_about]
+require_bilingual = true

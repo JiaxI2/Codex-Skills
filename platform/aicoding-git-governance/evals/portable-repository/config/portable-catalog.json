@@ -1,0 +1,24 @@
+{
+  "badges": [
+    {
+      "name": "Go",
+      "version": "1.22",
+      "source": "go.mod",
+      "category": "language",
+      "color": "00ADD8"
+    }
+  ],
+  "capabilities": [
+    {
+      "name": "Parser",
+      "enabled": true,
+      "detailUrl": "https://example.invalid/portable-service/parser"
+    },
+    {
+      "name": "Experimental Worker",
+      "enabled": false,
+      "detailUrl": "https://example.invalid/portable-service/worker"
+    }
+  ],
+  "commands": ["portable check", "portable doctor"]
+}
