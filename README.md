@@ -40,6 +40,17 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
 
 详见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
 
+<p align="center">
+  <a href="docs/assets/codex-skills-architecture-light.svg">
+    <img src="docs/assets/codex-skills-architecture-light.svg#gh-light-mode-only" alt="Codex-Skills 横版架构 Banner（浅色）" />
+  </a>
+  <a href="docs/assets/codex-skills-architecture-dark.svg">
+    <img src="docs/assets/codex-skills-architecture-dark.svg#gh-dark-mode-only" alt="Codex-Skills 横版架构 Banner（深色）" />
+  </a>
+</p>
+
+GitHub 会按主题自动选择 Banner；移动端与远程 README 复用同一对 SVG，点击当前 Banner 可查看对应原图。两种主题共享同一语义源以避免内容漂移。可编辑源：[Visio VSDX](docs/assets/codex-skills-architecture.vsdx)；唯一生成源：[Diagram IR](docs/architecture/codex-skills-architecture.diagram.json)。
+
 - `embedded/` 存放嵌入式领域 skill 源码。
 - `platform/` 存放跨领域平台 workflow skill，包括 Git 治理。
 - `plugins/AiCoding/skills/` 由 `config/aicoding-plugin-pack.json` 生成，不手工编辑。

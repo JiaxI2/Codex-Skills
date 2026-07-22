@@ -2,7 +2,7 @@ schema_version = 1
 
 [governance_standard]
 id = "aicoding-git-governance"
-version = "2026.07"
+version = "2026.07.22"
 source_url = "https://github.com/JiaxI2/Codex-Skills/blob/main/platform/aicoding-git-governance/references/aicoding-git-governance-standard.md"
 raw_url = "https://raw.githubusercontent.com/JiaxI2/Codex-Skills/main/platform/aicoding-git-governance/references/aicoding-git-governance-standard.md"
 sync_policy = "track-canonical-url"
@@ -34,7 +34,44 @@ secondary_language_surface = "top-file-language-switch-and-github-about"
 quick_environment_preview = true
 require_toc = false
 validate_links = true
-required_sections = ["status", "quick-start", "repository-navigation", "git-workflow"]
+required_sections = ["value-proposition", "status", "quick-start", "personas", "repository-navigation", "git-workflow", "evolution"]
+
+[readme.structure]
+profile = "30s-3min-persona" # 30s-3min-persona | legacy
+
+[readme.banner]
+enabled = false
+source_path = ""
+light_path = ""
+dark_path = ""
+
+[readme.badges]
+policy = "minimal" # minimal | tech-stack-projection | off
+verify_versions = false
+color_policy = "classified"
+source_adapter = ""
+
+[readme.architecture_graph]
+enabled = false
+max_nodes = 20
+require_layered_subgraphs = true
+require_feedback_edge = false
+command_adapter = ""
+
+[readme.capability_showcase]
+enabled = false
+source_adapter = ""
+max_lines_per_item = 1
+require_detail_url = true
+
+[readme.evolution]
+quadrants_section = "recommended" # recommended | required | off
+content_files = ["README.md", "docs/VISION.md"]
+
+[readme.star_history]
+mode = "off" # page-link | chart | off
+url = ""
+anonymous_endpoint_verified = false
 
 [readme.urls]
 documentation = "./README_CN.md"

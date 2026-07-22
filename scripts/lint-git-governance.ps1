@@ -65,6 +65,18 @@ $readmeSection = Get-TomlSection $governance "readme"
 $standardSection = Get-TomlSection $governance "governance_standard"
 $changelogSection = Get-TomlSection $governance "changelog"
 
+$portableReadmePolicyEnabled = $governance -match '(?m)^\[readme\.(structure|banner|badges|architecture_graph|capability_showcase|evolution|star_history)\]\s*$'
+if ($portableReadmePolicyEnabled) {
+    $readmeValidator = Join-Path $repoRoot "scripts/validate_readme_governance.py"
+    if (-not (Test-Path -LiteralPath $readmeValidator)) {
+        Fail "Portable README policy requires scripts/validate_readme_governance.py."
+    }
+    $readmeValidationOutput = @(& python $readmeValidator --config ".github/repository-governance.toml" --repo-root $repoRoot 2>&1)
+    $readmeValidationExitCode = $LASTEXITCODE
+    $readmeValidationOutput | ForEach-Object { Write-Host $_ }
+    if ($readmeValidationExitCode -ne 0) { exit $readmeValidationExitCode }
+}
+
 $repoUrl = Get-TomlStringValue $projectSection "repository_url"
 $repoSlug = ""
 if ($repoUrl -match 'github\.com[:/]([^/]+)/([^/.]+)(\.git)?$') {

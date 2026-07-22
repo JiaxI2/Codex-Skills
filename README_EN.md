@@ -40,6 +40,17 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
 
 See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
+<p align="center">
+  <a href="docs/assets/codex-skills-architecture-light.svg">
+    <img src="docs/assets/codex-skills-architecture-light.svg#gh-light-mode-only" alt="Codex-Skills landscape architecture Banner (light)" />
+  </a>
+  <a href="docs/assets/codex-skills-architecture-dark.svg">
+    <img src="docs/assets/codex-skills-architecture-dark.svg#gh-dark-mode-only" alt="Codex-Skills landscape architecture Banner (dark)" />
+  </a>
+</p>
+
+GitHub selects the Banner for the active theme. Mobile and remote README views reuse the same SVG pair, and clicking the visible Banner opens its original. Both themes share one semantic source to prevent content drift. Editable source: [Visio VSDX](docs/assets/codex-skills-architecture.vsdx). Single generation source: [Diagram IR](docs/architecture/codex-skills-architecture.diagram.json).
+
 - `embedded/` contains embedded-domain skill sources.
 - `platform/` contains cross-domain platform workflow skills, including Git governance.
 - `plugins/AiCoding/skills/` is generated from `config/aicoding-plugin-pack.json`; do not edit it by hand.

@@ -1,0 +1,522 @@
+{
+  "schemaVersion": 1,
+  "document": {
+    "id": "codex-skills-architecture",
+    "title": "Codex-Skills — Verifiable Skill Delivery",
+    "page": {
+      "width": 18,
+      "height": 4,
+      "orientation": "landscape",
+      "margin": 0.2
+    },
+    "theme": "visio-default",
+    "styleProfile": "engineering-standard",
+    "typography": {
+      "fontFamily": "Arial",
+      "latinFontFamily": "Arial",
+      "asianFontFamily": "Microsoft YaHei",
+      "fontSizePt": 11,
+      "nodeTextBlockWidthRatio": 0.8,
+      "nodeTextBlockHeightRatio": 0.8
+    },
+    "appearance": {
+      "pageBackgroundColor": "#FFFFFF",
+      "textColor": "#0F172A",
+      "nodeLineColor": "#334155",
+      "nodeFillColor": "#F8FAFC",
+      "lineWeightPt": 1,
+      "nodeLineWeightPt": 1,
+      "connectorLineColor": "#475569",
+      "connectorLineWeightPt": 1.25,
+      "nodeCornerRadiusIn": 0.14
+    },
+    "layout": {
+      "engine": "manual",
+      "direction": "LR",
+      "compact": true,
+      "uniformNodeSize": false,
+      "nodeGap": 0.9,
+      "layerGap": 0.9
+    }
+  },
+  "nodes": [
+    {
+      "id": "brand-eyebrow",
+      "text": "CANONICAL · REPRODUCIBLE · AUDITABLE",
+      "type": "note",
+      "x": 3.85,
+      "y": 3.23,
+      "width": 5.5,
+      "height": 0.34,
+      "layer": 10,
+      "order": 10,
+      "sizeClass": "banner-eyebrow",
+      "fontRole": "dense",
+      "fontSizePt": 11,
+      "fontWeight": "bold",
+      "textColor": "#64748B",
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 5.5,
+          "requiredHeight": 0.34,
+          "reason": "Single-line uppercase eyebrow at 11 pt"
+        }
+      }
+    },
+    {
+      "id": "brand-title",
+      "text": "Codex-Skills",
+      "type": "note",
+      "x": 3.85,
+      "y": 2.35,
+      "width": 5.5,
+      "height": 1,
+      "layer": 11,
+      "order": 11,
+      "sizeClass": "banner-title",
+      "fontSizePt": 34,
+      "fontWeight": "bold",
+      "textColor": "#0F172A",
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 5.5,
+          "requiredHeight": 1,
+          "reason": "Primary banner title at 34 pt"
+        }
+      }
+    },
+    {
+      "id": "brand-accent-left",
+      "text": "",
+      "type": "note",
+      "x": 1.35,
+      "y": 1.69,
+      "width": 0.5,
+      "height": 0.4,
+      "layer": 12,
+      "order": 12,
+      "sizeClass": "invisible-anchor",
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 0.5,
+          "requiredHeight": 0.4,
+          "reason": "Invisible endpoint for the title accent rule"
+        }
+      }
+    },
+    {
+      "id": "brand-accent-right",
+      "text": "",
+      "type": "note",
+      "x": 2.6,
+      "y": 1.69,
+      "width": 0.5,
+      "height": 0.4,
+      "layer": 13,
+      "order": 13,
+      "sizeClass": "invisible-anchor",
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 0.5,
+          "requiredHeight": 0.4,
+          "reason": "Invisible endpoint for the title accent rule"
+        }
+      }
+    },
+    {
+      "id": "brand-subtitle",
+      "text": "VERIFIABLE SKILL DELIVERY",
+      "type": "note",
+      "x": 3.85,
+      "y": 1.25,
+      "width": 5.5,
+      "height": 0.5,
+      "layer": 14,
+      "order": 14,
+      "sizeClass": "banner-subtitle",
+      "fontSizePt": 15,
+      "fontWeight": "bold",
+      "textColor": "#0F172A",
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 5.5,
+          "requiredHeight": 0.5,
+          "reason": "Single-line banner subtitle at 15 pt"
+        }
+      }
+    },
+    {
+      "id": "brand-tagline",
+      "text": "One source. Deterministic package. Evidence-backed release.",
+      "type": "note",
+      "x": 3.85,
+      "y": 0.62,
+      "width": 5.5,
+      "height": 0.4,
+      "layer": 15,
+      "order": 15,
+      "sizeClass": "banner-tagline",
+      "fontSizePt": 11,
+      "fontRole": "dense",
+      "fontWeight": "regular",
+      "textColor": "#64748B",
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 5.5,
+          "requiredHeight": 0.4,
+          "reason": "Single-line supporting copy at 11 pt"
+        }
+      }
+    },
+    {
+      "id": "divider-top",
+      "text": "",
+      "type": "note",
+      "x": 7.45,
+      "y": 3.25,
+      "width": 0.5,
+      "height": 0.4,
+      "layer": 16,
+      "order": 16,
+      "sizeClass": "invisible-anchor",
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 0.5,
+          "requiredHeight": 0.4,
+          "reason": "Invisible endpoint for the vertical divider"
+        }
+      }
+    },
+    {
+      "id": "divider-bottom",
+      "text": "",
+      "type": "note",
+      "x": 7.45,
+      "y": 0.75,
+      "width": 0.5,
+      "height": 0.4,
+      "layer": 17,
+      "order": 17,
+      "sizeClass": "invisible-anchor",
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 0.5,
+          "requiredHeight": 0.4,
+          "reason": "Invisible endpoint for the vertical divider"
+        }
+      }
+    },
+    {
+      "id": "supply-chain-title",
+      "text": "CANONICAL SKILL SUPPLY CHAIN",
+      "type": "note",
+      "x": 12.2,
+      "y": 3.25,
+      "width": 7.4,
+      "height": 0.34,
+      "layer": 18,
+      "order": 18,
+      "sizeClass": "architecture-caption",
+      "fontRole": "dense",
+      "fontSizePt": 11,
+      "fontWeight": "bold",
+      "textColor": "#64748B",
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 7.4,
+          "requiredHeight": 0.34,
+          "reason": "Single-line architecture caption at 11 pt"
+        }
+      }
+    },
+    {
+      "id": "author",
+      "text": "AUTHOR\nCanonical Skills",
+      "type": "component",
+      "x": 9.4,
+      "y": 2.55,
+      "width": 1.9,
+      "height": 0.82,
+      "layer": 0,
+      "order": 0,
+      "sizeClass": "architecture-card",
+      "fontSizePt": 11,
+      "fontWeight": "bold",
+      "textColor": "#0F172A",
+      "lineColor": "#334155",
+      "fillColor": "#F8FAFC",
+      "lineWeightPt": 1.1,
+      "cornerRadiusIn": 0.13,
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 1.9,
+          "requiredHeight": 0.82,
+          "reason": "Two centered 11 pt lines with mobile-safe padding"
+        }
+      }
+    },
+    {
+      "id": "govern",
+      "text": "GOVERN\nManifests",
+      "type": "component",
+      "x": 12.2,
+      "y": 2.55,
+      "width": 1.9,
+      "height": 0.82,
+      "layer": 1,
+      "order": 0,
+      "sizeClass": "architecture-card",
+      "fontSizePt": 11,
+      "fontWeight": "bold",
+      "textColor": "#0F172A",
+      "lineColor": "#334155",
+      "fillColor": "#F8FAFC",
+      "lineWeightPt": 1.1,
+      "cornerRadiusIn": 0.13,
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 1.9,
+          "requiredHeight": 0.82,
+          "reason": "Two centered 11 pt lines with mobile-safe padding"
+        }
+      }
+    },
+    {
+      "id": "build",
+      "text": "BUILD\nPlugin",
+      "type": "component",
+      "x": 15,
+      "y": 2.55,
+      "width": 1.9,
+      "height": 0.82,
+      "layer": 2,
+      "order": 0,
+      "sizeClass": "architecture-card",
+      "fontSizePt": 11,
+      "fontWeight": "bold",
+      "textColor": "#0F172A",
+      "lineColor": "#334155",
+      "fillColor": "#F8FAFC",
+      "lineWeightPt": 1.1,
+      "cornerRadiusIn": 0.13,
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 1.9,
+          "requiredHeight": 0.82,
+          "reason": "Two centered 11 pt lines with mobile-safe padding"
+        }
+      }
+    },
+    {
+      "id": "runtime",
+      "text": "RUNTIME\nCodex · AiCoding",
+      "type": "component",
+      "x": 12.2,
+      "y": 1.22,
+      "width": 1.9,
+      "height": 0.82,
+      "layer": 1,
+      "order": 1,
+      "sizeClass": "architecture-card",
+      "fontSizePt": 11,
+      "fontWeight": "bold",
+      "textColor": "#0F172A",
+      "lineColor": "#334155",
+      "fillColor": "#F8FAFC",
+      "lineWeightPt": 1.1,
+      "cornerRadiusIn": 0.13,
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 1.9,
+          "requiredHeight": 0.82,
+          "reason": "Two centered 11 pt lines with mobile-safe padding"
+        }
+      }
+    },
+    {
+      "id": "release",
+      "text": "RELEASE\nmain · tag",
+      "type": "component",
+      "x": 15,
+      "y": 1.22,
+      "width": 1.9,
+      "height": 0.82,
+      "layer": 2,
+      "order": 1,
+      "sizeClass": "architecture-card",
+      "fontSizePt": 11,
+      "fontWeight": "bold",
+      "textColor": "#0F172A",
+      "lineColor": "#334155",
+      "fillColor": "#F8FAFC",
+      "lineWeightPt": 1.1,
+      "cornerRadiusIn": 0.13,
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 1.9,
+          "requiredHeight": 0.82,
+          "reason": "Two centered 11 pt lines with mobile-safe padding"
+        }
+      }
+    },
+    {
+      "id": "supply-chain-caption",
+      "text": "AUTHOR → GOVERN → BUILD → RELEASE → RUNTIME → FEEDBACK",
+      "type": "note",
+      "x": 12.2,
+      "y": 0.6,
+      "width": 7.4,
+      "height": 0.34,
+      "layer": 19,
+      "order": 19,
+      "sizeClass": "architecture-caption",
+      "fontRole": "dense",
+      "fontSizePt": 11,
+      "fontWeight": "regular",
+      "textColor": "#64748B",
+      "textBlockWidthRatio": 0.8,
+      "textBlockHeightRatio": 0.8,
+      "data": {
+        "sizeEvidence": {
+          "requiredWidth": 7.4,
+          "requiredHeight": 0.34,
+          "reason": "Single-line closed-loop architecture caption at 11 pt"
+        }
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "brand-accent",
+      "from": "brand-accent-left",
+      "to": "brand-accent-right",
+      "type": "association",
+      "sourcePort": "right",
+      "targetPort": "left",
+      "routing": "straight",
+      "lineColor": "#2563EB",
+      "lineWeightPt": 2.5
+    },
+    {
+      "id": "banner-divider",
+      "from": "divider-top",
+      "to": "divider-bottom",
+      "type": "association",
+      "sourcePort": "bottom",
+      "targetPort": "top",
+      "routing": "straight",
+      "lineColor": "#CBD5E1",
+      "lineWeightPt": 1
+    },
+    {
+      "id": "author-to-govern",
+      "from": "author",
+      "to": "govern",
+      "type": "directed",
+      "sourcePort": "right",
+      "targetPort": "left",
+      "routing": "straight",
+      "lineColor": "#475569",
+      "lineWeightPt": 1.25
+    },
+    {
+      "id": "govern-to-build",
+      "from": "govern",
+      "to": "build",
+      "type": "directed",
+      "sourcePort": "right",
+      "targetPort": "left",
+      "routing": "straight",
+      "lineColor": "#475569",
+      "lineWeightPt": 1.25
+    },
+    {
+      "id": "build-to-release",
+      "from": "build",
+      "to": "release",
+      "type": "directed",
+      "sourcePort": "bottom",
+      "targetPort": "top",
+      "routing": "straight",
+      "lineColor": "#475569",
+      "lineWeightPt": 1.25
+    },
+    {
+      "id": "release-to-runtime",
+      "from": "release",
+      "to": "runtime",
+      "type": "directed",
+      "sourcePort": "left",
+      "targetPort": "right",
+      "routing": "straight",
+      "lineColor": "#475569",
+      "lineWeightPt": 1.25
+    },
+    {
+      "id": "runtime-to-author",
+      "from": "runtime",
+      "to": "author",
+      "type": "directed",
+      "sourcePort": "left",
+      "targetPort": "bottom",
+      "routing": "orthogonal",
+      "lineColor": "#475569",
+      "lineWeightPt": 1.25
+    }
+  ],
+  "groups": [],
+  "metadata": {
+    "sourceOfTruth": "docs/architecture/codex-skills-architecture.diagram.json",
+    "reference": "https://github.com/JiaxI2/AiCoding/blob/main/docs/assets/aicoding-banner-light.svg",
+    "designIntent": "Restrained split-layout engineering banner with a closed skill supply chain",
+    "svgPostExport": {
+      "backgroundAndFrame": "Insert a page-sized rounded rectangle behind Visio-exported shapes",
+      "accessibility": "Add role, title, and description to each theme SVG"
+    },
+    "readmeImages": {
+      "light": "docs/assets/codex-skills-architecture-light.svg",
+      "dark": "docs/assets/codex-skills-architecture-dark.svg"
+    },
+    "themeVariants": {
+      "light": {
+        "pageBackgroundColor": "#FFFFFF",
+        "colorMap": {}
+      },
+      "dark": {
+        "pageBackgroundColor": "#0D1117",
+        "colorMap": {
+          "#FFFFFF": "#0D1117",
+          "#F8FAFC": "#161B22",
+          "#0F172A": "#F0F6FC",
+          "#64748B": "#8B949E",
+          "#334155": "#8B949E",
+          "#475569": "#C9D1D9",
+          "#CBD5E1": "#30363D",
+          "#2563EB": "#58A6FF"
+        }
+      }
+    },
+    "layout": "single-source-landscape",
+    "mobileStrategy": "Readable summary at inline width; same SVG opens at original size"
+  }
+}
