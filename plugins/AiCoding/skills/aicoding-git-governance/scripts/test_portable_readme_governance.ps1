@@ -27,6 +27,12 @@ function Replace-Text([string]$Path, [string]$Old, [string]$New) {
     [System.IO.File]::WriteAllText($Path, $text.Replace($Old, $New))
 }
 
+function Get-LineContaining([string]$Path, [string]$Token) {
+    $matches = @([System.IO.File]::ReadAllLines($Path) | Where-Object { $_.Contains($Token) })
+    if ($matches.Count -ne 1) { throw "Expected one fixture line containing $Token in $Path; found $($matches.Count)" }
+    return [string]$matches[0]
+}
+
 function Invoke-LintCase(
     [string]$Name,
     [bool]$ExpectSuccess,
@@ -38,8 +44,15 @@ function Invoke-LintCase(
     $configText = [System.IO.File]::ReadAllText((Join-Path $fixture ".github/repository-governance.toml"))
     $portablePolicy = $configText -match '(?m)^\[readme\.(structure|banner|badges|architecture_graph|capability_showcase|evolution|star_history)\]\s*$'
     if ($portablePolicy) {
-        $output = @(& python (Join-Path $fixture "scripts/validate_readme_governance.py") --config ".github/repository-governance.toml" --repo-root $fixture 2>&1)
-        $exitCode = $LASTEXITCODE
+        $previousErrorActionPreference = $ErrorActionPreference
+        try {
+            $ErrorActionPreference = "Continue"
+            $output = @(& python (Join-Path $fixture "scripts/validate_readme_governance.py") --config ".github/repository-governance.toml" --repo-root $fixture 2>&1)
+            $exitCode = $LASTEXITCODE
+        }
+        finally {
+            $ErrorActionPreference = $previousErrorActionPreference
+        }
         if ($exitCode -eq 0) {
             $lintOutput = @(& pwsh -NoProfile -ExecutionPolicy Bypass -File (Join-Path $fixture "scripts/lint-git-governance.ps1") -Mode all 2>&1 3>&1 4>&1 5>&1 6>&1)
             $lintExitCode = $LASTEXITCODE
@@ -88,14 +101,17 @@ try {
 
     Invoke-LintCase "capability-missing" $false "README-GOV-048" {
         param($fixture)
-        Replace-Text (Join-Path $fixture "README.md") '- **Parser** — 把输入转换成结构化结果。[详情](https://example.invalid/portable-service/parser)' ''
+        $path = Join-Path $fixture "README.md"
+        $line = Get-LineContaining $path 'https://example.invalid/portable-service/parser'
+        Replace-Text $path $line ''
     }
 
     Invoke-LintCase "capability-ghost" $false "README-GOV-050" {
         param($fixture)
-        $line = '- **Parser** — 把输入转换成结构化结果。[详情](https://example.invalid/portable-service/parser)'
-        $ghost = '- **Ghost** — 未注册能力。[详情](https://example.invalid/portable-service/ghost)'
-        Replace-Text (Join-Path $fixture "README.md") $line "$line`n$ghost"
+        $path = Join-Path $fixture "README.md"
+        $line = Get-LineContaining $path 'https://example.invalid/portable-service/parser'
+        $ghost = '- **Ghost** - Unregistered capability. [Details](https://example.invalid/portable-service/ghost)'
+        Replace-Text $path $line "$line`n$ghost"
     }
 
     Invoke-LintCase "quadrants-required" $false "README-GOV-072" {

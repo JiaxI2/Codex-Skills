@@ -4,6 +4,7 @@
 
 ### 更新 / Changed
 
+- **fix(git-governance)**：在 Windows PowerShell 5 中按退出码捕获 README 治理验证器的预期 stderr，使缺徽章、能力漂移、四象限、凭据和 Mermaid 负例能够继续执行并断言错误码；capture expected validator stderr without terminating the negative-case matrix on Windows PowerShell 5.
 - **feat(git-governance)**：将 canonical 标准升至 `2026.07.22`，加入可选的 README 三层结构、技术栈徽章投影、可再生双主题 banner、Mermaid 架构图、能力橱窗、四象限演进与安全 Star History profile；add portable opt-in README profiles while keeping repositories without the new TOML sections behavior-compatible.
 - **test(git-governance)**：新增仓库中立 adapter 契约与非 AiCoding fixture，覆盖旧 TOML 兼容、版本徽章、能力缺行/幽灵行、四象限、Star History 凭据和 Mermaid 节点/命令负例；exercise portable README policy without coupling the standard to the AiCoding Kit registry.
 
