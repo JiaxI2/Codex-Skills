@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- 由 Microsoft Visio, SVG Export 生成 codex-skills-architecture-dark.svg Codex-Skills — Verifiable Skill Delivery (Dark) -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events" role="img" aria-labelledby="title desc"
+		xmlns:v="http://schemas.microsoft.com/visio/2003/SVGExtensions/" width="18in" height="4in" viewBox="0 0 1296 288"
+		xml:space="preserve" color-interpolation-filters="sRGB" class="st14">
+	<title id="title">Codex-Skills — Verifiable Skill Delivery</title>
+	<desc id="desc">A dark landscape architecture banner showing the closed supply chain from canonical skill authoring through governance, plugin build, release, and Codex or AiCoding runtime feedback.</desc>
+	<v:documentProperties v:langID="2052" v:metric="true" v:viewMarkup="false"/>
+
+	<style type="text/css">
+	<![CDATA[
+		.st1 {fill:#161b22;stroke:#8b949e;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.1}
+		.st2 {fill:#f0f6fc;font-family:Arial;font-size:0.916672em;font-weight:bold}
+		.st3 {font-size:1em}
+		.st4 {fill:none;stroke:none;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st5 {fill:#8b949e;font-family:Arial;font-size:0.916672em;font-weight:bold}
+		.st6 {fill:#f0f6fc;font-family:Arial;font-size:2.83333em;font-weight:bold}
+		.st7 {fill:#f0f6fc;font-family:Arial;font-size:1.24999em;font-weight:bold}
+		.st8 {fill:#8b949e;font-family:Arial;font-size:0.916672em}
+		.st9 {font-family:微软雅黑;font-size:1em}
+		.st10 {stroke:#58a6ff;stroke-linecap:round;stroke-linejoin:round;stroke-width:2.5}
+		.st11 {stroke:#30363d;stroke-linecap:round;stroke-linejoin:round;stroke-width:1}
+		.st12 {marker-end:url(#mrkr13-63);stroke:#c9d1d9;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.25}
+		.st13 {fill:#c9d1d9;fill-opacity:1;stroke:#c9d1d9;stroke-opacity:1;stroke-width:0.3315649867374}
+		.st14 {fill:none;fill-rule:evenodd;font-size:12px;overflow:visible;stroke-linecap:square;stroke-miterlimit:3}
+	]]>
+	</style>
+
+	<defs id="Markers">
+		<g id="lend13">
+			<path d="M 3 1 L 0 0 L 3 -1 L 3 1 " style="stroke:none"/>
+		</g>
+		<marker id="mrkr13-63" class="st13" v:arrowType="13" v:arrowSize="2" v:setback="9.048" refX="-9.048" orient="auto"
+				markerUnits="strokeWidth" overflow="visible">
+			<use xlink:href="#lend13" transform="scale(-3.016,-3.016) "/>
+		</marker>
+	</defs>
+	<rect x="6" y="6" width="1284" height="276" rx="12" fill="#0d1117" stroke="#8b949e" stroke-width="1"/>
+	<g v:mID="0" v:index="1" v:groupContext="foregroundPage">
+		<title>Codex-Skills — Verifiable Skill Delivery (Dark)</title>
+		<v:pageProperties v:drawingScale="0.0393701" v:pageScale="0.0393701" v:drawingUnits="24" v:shadowOffsetX="8.50394"
+				v:shadowOffsetY="-8.50394"/>
+		<v:layer v:name="连接线" v:index="0"/>
+		<g id="shape1-1" v:mID="1" v:groupContext="shape" transform="translate(608.4,-154.08)">
+			<title>VMCP_author</title>
+			<desc>AUTHOR Canonical Skills</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="68.4" cy="258.48" width="109.44" height="47.232"/>
+			<rect x="0" y="228.96" width="136.8" height="59.04" rx="9.36" ry="9.36" class="st1"/>
+			<text x="44.87" y="255.18" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>AUTHOR<v:newlineChar/><tspan
+						x="26.22" dy="1.2em" class="st3">Canonical Skills</tspan></text>		</g>
+		<g id="shape2-5" v:mID="2" v:groupContext="shape" transform="translate(810,-154.08)">
+			<title>VMCP_govern</title>
+			<desc>GOVERN Manifests</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="68.4" cy="258.48" width="109.44" height="47.232"/>
+			<rect x="0" y="228.96" width="136.8" height="59.04" rx="9.36" ry="9.36" class="st1"/>
+			<text x="44.56" y="255.18" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>GOVERN<v:newlineChar/><tspan
+						x="43.03" dy="1.2em" class="st3">Manifests</tspan></text>		</g>
+		<g id="shape3-9" v:mID="3" v:groupContext="shape" transform="translate(810,-58.32)">
+			<title>VMCP_runtime</title>
+			<desc>RUNTIME Codex · AiCoding</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="68.4" cy="258.48" width="109.44" height="47.232"/>
+			<rect x="0" y="228.96" width="136.8" height="59.04" rx="9.36" ry="9.36" class="st1"/>
+			<text x="43.35" y="255.18" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>RUNTIME<v:newlineChar/><tspan
+						x="22.26" dy="1.2em" class="st3">Codex · AiCoding</tspan></text>		</g>
+		<g id="shape4-13" v:mID="4" v:groupContext="shape" transform="translate(1011.6,-154.08)">
+			<title>VMCP_build</title>
+			<desc>BUILD Plugin</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="68.4" cy="258.48" width="109.44" height="47.232"/>
+			<rect x="0" y="228.96" width="136.8" height="59.04" rx="9.36" ry="9.36" class="st1"/>
+			<text x="51.6" y="255.18" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>BUILD<v:newlineChar/><tspan
+						x="51.6" dy="1.2em" class="st3">Plugin</tspan></text>		</g>
+		<g id="shape5-17" v:mID="5" v:groupContext="shape" transform="translate(1011.6,-58.32)">
+			<title>VMCP_release</title>
+			<desc>RELEASE main · tag</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="68.4" cy="258.48" width="109.44" height="47.232"/>
+			<rect x="0" y="228.96" width="136.8" height="59.04" rx="9.36" ry="9.36" class="st1"/>
+			<text x="42.42" y="255.18" class="st2" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>RELEASE<v:newlineChar/><tspan
+						x="42.43" dy="1.2em" class="st3">main · tag</tspan></text>		</g>
+		<g id="shape6-21" v:mID="6" v:groupContext="shape" transform="translate(79.2,-220.32)">
+			<title>VMCP_brand-eyebrow</title>
+			<desc>CANONICAL · REPRODUCIBLE · AUDITABLE</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="198" cy="275.76" width="316.8" height="19.584"/>
+			<rect x="0" y="263.52" width="396" height="24.48" rx="10.08" ry="10.08" class="st4"/>
+			<text x="79.45" y="279.06" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>CANONICAL · REPRODUCIBLE · AUDITABLE</text>		</g>
+		<g id="shape7-24" v:mID="7" v:groupContext="shape" transform="translate(79.2,-133.2)">
+			<title>VMCP_brand-title</title>
+			<desc>Codex-Skills</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="198" cy="252" width="316.8" height="57.6"/>
+			<rect x="0" y="216" width="396" height="72" rx="10.08" ry="10.08" class="st4"/>
+			<text x="95.97" y="262.2" class="st6" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>Codex-Skills</text>		</g>
+		<g id="shape8-27" v:mID="8" v:groupContext="shape" transform="translate(79.2,-107.28)">
+			<title>VMCP_brand-accent-left</title>
+			<rect x="0" y="259.2" width="36" height="28.8" rx="10.08" ry="10.08" class="st4"/>
+		</g>
+		<g id="shape9-29" v:mID="9" v:groupContext="shape" transform="translate(169.2,-107.28)">
+			<title>VMCP_brand-accent-right</title>
+			<rect x="0" y="259.2" width="36" height="28.8" rx="10.08" ry="10.08" class="st4"/>
+		</g>
+		<g id="shape10-31" v:mID="10" v:groupContext="shape" transform="translate(79.2,-72)">
+			<title>VMCP_brand-subtitle</title>
+			<desc>VERIFIABLE SKILL DELIVERY</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="198" cy="270" width="316.8" height="28.8"/>
+			<rect x="0" y="252" width="396" height="36" rx="10.08" ry="10.08" class="st4"/>
+			<text x="90.07" y="274.5" class="st7" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>VERIFIABLE SKILL DELIVERY</text>		</g>
+		<g id="shape11-34" v:mID="11" v:groupContext="shape" transform="translate(79.2,-30.24)">
+			<title>VMCP_brand-tagline</title>
+			<desc>One source. Deterministic package. Evidence-backed release.</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="198" cy="273.6" width="316.8" height="23.04"/>
+			<rect x="0" y="259.2" width="396" height="28.8" rx="10.08" ry="10.08" class="st4"/>
+			<text x="46.06" y="276.9" class="st8" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>One source. Deterministic package. Evidence-backed release.</text>		</g>
+		<g id="shape12-37" v:mID="12" v:groupContext="shape" transform="translate(518.4,-219.6)">
+			<title>VMCP_divider-top</title>
+			<rect x="0" y="259.2" width="36" height="28.8" rx="10.08" ry="10.08" class="st4"/>
+		</g>
+		<g id="shape13-39" v:mID="13" v:groupContext="shape" transform="translate(518.4,-39.6)">
+			<title>VMCP_divider-bottom</title>
+			<rect x="0" y="259.2" width="36" height="28.8" rx="10.08" ry="10.08" class="st4"/>
+		</g>
+		<g id="shape14-41" v:mID="14" v:groupContext="shape" transform="translate(612,-221.76)">
+			<title>VMCP_supply-chain-title</title>
+			<desc>CANONICAL SKILL SUPPLY CHAIN</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="266.4" cy="275.76" width="426.24" height="19.584"/>
+			<rect x="0" y="263.52" width="532.8" height="24.48" rx="10.08" ry="10.08" class="st4"/>
+			<text x="173.51" y="279.06" class="st5" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>CANONICAL SKILL SUPPLY CHAIN</text>		</g>
+		<g id="shape15-44" v:mID="15" v:groupContext="shape" transform="translate(612,-30.96)">
+			<title>VMCP_supply-chain-caption</title>
+			<desc>AUTHOR → GOVERN → BUILD → RELEASE → RUNTIME → FEEDBACK</desc>
+			<v:textBlock v:margins="rect(0.72,0.72,0.72,0.72)" v:tabSpace="42.5197"/>
+			<v:textRect cx="266.4" cy="275.76" width="426.24" height="19.584"/>
+			<rect x="0" y="263.52" width="532.8" height="24.48" rx="10.08" ry="10.08" class="st4"/>
+			<text x="80.29" y="279.1" class="st8" v:langID="2052"><v:paragraph v:horizAlign="1"/><v:tabList/>AUTHOR <tspan
+						class="st9">→</tspan> GOVERN <tspan class="st9">→</tspan> BUILD <tspan class="st9">→</tspan> RELEASE <tspan
+						class="st9">→</tspan> RUNTIME <tspan class="st9">→</tspan> FEEDBACK</text>		</g>
+		<g id="shape16-52" v:mID="16" v:groupContext="shape" v:layerMember="0" transform="translate(115.2,-114.593)">
+			<title>VMCP_brand-accent</title>
+			<path d="M0 280.91 L54 280.91" class="st10"/>
+		</g>
+		<g id="shape17-55" v:mID="17" v:groupContext="shape" v:layerMember="0" transform="translate(529.313,-219.6)">
+			<title>VMCP_banner-divider</title>
+			<path d="M7.09 288 L7.09 439.2" class="st11"/>
+		</g>
+		<g id="shape18-58" v:mID="18" v:groupContext="shape" v:layerMember="0" transform="translate(745.2,-176.513)">
+			<title>VMCP_author-to-govern</title>
+			<path d="M0 280.91 L53.49 280.91" class="st12"/>
+		</g>
+		<g id="shape19-64" v:mID="19" v:groupContext="shape" v:layerMember="0" transform="translate(946.8,-176.513)">
+			<title>VMCP_govern-to-build</title>
+			<path d="M0 280.91 L53.49 280.91" class="st12"/>
+		</g>
+		<g id="shape20-69" v:mID="20" v:groupContext="shape" v:layerMember="0" transform="translate(1072.91,-154.08)">
+			<title>VMCP_build-to-release</title>
+			<path d="M7.09 288 L7.09 313.41" class="st12"/>
+		</g>
+		<g id="shape21-74" v:mID="21" v:groupContext="shape" v:layerMember="0" transform="translate(1011.6,-80.7534)">
+			<title>VMCP_release-to-runtime</title>
+			<path d="M0 280.91 L-53.49 280.91" class="st12"/>
+		</g>
+		<g id="shape22-79" v:mID="22" v:groupContext="shape" v:layerMember="0" transform="translate(810,-87.84)">
+			<title>VMCP_runtime-to-author</title>
+			<path d="M0 288 L-133.2 288 L-133.2 233.07" class="st12"/>
+		</g>
+	</g>
+</svg>

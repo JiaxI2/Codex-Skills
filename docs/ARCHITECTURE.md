@@ -1,5 +1,18 @@
 # Codex-Skills / AiCoding Architecture
 
+## Architecture Diagram
+
+<p align="center">
+  <a href="assets/codex-skills-architecture-light.svg">
+    <img src="assets/codex-skills-architecture-light.svg#gh-light-mode-only" alt="Codex-Skills landscape architecture Banner (light)" />
+  </a>
+  <a href="assets/codex-skills-architecture-dark.svg">
+    <img src="assets/codex-skills-architecture-dark.svg#gh-dark-mode-only" alt="Codex-Skills landscape architecture Banner (dark)" />
+  </a>
+</p>
+
+GitHub selects the light or dark SVG through its theme-only fragment markers. Mobile and remote README views reuse this same SVG pair, and each visible Banner links to its original. Both exports come from the canonical [Diagram IR](architecture/codex-skills-architecture.diagram.json); the editable [Visio VSDX](assets/codex-skills-architecture.vsdx) is retained for review.
+
 ## Repository Boundaries
 
 `Codex-Skills` is the only source repository for maintained skills, plugin packaging, and Codex lifecycle hook source. `AiCoding` is the platform integration repository and new-machine entry point. It locks `Codex-Skills` through `CodingKit/agents/skills` as a Git submodule and must not copy or manually maintain skill source.
