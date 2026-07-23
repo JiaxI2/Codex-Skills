@@ -1,3 +1,8 @@
+<p align="center">
+    <img src="docs/assets/codex-skills-architecture-light.svg#gh-light-mode-only" width="100%" alt="Codex-Skills 横版架构 Banner（浅色）" >
+    <img src="docs/assets/codex-skills-architecture-dark.svg#gh-dark-mode-only" width="100%" alt="Codex-Skills 横版架构 Banner（深色）" >
+</p>
+
 # Codex-Skills
 
 [![Release](https://img.shields.io/github/v/release/JiaxI2/Codex-Skills?label=release)](https://github.com/JiaxI2/Codex-Skills/releases/latest) [![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B%20%7C%207%2B-5391FE?logo=powershell&logoColor=white)](https://learn.microsoft.com/powershell/) [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/) [![License](https://img.shields.io/github/license/JiaxI2/Codex-Skills)](LICENSE)
@@ -35,21 +40,6 @@ git clone https://github.com/JiaxI2/Codex-Skills.git
 cd Codex-Skills
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
 ```
-
-## 架构 / Current Architecture
-
-详见 [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)。
-
-<p align="center">
-  <a href="docs/assets/codex-skills-architecture-light.svg">
-    <img src="docs/assets/codex-skills-architecture-light.svg#gh-light-mode-only" alt="Codex-Skills 横版架构 Banner（浅色）" />
-  </a>
-  <a href="docs/assets/codex-skills-architecture-dark.svg">
-    <img src="docs/assets/codex-skills-architecture-dark.svg#gh-dark-mode-only" alt="Codex-Skills 横版架构 Banner（深色）" />
-  </a>
-</p>
-
-GitHub 会按主题自动选择 Banner；移动端与远程 README 复用同一对 SVG，点击当前 Banner 可查看对应原图。两种主题共享同一语义源以避免内容漂移。可编辑源：[Visio VSDX](docs/assets/codex-skills-architecture.vsdx)；唯一生成源：[Diagram IR](docs/architecture/codex-skills-architecture.diagram.json)。
 
 - `embedded/` 存放嵌入式领域 skill 源码。
 - `platform/` 存放跨领域平台 workflow skill，包括 Git 治理。

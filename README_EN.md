@@ -1,3 +1,8 @@
+<p align="center">
+    <img src="docs/assets/codex-skills-architecture-light.svg#gh-light-mode-only" width="100%" alt="Codex-Skills 横版架构 Banner（浅色）" >
+    <img src="docs/assets/codex-skills-architecture-dark.svg#gh-dark-mode-only" width="100%" alt="Codex-Skills 横版架构 Banner（深色）" >
+</p>
+
 # Codex-Skills
 
 [![Release](https://img.shields.io/github/v/release/JiaxI2/Codex-Skills?label=release)](https://github.com/JiaxI2/Codex-Skills/releases/latest) [![PowerShell](https://img.shields.io/badge/PowerShell-5.1%2B%20%7C%207%2B-5391FE?logo=powershell&logoColor=white)](https://learn.microsoft.com/powershell/) [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/) [![License](https://img.shields.io/github/license/JiaxI2/Codex-Skills)](LICENSE)
@@ -35,21 +40,6 @@ git clone https://github.com/JiaxI2/Codex-Skills.git
 cd Codex-Skills
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/verify-skills.ps1
 ```
-
-## Current Architecture
-
-See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
-
-<p align="center">
-  <a href="docs/assets/codex-skills-architecture-light.svg">
-    <img src="docs/assets/codex-skills-architecture-light.svg#gh-light-mode-only" alt="Codex-Skills landscape architecture Banner (light)" />
-  </a>
-  <a href="docs/assets/codex-skills-architecture-dark.svg">
-    <img src="docs/assets/codex-skills-architecture-dark.svg#gh-dark-mode-only" alt="Codex-Skills landscape architecture Banner (dark)" />
-  </a>
-</p>
-
-GitHub selects the Banner for the active theme. Mobile and remote README views reuse the same SVG pair, and clicking the visible Banner opens its original. Both themes share one semantic source to prevent content drift. Editable source: [Visio VSDX](docs/assets/codex-skills-architecture.vsdx). Single generation source: [Diagram IR](docs/architecture/codex-skills-architecture.diagram.json).
 
 - `embedded/` contains embedded-domain skill sources.
 - `platform/` contains cross-domain platform workflow skills, including Git governance.
